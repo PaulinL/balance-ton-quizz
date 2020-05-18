@@ -16,6 +16,7 @@ Name Database :balancetonquizz_btq
 User : 207102
 Password : btq_polytech
 ## SSH
+Address : ssh-balancetonquizz.alwaysdata.net
 id : balancetonquizz
 password : BalanceTonQuizz_Polytech
 shell type : bash
