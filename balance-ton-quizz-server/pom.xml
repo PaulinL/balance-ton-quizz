@@ -9,12 +9,13 @@
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <!-- Dépendance Spring Boot-->
+    <!-- Spring Boot-->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.6.RELEASE</version>
     </parent>
+
 
     <build>
         <finalName>${project.artifactId}</finalName>
@@ -33,20 +34,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <!--Exclure Tomcat si pb-->
-            <!--<exclusions>-->
-            <!--<exclusion>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
-            <!--</exclusion>-->
-            <!--</exclusions>-->
         </dependency>
-
-        <!--<dependency>-->
-        <!--<groupId>org.springframework.boot</groupId>-->
-        <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
-        <!--<scope>provided</scope>-->
-        <!--</dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -57,34 +45,6 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-
-        <!-- Tests -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
-    <!--<repositories>-->
-    <!--<repository>-->
-    <!--<id>spring-releases</id>-->
-    <!--<url>https://repo.spring.io/libs-release</url>-->
-    <!--</repository>-->
-    <!--<repository>-->
-    <!--<id>spring-snapshot</id>-->
-    <!--<url>https://repo.spring.io/libs-snapshot</url>-->
-    <!--</repository>-->
-    <!--</repositories>-->
-    <!--<pluginRepositories>-->
-    <!--<pluginRepository>-->
-    <!--<id>spring-releases</id>-->
-    <!--<url>https://repo.spring.io/libs-release</url>-->
-    <!--</pluginRepository>-->
-    <!--<pluginRepository>-->
-    <!--<id>spring-snapshot</id>-->
-    <!--<url>https://repo.spring.io/libs-snapshot</url>-->
-    <!--</pluginRepository>-->
-    <!--</pluginRepositories>-->
 </project>
