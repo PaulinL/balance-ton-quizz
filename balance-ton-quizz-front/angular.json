@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "balance-ton-quizz-front"
+    }
+  },
+  "defaultProject": "balance-ton-quizz-front",
+  "cli": {
+    "analytics": false
+  }
 }
