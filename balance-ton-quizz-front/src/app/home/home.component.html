@@ -1,0 +1,15 @@
+<div fxLayout="row wrap" fxLayoutGap="10px" *ngIf="quizzes; else noQuizz">
+  <div *ngFor="let quizz of quizzes" fxFlex="33.333">
+    <mat-card>
+      <mat-card-title>{{quizz.title}}</mat-card-title>
+      <mat-card-subtitle>{{quizz.creator}}</mat-card-subtitle>
+      <mat-card-actions>
+        <button mat-button>Répondre</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+<ng-template #noQuizz>
+  Aucun quizz trouvé.
+</ng-template>
+
