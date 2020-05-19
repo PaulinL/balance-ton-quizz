@@ -6,12 +6,22 @@ env:
 
 language: java
 
+stages:  
+  - name : deploy 
+    if: branch = master
+  - name : build
+    if: branch = develop
+    
 after_success:
 - echo "${SFTP_KEY}" | base64 --decode >/tmp/sftp_rsa
 - curl --ftp-create-dirs
        -T filename
        --key /tmp/sftp_rsa
        sftp://${SFTP_USER}:${SFTP_PASSWORD}@example.com/directory/filename
+
+
+
+
 
 deploy:
   provider: pages
