@@ -1,0 +1,34 @@
+<div fxLayout="row" fxLayoutAlign="center">
+  <div fxFlex.xs="100"
+       fxFlex.sm="540px"
+       fxFlex.md="720px"
+       fxFlex.lg="960px"
+       fxFlex.xl="1140px">
+    <mat-card>
+      <mat-card-title>
+        Créer un quizz
+      </mat-card-title>
+      <form [formGroup]="quizzForm" fxLayout="column" fxLayoutGap="10px">
+        <mat-form-field>
+          <mat-label>Titre</mat-label>
+          <input matInput required type="text" formControlName="title">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <textarea formControlName="description" matInput></textarea>
+        </mat-form-field>
+        <app-question *ngFor="let questionForm of getQuestions(); index as i"
+                      [questionForm]="questionForm"
+                      [index]="(i + 1)"
+                      (deleteQuestion)="deleteQuestion(i)"></app-question>
+        <div fxLayout="row" fxLayoutGap="10px">
+          <button mat-stroked-button color="primary" (click)="addEmptyQuestion()">
+            <mat-icon>add_circle_outline</mat-icon>
+            Ajouter une question
+          </button>
+          <button mat-flat-button color="primary" type="submit">Valider</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>

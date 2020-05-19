@@ -11,12 +11,23 @@ import {MatIconModule} from "@angular/material/icon";
 import {HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
+import {CreateComponent} from './quizzes/create/create.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {QuestionComponent} from './quizzes/create/question/question.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import { AnswerComponent } from './quizzes/create/question/answer/answer.component';
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    CreateComponent,
+    QuestionComponent,
+    AnswerComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +39,12 @@ import {MatButtonModule} from "@angular/material/button";
     MatIconModule,
     HttpClientModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatSlideToggleModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

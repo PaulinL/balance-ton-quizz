@@ -1,0 +1,19 @@
+<mat-card [formGroup]="questionForm">
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <mat-card-title>Question n°{{index}}</mat-card-title>
+      <button class="delete-button" mat-icon-button color="warn" (click)="removeQuestion()">
+        <mat-icon>remove_circle_outline</mat-icon>
+      </button>
+    </div>
+    <mat-slide-toggle formControlName="multiple">Réponses multiples</mat-slide-toggle>
+  </div>
+  <app-answer *ngFor="let answerForm of getAnswerControls(); index as i" [answerForm]="answerForm"
+              [index]="(i + 1)" (deleteAnswer)="deleteAnswer(i)"></app-answer>
+  <div fxLayout="row" fxLayoutAlign="center">
+    <button mat-stroked-button (click)="addEmptyAnswer()">
+      <mat-icon>add</mat-icon>
+      Ajouter une réponse
+    </button>
+  </div>
+</mat-card>
