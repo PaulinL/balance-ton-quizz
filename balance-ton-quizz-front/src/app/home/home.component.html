@@ -1,3 +1,9 @@
+<div class="home-first-row" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="50px">
+  <button mat-flat-button color="primary">Créer un quizz</button>
+  <img src="http://placehold.jp/500x400.png">
+</div>
+
+<h2>Les quizz de la communauté</h2>
 <div fxLayout="row wrap" fxLayoutGap="10px" *ngIf="quizzes; else noQuizz">
   <div *ngFor="let quizz of quizzes" fxFlex="33.333">
     <mat-card>

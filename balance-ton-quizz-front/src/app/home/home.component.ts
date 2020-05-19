@@ -18,8 +18,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     console.log('home component')
     this.quizzService.getAllQuizzes().subscribe(quizzes => {
-      console.log(quizzes)
-      //this.quizzes = quizzes;
+      this.quizzes = quizzes;
     }, error => {
       console.error(error);
     });
