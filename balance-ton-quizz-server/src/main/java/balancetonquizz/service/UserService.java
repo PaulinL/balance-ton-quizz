@@ -23,7 +23,7 @@ public class UserService {
 
         Boolean exists = userRepository.findByUsername(userDto.getUsername()) != null;
         if (exists) {
-            throw new UserAlreadyExistException("There is an account with that email address: " + userDto.getUsername());
+            throw new UserAlreadyExistException("An user already exist with that username: " + userDto.getUsername());
         }
         User user = new User(userDto);
         return userRepository.save(user);
