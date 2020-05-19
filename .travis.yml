@@ -3,9 +3,20 @@ env:
   - 'SFTP_USER=[user]'
   - 'SFTP_PASSWORD=[password]'
   - 'SFTP_KEY=[base64-encoded-rsa-key]'
+
+language: java
+
 after_success:
 - echo "${SFTP_KEY}" | base64 --decode >/tmp/sftp_rsa
 - curl --ftp-create-dirs
        -T filename
        --key /tmp/sftp_rsa
        sftp://${SFTP_USER}:${SFTP_PASSWORD}@example.com/directory/filename
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  on:
+    branch: master
