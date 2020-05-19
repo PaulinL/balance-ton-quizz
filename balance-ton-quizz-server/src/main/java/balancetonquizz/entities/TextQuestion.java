@@ -1,6 +1,7 @@
 package balancetonquizz.entities;
 
 import lombok.Data;
+import org.w3c.dom.Text;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +11,12 @@ import javax.persistence.Id;
 @Data
 @Entity
 public class TextQuestion extends Question {
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private long id;
+
+    public TextQuestion() {
+        super();
+    }
+
+    public TextQuestion(String label, boolean multiple) {
+        super(label, multiple);
+    }
 }

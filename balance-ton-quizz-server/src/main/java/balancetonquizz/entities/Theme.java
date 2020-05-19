@@ -9,13 +9,15 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-public class ImageQuestion extends Question {
+public class Theme {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private long id;
+    public String title;
 
-    public ImageQuestion() {
-        super();
-    }
+    public Theme(){}
 
-    public ImageQuestion(String label, boolean multiple) {
-        super(label, multiple);
+    public Theme(String title){
+        this.title = title.toLowerCase();
     }
 }
