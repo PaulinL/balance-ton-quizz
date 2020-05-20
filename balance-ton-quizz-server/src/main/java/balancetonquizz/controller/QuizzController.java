@@ -5,12 +5,8 @@ import balancetonquizz.exception.ThemeAlreadyExistException;
 import balancetonquizz.repositories.QuizzRepository;
 import balancetonquizz.service.ThemeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -37,24 +33,20 @@ public class QuizzController {
         return repo.findByThemeId(id);
     }
 
-    @GetMapping("/quizzes/randomQuizz")
-    public void createQuizz() throws ThemeAlreadyExistException {
-        Quizz q1 = new Quizz("Ludo le rageux", "AlexLeBG", themeService.registerNewTheme("Rage"));
-        TextQuestion question = new TextQuestion("Ludo est-il un rageux ?", true);
-        Answer answer1 = new Answer("Vrai", true);
-        Answer answer2 = new Answer("Vrai", true);
-        Answer answer3 = new Answer("Vrai", true);
-        Answer answer4 = new Answer("Vrai", true);
+    @PostMapping("/quizzes")
+    public void createQuizz(String title, String creator, String description, String theme) throws ThemeAlreadyExistException {
+        Quizz q = new Quizz(title, creator, description, themeService.registerNewTheme(theme));
+        repo.save(q);
+    }
 
-        question.addAnswer(answer1);
-        question.addAnswer(answer2);
-        question.addAnswer(answer3);
-        question.addAnswer(answer4);
+    @PutMapping("/quizzes")
+    public void updateQuizz(Quizz q){
+        repo.save(q);
+    }
 
-        q1.addQuestion(question);
-
-        repo.save(q1);
-
+    @DeleteMapping("/quizzes")
+    public void deleteQuizzId(@PathVariable Long id){
+        repo.deleteById(id);
     }
 
 }
