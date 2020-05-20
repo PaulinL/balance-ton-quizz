@@ -20,6 +20,16 @@
     <build>
         <finalName>${project.artifactId}</finalName>
 
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+
         <plugins>
             <!--Spring Maven-->
             <plugin>
@@ -30,12 +40,49 @@
     </build>
 
 
+    <profiles>
+        <profile>
+            <id>local</id>
+            <properties>
+                <env>local</env>
+                <url>jdbc:mysql://localhost:3306/btq?serverTimezone=UTC</url>
+                <username>root</username>
+                <password></password>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+
+        <profile>
+            <id>dev</id>
+            <properties>
+                <env>dev</env>
+                <url>jdbc:mysql://mysql-balancetonquizz.alwaysdata.net/balancetonquizz_btq?serverTimezone=UTC</url>
+                <username>207102</username>
+                <password>btq_polytech</password>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>prod</id>
+            <properties>
+                <env>prod</env>
+                <url>jdbc:mysql://mysql-balancetonquizz.alwaysdata.net/balancetonquizz_btq?serverTimezone=UTC</url>
+                <username>207102</username>
+                <password>btq_polytech</password>
+            </properties>
+        </profile>
+    </profiles>
+
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- Database -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -46,6 +93,18 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
+        <!-- Security -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+
+        <!-- Swagger -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
