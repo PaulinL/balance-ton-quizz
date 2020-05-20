@@ -1,5 +1,6 @@
 package balancetonquizz;
 
+import balancetonquizz.entities.Quizz;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
