@@ -1,11 +1,9 @@
 package balancetonquizz.entities;
 
 import lombok.Data;
+import lombok.Getter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -13,7 +11,8 @@ public class Theme {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
-    public String title;
+    @Column(unique=true)
+    private String title;
 
     public Theme(){}
 

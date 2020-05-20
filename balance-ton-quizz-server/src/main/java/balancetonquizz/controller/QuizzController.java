@@ -1,10 +1,10 @@
 package balancetonquizz.controller;
 
+import balancetonquizz.dto.QuizzDto;
 import balancetonquizz.entities.*;
-import balancetonquizz.exception.ThemeAlreadyExistException;
 import balancetonquizz.repositories.QuizzRepository;
-import balancetonquizz.service.ThemeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,8 +15,6 @@ public class QuizzController {
     @Autowired
     private QuizzRepository repo;
 
-    @Autowired
-    private ThemeService themeService;
 
     @GetMapping("/quizzes")
     public Iterable<Quizz> getAllQuizz(){
@@ -34,9 +32,11 @@ public class QuizzController {
     }
 
     @PostMapping("/quizzes")
-    public void createQuizz(String title, String creator, String description, String theme) throws ThemeAlreadyExistException {
-        Quizz q = new Quizz(title, creator, description, themeService.registerNewTheme(theme));
-        repo.save(q);
+    public QuizzDto createQuizz(@RequestBody Quizz q){
+        QuizzDto res = new QuizzDto();
+        res.setQuizzId(repo.save(q).getId());
+        res.setQuizzUrl("/quizzes/" + res.getQuizzId());
+        return res;
     }
 
     @PutMapping("/quizzes")
@@ -44,9 +44,10 @@ public class QuizzController {
         repo.save(q);
     }
 
-    @DeleteMapping("/quizzes")
-    public void deleteQuizzId(@PathVariable Long id){
+    @DeleteMapping("/quizzes/{id}")
+    public ResponseEntity.BodyBuilder deleteQuizzId(@PathVariable Long id){
         repo.deleteById(id);
+        return ResponseEntity.ok();
     }
 
 }
