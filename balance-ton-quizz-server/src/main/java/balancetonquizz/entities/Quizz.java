@@ -15,7 +15,7 @@ public class Quizz {
     private String title;
     private String creator;
     private String description;
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne(cascade=CascadeType.MERGE)
     private Theme theme;
     @OneToMany(cascade=CascadeType.ALL)
     private List<Question> questions;

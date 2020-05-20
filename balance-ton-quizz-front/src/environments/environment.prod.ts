@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  backendUrl: "http://balancetonquizz.alwaysdata.net:8484/"
+  backendUrl: "http://balancetonquizz.ddns.net:8484"
 };

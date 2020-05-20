@@ -24,24 +24,32 @@
                           [questionForm]="questionForm"
                           [index]="(i + 1)"
                           (deleteQuestion)="deleteQuestion(i)"></app-question>
-            <div fxLayout="row" fxLayoutGap="10px">
+
+
+            <div fxLayout="row" class="button-container">
               <button mat-stroked-button color="primary" (click)="addEmptyQuestion()" type="button">
                 <mat-icon>add_circle_outline</mat-icon>
                 Ajouter une question
               </button>
-              <button mat-flat-button color="primary" type="submit" matStepperNext>Valider</button>
+              <div fxFlex></div>
+              <button mat-flat-button color="primary" matStepperNext (click)="onSubmitQuizz(quizzForm.value)">
+                Continuer
+              </button>
             </div>
           </form>
         </mat-card>
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>Choisir un theme</ng-template>
-        <mat-radio-group [(ngModel)]="selectedTheme" aria-label="Selectionnez un theme">
+        <mat-radio-group [(ngModel)]="selectedTheme" aria-label="Selectionnez un theme" fxLayout="column">
           <mat-radio-button *ngFor="let theme of themes" [value]="theme">{{theme.title}}</mat-radio-button>
         </mat-radio-group>
-        <button [disabled]="!selectedTheme" mat-flat-button color="primary" matStepperNext (click)="onSubmitTheme()">
-          Valider
-        </button>
+        <div fxLayout="row" class="button-container">
+          <button mat-stroked-button color="primary" matStepperPrevious>Retour
+          </button>
+          <div fxFlex></div>
+          <button mat-flat-button color="primary" matStepperNext (click)="onSubmitTheme()">Créer</button>
+        </div>
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>Confirmation</ng-template>

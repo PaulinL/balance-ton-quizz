@@ -16,10 +16,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    /*this.quizzService.getAllQuizzes().subscribe(quizzes => {
+    this.quizzService.getAllQuizzes().subscribe(quizzes => {
       this.quizzes = quizzes;
     }, error => {
       console.error(error);
-    });*/
+    });
   }
 }

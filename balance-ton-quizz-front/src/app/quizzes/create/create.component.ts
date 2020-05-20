@@ -40,8 +40,9 @@ export class CreateComponent implements OnInit {
     });
     this.addEmptyQuestion();
     this.themeService.getAllThemes().subscribe(themes => {
+      console.log(themes)
       this.themes = themes;
-    });
+    }, error => console.error);
   }
 
   addEmptyQuestion() {
