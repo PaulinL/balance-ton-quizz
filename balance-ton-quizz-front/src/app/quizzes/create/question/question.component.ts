@@ -23,6 +23,7 @@ export class QuestionComponent implements OnInit {
 
   ngOnInit(): void {
     this.addEmptyAnswer();
+    this.addEmptyAnswer();
   }
 
   addEmptyAnswer() {

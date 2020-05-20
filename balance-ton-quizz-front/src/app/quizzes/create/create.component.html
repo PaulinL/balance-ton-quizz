@@ -1,34 +1,53 @@
 <div fxLayout="row" fxLayoutAlign="center">
   <div fxFlex.xs="100"
-       fxFlex.sm="540px"
-       fxFlex.md="720px"
+       fxFlex.sm="100"
+       fxFlex.md="100"
        fxFlex.lg="960px"
        fxFlex.xl="1140px">
-    <mat-card>
-      <mat-card-title>
-        Créer un quizz
-      </mat-card-title>
-      <form [formGroup]="quizzForm" fxLayout="column" fxLayoutGap="10px">
-        <mat-form-field>
-          <mat-label>Titre</mat-label>
-          <input matInput required type="text" formControlName="title">
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Description</mat-label>
-          <textarea formControlName="description" matInput></textarea>
-        </mat-form-field>
-        <app-question *ngFor="let questionForm of getQuestions(); index as i"
-                      [questionForm]="questionForm"
-                      [index]="(i + 1)"
-                      (deleteQuestion)="deleteQuestion(i)"></app-question>
-        <div fxLayout="row" fxLayoutGap="10px">
-          <button mat-stroked-button color="primary" (click)="addEmptyQuestion()">
-            <mat-icon>add_circle_outline</mat-icon>
-            Ajouter une question
-          </button>
-          <button mat-flat-button color="primary" type="submit">Valider</button>
-        </div>
-      </form>
-    </mat-card>
+    <mat-horizontal-stepper [linear]="true" #stepper>
+      <mat-step [stepControl]="quizzForm">
+        <ng-template matStepLabel>Questions et reponses</ng-template>
+        <mat-card>
+          <mat-card-title>
+            Créer un quizz
+          </mat-card-title>
+          <form [formGroup]="quizzForm" (submit)="onSubmitQuizz(quizzForm.value)" fxLayout="column" fxLayoutGap="10px">
+            <mat-form-field>
+              <mat-label>Titre</mat-label>
+              <input matInput required type="text" formControlName="title">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Description</mat-label>
+              <textarea formControlName="description" matInput></textarea>
+            </mat-form-field>
+            <app-question *ngFor="let questionForm of getQuestions(); index as i"
+                          [questionForm]="questionForm"
+                          [index]="(i + 1)"
+                          (deleteQuestion)="deleteQuestion(i)"></app-question>
+            <div fxLayout="row" fxLayoutGap="10px">
+              <button mat-stroked-button color="primary" (click)="addEmptyQuestion()" type="button">
+                <mat-icon>add_circle_outline</mat-icon>
+                Ajouter une question
+              </button>
+              <button mat-flat-button color="primary" type="submit" matStepperNext>Valider</button>
+            </div>
+          </form>
+        </mat-card>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Choisir un theme</ng-template>
+        <mat-radio-group [(ngModel)]="selectedTheme" aria-label="Selectionnez un theme">
+          <mat-radio-button *ngFor="let theme of themes" [value]="theme">{{theme.title}}</mat-radio-button>
+        </mat-radio-group>
+        <button [disabled]="!selectedTheme" mat-flat-button color="primary" matStepperNext (click)="onSubmitTheme()">
+          Valider
+        </button>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Confirmation</ng-template>
+        <a [routerLink]="url">Repondre a ce quizz</a>
+      </mat-step>
+    </mat-horizontal-stepper>
   </div>
 </div>
+

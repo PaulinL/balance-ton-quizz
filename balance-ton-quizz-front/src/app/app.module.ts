@@ -15,10 +15,14 @@ import {CreateComponent} from './quizzes/create/create.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {QuestionComponent} from './quizzes/create/question/question.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
-import { AnswerComponent } from './quizzes/create/question/answer/answer.component';
+import {AnswerComponent} from './quizzes/create/question/answer/answer.component';
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {ToastrModule, ToastrService} from "ngx-toastr";
+import {MatStepperModule} from "@angular/material/stepper";
+import { PreviewComponent } from './themes/preview/preview.component';
+import {MatRadioModule} from "@angular/material/radio";
 
 
 @NgModule({
@@ -27,7 +31,8 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     HomeComponent,
     CreateComponent,
     QuestionComponent,
-    AnswerComponent
+    AnswerComponent,
+    PreviewComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,11 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     MatInputModule,
     ReactiveFormsModule,
     MatSlideToggleModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    ToastrModule.forRoot(),
+    MatStepperModule,
+    MatRadioModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

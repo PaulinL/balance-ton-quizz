@@ -17,4 +17,8 @@ export class QuizzService {
   getAllQuizzes(): Observable<Quizz[]> {
     return this.http.get<Quizz[]>(`${this.endpoint}/quizzes`);
   }
+
+  createQuizz(quizz: Quizz) {
+    return this.http.post<any>(`${this.endpoint}/quizzes`, quizz);
+  }
 }

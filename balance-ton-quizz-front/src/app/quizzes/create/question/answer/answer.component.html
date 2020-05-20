@@ -1,11 +1,10 @@
 <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px" [formGroup]="answerForm">
-  <div>n°{{index}}</div>
   <mat-form-field fxFlex>
-    <mat-label>Texte de la question</mat-label>
+    <mat-label>Réponse n°{{index}}</mat-label>
     <input matInput formControlName="label" required>
   </mat-form-field>
   <mat-checkbox formControlName="isCorrect">Réponse correct</mat-checkbox>
-  <button mat-icon-button (click)="removeAnswer()">
+  <button type="button" [disabled]="index <= 2" mat-icon-button (click)="removeAnswer()">
     <mat-icon>clear</mat-icon>
   </button>
 </div>

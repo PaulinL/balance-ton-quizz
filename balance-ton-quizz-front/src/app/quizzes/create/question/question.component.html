@@ -1,8 +1,13 @@
 <mat-card [formGroup]="questionForm">
-  <div fxLayout="row" fxLayoutAlign="space-between center">
-    <div fxLayout="row" fxLayoutAlign="start center">
-      <mat-card-title>Question n°{{index}}</mat-card-title>
-      <button class="delete-button" mat-icon-button color="warn" (click)="removeQuestion()">
+  <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+    <div fxLayout="row" fxLayoutAlign="start center" fxFlex>
+      <mat-card-title fxFlex fxLayout="row">
+        <mat-form-field fxFlex>
+          <mat-label>Question n°{{index}}</mat-label>
+          <input matInput formControlName="title" type="text" required>
+        </mat-form-field>
+      </mat-card-title>
+      <button *ngIf="index > 1" class="delete-button" mat-icon-button color="warn" (click)="removeQuestion()">
         <mat-icon>remove_circle_outline</mat-icon>
       </button>
     </div>
@@ -11,7 +16,7 @@
   <app-answer *ngFor="let answerForm of getAnswerControls(); index as i" [answerForm]="answerForm"
               [index]="(i + 1)" (deleteAnswer)="deleteAnswer(i)"></app-answer>
   <div fxLayout="row" fxLayoutAlign="center">
-    <button mat-stroked-button (click)="addEmptyAnswer()">
+    <button type="button" mat-stroked-button (click)="addEmptyAnswer()">
       <mat-icon>add</mat-icon>
       Ajouter une réponse
     </button>
