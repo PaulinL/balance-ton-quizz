@@ -1,18 +1,11 @@
 package balancetonquizz.controller;
 
-import balancetonquizz.repositories.UserRepository;
 import balancetonquizz.security.JwtRequest;
 import balancetonquizz.security.JwtResponse;
 import balancetonquizz.security.JwtTokenProvider;
-import balancetonquizz.security.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.DisabledException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
@@ -25,11 +18,14 @@ public class SecurityController {
     @Autowired
     private JwtTokenProvider jwtTokenProvider;
 
-    @Autowired
-    private CustomUserDetailsService customUserDetailsService;
-
+    /**
+     * Authenticate a registered user
+     * @param authenticationRequest with information to authenticate
+     * @return authentication token
+     * @throws Exception
+     */
     @PostMapping(value = "/authenticate")
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
+    public ResponseEntity<JwtResponse> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
 
         /*try {
             Authentication auth = authenticationManager.authenticate(
@@ -39,10 +35,8 @@ public class SecurityController {
             );*/
 
         final String token = jwtTokenProvider.generateToken(
-                customUserDetailsService.loadUserByCredentials(
                         authenticationRequest.getUsername(),
                         authenticationRequest.getPassword()
-                )
         );
 
         return ResponseEntity.ok(new JwtResponse(token));
