@@ -14,11 +14,18 @@ export class AnswerComponent implements OnInit {
   @Input()
   index: number;
 
+  @Input()
+  uniqueAnswer: boolean;
+
   @Output()
   deleteAnswer: EventEmitter<void>;
 
+  @Output()
+  isCorrectChange: EventEmitter<void>;
+
   constructor() {
     this.deleteAnswer = new EventEmitter<void>();
+    this.isCorrectChange = new EventEmitter<void>();
   }
 
   ngOnInit(): void {

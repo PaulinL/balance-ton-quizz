@@ -14,7 +14,9 @@
     <mat-slide-toggle formControlName="multiple">Réponses multiples</mat-slide-toggle>
   </div>
   <app-answer *ngFor="let answerForm of getAnswerControls(); index as i" [answerForm]="answerForm"
-              [index]="(i + 1)" (deleteAnswer)="deleteAnswer(i)"></app-answer>
+              (isCorrectChange)="onIsCorrectChange(i)"
+              [index]="(i + 1)" (deleteAnswer)="deleteAnswer(i)"
+              [uniqueAnswer]="!questionForm.controls.multiple.value"></app-answer>
   <div fxLayout="row" fxLayoutAlign="center">
     <button type="button" mat-stroked-button (click)="addEmptyAnswer()">
       <mat-icon>add</mat-icon>

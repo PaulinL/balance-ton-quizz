@@ -24,6 +24,7 @@ export class QuestionComponent implements OnInit {
   ngOnInit(): void {
     this.addEmptyAnswer();
     this.addEmptyAnswer();
+    this.questionForm.controls.multiple.valueChanges.subscribe(() => this.onIsCorrectChange())
   }
 
   addEmptyAnswer() {
@@ -43,5 +44,38 @@ export class QuestionComponent implements OnInit {
 
   deleteAnswer(answerIndex: number) {
     (this.questionForm.controls.answers as FormArray).removeAt(answerIndex);
+  }
+
+  onIsCorrectChange(index = null) {
+    if (!this.questionForm.controls.multiple.value) {
+      if (index === null) {
+        this.setAllFalse(this.getFirstCorrectAnswerIndex());
+      } else if (!this.getAnswerControls()[index].controls.isCorrect.value) {
+        this.setAllFalse(index);
+      }
+    }
+
+  }
+
+  private setAllFalse(except: number) {
+    const answers = this.getAnswerControls();
+    for (let i = 0; i < answers.length; i++) {
+      if (i !== except) {
+        answers[i].controls.isCorrect.setValue(false);
+      } else {
+        setTimeout(() => answers[i].controls.isCorrect.setValue(true), 10)
+      }
+    }
+  }
+
+  private getFirstCorrectAnswerIndex(): number {
+    let index = 0;
+    for (const answer of this.getAnswerControls()) {
+      if ((answer as FormGroup).controls.isCorrect.value) {
+        return index;
+      }
+      index++;
+    }
+    return null;
   }
 }
