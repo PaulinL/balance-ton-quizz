@@ -13,7 +13,8 @@ public class Quizz {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
     private String title;
-    private String creator;
+    @ManyToOne(cascade =CascadeType.MERGE)
+    private User author;
     private String description;
     @ManyToOne(cascade=CascadeType.MERGE)
     private Theme theme;
@@ -23,9 +24,9 @@ public class Quizz {
     public Quizz() {
     }
 
-    public Quizz(String title, String creator, String description, Theme theme) {
+    public Quizz(String title, User author, String description, Theme theme) {
         this.title = title;
-        this.creator = creator;
+        this.author = author;
         this.description = description;
         this.questions = new ArrayList<Question>();
         this.theme = theme;

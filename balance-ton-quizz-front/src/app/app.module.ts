@@ -8,7 +8,7 @@ import {HomeComponent} from './home/home.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatListModule} from "@angular/material/list";
 import {MatIconModule} from "@angular/material/icon";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {CreateComponent} from './quizzes/create/create.component';
@@ -21,8 +21,13 @@ import {AnswerComponent} from './quizzes/create/question/answer/answer.component
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {ToastrModule, ToastrService} from "ngx-toastr";
 import {MatStepperModule} from "@angular/material/stepper";
-import { PreviewComponent } from './themes/preview/preview.component';
+import {PreviewComponent} from './themes/preview/preview.component';
 import {MatRadioModule} from "@angular/material/radio";
+import {RegisterComponent} from './auth/register/register.component';
+import {JwtInterceptor} from "./jwt/jwt.interceptor";
+import {LoginComponent} from './auth/login/login.component';
+import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
+import {AuthGuard} from "./guards/auth.guard";
 
 
 @NgModule({
@@ -32,7 +37,9 @@ import {MatRadioModule} from "@angular/material/radio";
     CreateComponent,
     QuestionComponent,
     AnswerComponent,
-    PreviewComponent
+    PreviewComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +62,12 @@ import {MatRadioModule} from "@angular/material/radio";
     MatRadioModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
+    JwtHelperService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

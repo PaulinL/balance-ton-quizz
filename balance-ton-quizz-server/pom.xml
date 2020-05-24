@@ -58,8 +58,8 @@
             <id>dev</id>
             <properties>
                 <env>dev</env>
-                <url>jdbc:mysql://mysql-balancetonquizz.alwaysdata.net/balancetonquizz_btq?serverTimezone=UTC</url>
-                <username>207102</username>
+                <url>jdbc:mysql://localhost:3306/btq?serverTimezone=UTC</url>
+                <username>root</username>
                 <password>btq_polytech</password>
             </properties>
         </profile>
@@ -68,8 +68,8 @@
             <id>prod</id>
             <properties>
                 <env>prod</env>
-                <url>jdbc:mysql://mysql-balancetonquizz.alwaysdata.net/balancetonquizz_btq?serverTimezone=UTC</url>
-                <username>207102</username>
+                <url>jdbc:mysql://btq_mysql/btq?serverTimezone=UTC</url>
+                <username>root</username>
                 <password>btq_polytech</password>
             </properties>
         </profile>

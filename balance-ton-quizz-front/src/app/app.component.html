@@ -3,16 +3,27 @@
     <div class="sidenav-title" fxLayout="row" fxLayoutAlign="center">
       Balance ton Quizz
     </div>
-    <mat-nav-list>
-      <mat-list-item>
-        <mat-icon matListIcon>home</mat-icon>
-        <a routerLink='/'>Accueil</a>
-      </mat-list-item>
-      <mat-list-item>
-        <mat-icon matListIcon>note_add</mat-icon>
-        <a routerLink='/quizzes/create'>Nouveau quizz</a>
-      </mat-list-item>
-    </mat-nav-list>
+    <div fxLayout="column">
+      <mat-nav-list>
+        <mat-list-item *ngIf="!isAuthenticated()" [routerLink]="['/register']" routerLinkActive="active">
+          S'inscrire
+        </mat-list-item>
+        <mat-list-item *ngIf="!isAuthenticated()" [routerLink]="['/login']" routerLinkActive="active">
+          Se connecter
+        </mat-list-item>
+        <mat-list-item *ngIf="isAuthenticated()" (click)="logout()">
+          Se déconnecter
+        </mat-list-item>
+        <mat-list-item [routerLink]="['/']" routerLinkActive="active">
+          <mat-icon matListIcon>home</mat-icon>
+          Accueil
+        </mat-list-item>
+        <mat-list-item [routerLink]="['/quizzes/create']" routerLinkActive="active">
+          <mat-icon matListIcon>note_add</mat-icon>
+          Nouveau quizz
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
   </mat-sidenav>
   <mat-sidenav-content class="content">
     <router-outlet></router-outlet>

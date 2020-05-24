@@ -7,6 +7,7 @@ import balancetonquizz.security.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -25,6 +26,15 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private final String[] AUTHORIZED_ROUTES = {
+            "/authenticate",
+            "/register",
+            "/swagger**",
+            "/webjars/springfox-swagger-ui/**",
+            "/v2/api-docs",
+            "/swagger-resources/**"
+    };
 
     @Autowired
     private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
@@ -70,9 +80,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         httpSecurity
                 // authorized requests
-                .authorizeRequests().antMatchers(
-                        "/authenticate", "/register",
-                        "/swagger**", "/webjars/springfox-swagger-ui/**", "/v2/api-docs", "/swagger-resources/**") //ressources pour swagger
+                .authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/quizzes")
+                .permitAll()
+                .antMatchers(this.AUTHORIZED_ROUTES) //ressources pour swagger
                 .permitAll()
                 // all other requests need to be authenticated
                 .anyRequest().authenticated();
@@ -82,5 +93,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         // Add a filter to validate the tokens with every request
         httpSecurity.addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class);
+
+        // Remove security on preflight requests (OPTION request)
+        httpSecurity.cors();
     }
 }
