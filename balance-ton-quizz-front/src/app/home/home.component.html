@@ -4,8 +4,19 @@
 </div>
 
 <h2>Les quizz de la communauté</h2>
+<app-search-quizz
+  (search)="search($event)">
+</app-search-quizz>
+<mat-chip-list [multiple]="true">
+  <mat-chip *ngFor="let theme of themes"
+            [selected]="selectedThemes.includes(theme)"
+            (click)="selectThemeFilter(theme)">
+    {{theme.title}}
+  </mat-chip>
+</mat-chip-list>
+
 <div fxLayout="row wrap" fxLayoutGap="10px" *ngIf="quizzes; else noQuizz">
-  <div *ngFor="let quizz of quizzes" fxFlex="33.333">
+  <div *ngFor="let quizz of quizzes | quizzFilter: searchText: selectedThemes" fxFlex="30">
     <mat-card>
       <mat-card-title>{{quizz.title}}</mat-card-title>
       <mat-card-subtitle>{{quizz.theme.title}}</mat-card-subtitle>
