@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  backendUrl: "http://balancetonquizz.ddns.net:8484"
+  backendUrl: "https://btq.plambert.dev/api"
 };
