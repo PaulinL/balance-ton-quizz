@@ -20,6 +20,8 @@ public class Quizz {
     private Theme theme;
     @OneToMany(cascade=CascadeType.ALL)
     private List<Question> questions;
+    @Column(nullable=true)
+    private String imageName;
 
     public Quizz() {
     }

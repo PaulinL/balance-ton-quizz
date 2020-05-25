@@ -42,28 +42,21 @@
 
     <profiles>
         <profile>
-            <id>local</id>
-            <properties>
-                <env>local</env>
-                <url>jdbc:mysql://localhost:3306/btq?serverTimezone=UTC</url>
-                <username>root</username>
-                <password></password>
-                <spring.profiles.active>dev</spring.profiles.active>
-            </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
-
-        <profile>
             <id>dev</id>
             <properties>
                 <env>dev</env>
                 <url>jdbc:mysql://localhost:3306/btq?serverTimezone=UTC</url>
                 <username>root</username>
                 <password>btq_polytech</password>
+                <minio.url>http://localhost:9000</minio.url>
+                <minio.bucket>btq</minio.bucket>
+                <minio.access-key>minio</minio.access-key>
+                <minio.secret-key>minio-admin</minio.secret-key>
                 <spring.profiles.active>dev</spring.profiles.active>
             </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
         </profile>
 
         <profile>
@@ -73,6 +66,10 @@
                 <url>jdbc:mysql://btq_mysql/btq?serverTimezone=UTC</url>
                 <username>root</username>
                 <password>btq_polytech</password>
+                <minio.url>https://btq.plambert.dev/minio</minio.url>
+                <minio.bucket>btq</minio.bucket>
+                <minio.access-key>minio</minio.access-key>
+                <minio.secret-key>minio-admin</minio.secret-key>
                 <spring.profiles.active>prod</spring.profiles.active>
             </properties>
         </profile>
@@ -124,6 +121,10 @@
             <version>1.18.12</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.jlefebure</groupId>
+            <artifactId>spring-boot-starter-minio</artifactId>
+            <version>1.1</version>
+        </dependency>
     </dependencies>
-
 </project>

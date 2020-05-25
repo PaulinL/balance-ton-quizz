@@ -13,6 +13,8 @@ public class Theme {
     private long id;
     @Column(unique=true)
     private String title;
+    @Column(nullable=true)
+    private String imageName;
 
     public Theme(){}
 
