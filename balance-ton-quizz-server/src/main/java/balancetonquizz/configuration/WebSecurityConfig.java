@@ -81,7 +81,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity
                 // authorized requests
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/quizzes")
+                .antMatchers(HttpMethod.GET, "/quizzes", "/images/*")
                 .permitAll()
                 .antMatchers(this.AUTHORIZED_ROUTES) //ressources pour swagger
                 .permitAll()

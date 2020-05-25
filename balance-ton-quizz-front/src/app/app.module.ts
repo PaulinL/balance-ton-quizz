@@ -28,6 +28,7 @@ import {JwtInterceptor} from "./jwt/jwt.interceptor";
 import {LoginComponent} from './auth/login/login.component';
 import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
 import {AuthGuard} from "./guards/auth.guard";
+import { UploadImageComponent } from './upload-image/upload-image.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import {AuthGuard} from "./guards/auth.guard";
     AnswerComponent,
     PreviewComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    UploadImageComponent
   ],
   imports: [
     BrowserModule,

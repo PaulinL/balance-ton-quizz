@@ -66,7 +66,7 @@
                 <url>jdbc:mysql://btq_mysql/btq?serverTimezone=UTC</url>
                 <username>root</username>
                 <password>btq_polytech</password>
-                <minio.url>https://btq.plambert.dev/minio</minio.url>
+                <minio.url>https://btq_minio:9000</minio.url>
                 <minio.bucket>btq</minio.bucket>
                 <minio.access-key>minio</minio.access-key>
                 <minio.secret-key>minio-admin</minio.secret-key>

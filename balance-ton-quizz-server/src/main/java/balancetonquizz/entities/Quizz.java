@@ -26,12 +26,13 @@ public class Quizz {
     public Quizz() {
     }
 
-    public Quizz(String title, User author, String description, Theme theme) {
+    public Quizz(String title, User author, String description, Theme theme, String imageName) {
         this.title = title;
         this.author = author;
         this.description = description;
         this.questions = new ArrayList<Question>();
         this.theme = theme;
+	this.imageName = imageName;
     }
 
     public void addQuestion(Question e){
@@ -41,6 +42,4 @@ public class Quizz {
     public void removeQuestion(int index){
         this.questions.remove(index);
     }
-
-    public void contactCreator(){}
 }

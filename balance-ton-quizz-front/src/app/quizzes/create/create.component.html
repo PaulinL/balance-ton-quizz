@@ -20,19 +20,19 @@
               <mat-label>Description</mat-label>
               <textarea formControlName="description" matInput></textarea>
             </mat-form-field>
+            <app-upload-image [(file)]="file"></app-upload-image>
             <app-question *ngFor="let questionForm of getQuestions(); index as i"
                           [questionForm]="questionForm"
                           [index]="(i + 1)"
                           (deleteQuestion)="deleteQuestion(i)"></app-question>
-
-
             <div fxLayout="row" class="button-container">
               <button mat-stroked-button color="primary" (click)="addEmptyQuestion()" type="button">
                 <mat-icon>add_circle_outline</mat-icon>
                 Ajouter une question
               </button>
               <div fxFlex></div>
-              <button mat-flat-button color="primary" matStepperNext (click)="onSubmitQuizz(quizzForm.value)">
+              <button mat-flat-button color="primary" matStepperNext type="button"
+                      (click)="onSubmitQuizz(quizzForm.value)">
                 Continuer
               </button>
             </div>

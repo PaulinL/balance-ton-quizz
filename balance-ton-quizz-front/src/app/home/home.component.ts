@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {QuizzService} from "../services/quizz.service";
 import {Quizz} from "../shared/quizz.model";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-home',
@@ -21,5 +22,9 @@ export class HomeComponent implements OnInit {
     }, error => {
       console.error(error);
     });
+  }
+
+  getImageUrl(quizz: Quizz) {
+    return `${environment.backendUrl}/images/${quizz.imageName}`
   }
 }

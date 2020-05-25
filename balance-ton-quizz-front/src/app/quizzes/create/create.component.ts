@@ -7,6 +7,7 @@ import {ToastrService} from "ngx-toastr";
 import {ThemeService} from "../../services/theme.service";
 import {Theme} from "../../shared/theme.model";
 import {environment} from "../../../environments/environment";
+import {ImageService} from "../../services/image.service";
 
 @Component({
   selector: 'app-create',
@@ -22,13 +23,15 @@ export class CreateComponent implements OnInit {
   themes: Theme[];
   selectedTheme: Theme;
   url: string;
+  file: File;
 
   constructor(
     private formBuilder: FormBuilder,
     private quizzService: QuizzService,
     private router: Router,
     private toastrService: ToastrService,
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    private imageService: ImageService
   ) {
   }
 
@@ -63,8 +66,17 @@ export class CreateComponent implements OnInit {
 
   onSubmitQuizz(value: Quizz) {
     if (this.quizzForm.valid) {
-      console.log(value);
+      console.log("test")
       this.quizz = value;
+      if (this.file) {
+        this.imageService.uploadImage(this.file).subscribe(res => {
+          this.quizz.imageName = res.fileName as string;
+          this.toastrService.success("Image envoyée");
+        }, error => {
+          this.toastrService.error("Upload de l'image impossible");
+          console.error(error)
+        });
+      }
     }
   }
 

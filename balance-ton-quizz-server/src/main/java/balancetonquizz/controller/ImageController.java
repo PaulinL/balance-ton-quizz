@@ -1,5 +1,6 @@
 package balancetonquizz.controller;
 
+import balancetonquizz.dto.ImageDto;
 import com.google.api.client.util.IOUtils;
 import com.jlefebure.spring.boot.minio.MinioException;
 import com.jlefebure.spring.boot.minio.MinioService;
@@ -17,6 +18,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.UUID;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/images")
 public class ImageController {
@@ -37,7 +39,7 @@ public class ImageController {
     }
 
     @PostMapping
-    public String addAttachement(@RequestParam("file") MultipartFile file) {
+    public ImageDto addAttachement(@RequestParam("file") MultipartFile file) {
         String fileName = UUID.randomUUID().toString();
         Path path = Paths.get(fileName);
         try {
@@ -47,6 +49,6 @@ public class ImageController {
         } catch (IOException e) {
             throw new IllegalStateException("The file cannot be read", e);
         }
-        return fileName;
+        return new ImageDto(fileName);
     }
 }
