@@ -1,6 +1,8 @@
 package balancetonquizz.entities;
 
+import balancetonquizz.security.JwtTokenProvider;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.util.ArrayList;

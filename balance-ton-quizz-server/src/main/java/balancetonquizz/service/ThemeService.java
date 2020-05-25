@@ -1,12 +1,7 @@
 package balancetonquizz.service;
 
-import balancetonquizz.dto.UserDto;
 import balancetonquizz.entities.Theme;
-import balancetonquizz.entities.User;
-import balancetonquizz.exception.ThemeAlreadyExistException;
-import balancetonquizz.exception.UserAlreadyExistException;
 import balancetonquizz.repositories.ThemeRepository;
-import balancetonquizz.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
