@@ -1,0 +1,8 @@
+2020-05-26 17:57:42,044 [1] INFO TestBalanceTonQuizz.Program - Enter all parameter on file config.xml on tool directory before launch test
+2020-05-26 17:57:42,152 [1] INFO TestBalanceTonQuizz.Program - Parameters :
+2020-05-26 17:57:42,152 [1] INFO TestBalanceTonQuizz.Program - 	 -c file.json
+2020-05-26 17:58:23,679 [1] INFO TestBalanceTonQuizz.Program - Json file to follow : campagne.json
+2020-05-26 18:02:37,775 [1] INFO TestBalanceTonQuizz.Program - Json file to follow : campagne.json
+2020-05-26 18:02:37,994 [1] INFO TestBalanceTonQuizz.Program - Testcase found : login
+2020-05-26 18:02:37,995 [1] INFO TestBalanceTonQuizz.Program - Testcase found : test
+2020-05-26 18:02:37,997 [1] INFO TestBalanceTonQuizz.Program - Start Tests application

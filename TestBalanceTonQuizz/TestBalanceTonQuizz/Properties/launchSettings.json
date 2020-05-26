@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TestBalanceTonQuizz": {
+      "commandName": "Project",
+      "commandLineArgs": "-c campagne.json"
+    }
+  }
+}

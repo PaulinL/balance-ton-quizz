@@ -33,7 +33,6 @@ namespace TestBalanceTonQuizz.Configuration
                 return null;
             }
 
-
             var config = new Config()
             {
                 Address = root.Element(NODE_CONFIG).Element(NODE_ADDRESS).Value,
