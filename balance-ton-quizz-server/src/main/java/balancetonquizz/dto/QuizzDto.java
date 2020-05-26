@@ -9,9 +9,5 @@ import javax.validation.constraints.NotNull;
 public class QuizzDto {
     @NotNull
     @NotEmpty
-    private String quizzUrl;
-
-    @NotNull
-    @NotEmpty
     private Long quizzId;
 }

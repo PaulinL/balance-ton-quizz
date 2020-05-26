@@ -1,9 +1,12 @@
 package balancetonquizz.service;
 
+import balancetonquizz.dto.QuizzDto;
 import balancetonquizz.dto.UserDto;
+import balancetonquizz.entities.Quizz;
 import balancetonquizz.entities.User;
 import balancetonquizz.exception.UserAlreadyExistException;
 import balancetonquizz.repositories.UserRepository;
+import balancetonquizz.security.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +15,11 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private JwtTokenProvider jwttp;
+
+    final String PREFIX_BEARER = "Bearer ";
 
     /**
      * Enregistre un nouvel utilisateur en BD
@@ -27,5 +35,14 @@ public class UserService {
         }
         User user = new User(userDto);
         return userRepository.save(user);
+    }
+
+    public User getUserByToken(String userToken) {
+        String username = jwttp.getUsernameFromToken(removeTokenPrefix(userToken));
+        return userRepository.findByUsername(username);
+    }
+
+    public String removeTokenPrefix(String token){
+        return token.substring(PREFIX_BEARER.length());
     }
 }

@@ -29,6 +29,9 @@ import {LoginComponent} from './auth/login/login.component';
 import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
 import {AuthGuard} from "./guards/auth.guard";
 import { UploadImageComponent } from './upload-image/upload-image.component';
+import { SearchQuizzComponent } from './search-quizz/search-quizz.component';
+import { QuizzFilterPipe } from './search-quizz/quizz-filter.pipe';
+import {MatChipsModule} from "@angular/material/chips";
 
 
 @NgModule({
@@ -39,6 +42,8 @@ import { UploadImageComponent } from './upload-image/upload-image.component';
     QuestionComponent,
     AnswerComponent,
     PreviewComponent,
+    SearchQuizzComponent,
+    QuizzFilterPipe,
     RegisterComponent,
     LoginComponent,
     UploadImageComponent
@@ -63,6 +68,7 @@ import { UploadImageComponent } from './upload-image/upload-image.component';
     MatStepperModule,
     MatRadioModule,
     FormsModule,
+    MatChipsModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
