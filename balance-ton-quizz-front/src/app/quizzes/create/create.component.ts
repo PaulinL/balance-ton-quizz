@@ -66,10 +66,14 @@ export class CreateComponent implements OnInit {
 
   onSubmitQuizz(value: Quizz) {
     if (this.quizzForm.valid) {
-      console.log("test")
       this.quizz = value;
       if (this.file) {
         this.imageService.uploadImage(this.file).subscribe(res => {
+          if (this.quizz.imageName) {
+            this.imageService.removeImage(this.quizz.imageName).subscribe(res => {
+            }, error => {
+            });
+          }
           this.quizz.imageName = res.fileName as string;
           this.toastrService.success("Image envoyée");
         }, error => {

@@ -16,7 +16,6 @@ public class QuizzController {
     @Autowired
     private QuizzRepository repo;
 
-
     @GetMapping("/quizzes")
     public Iterable<Quizz> getAllQuizz(){
         return repo.findAll();

@@ -1,20 +1,26 @@
 package balancetonquizz.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
-@Data
 @Entity
+@Data
 public class Answer {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
 
+    @NotNull
     private String label;
+
+    @NotNull
+    @JsonProperty
     private boolean isCorrect;
 
     public Answer(){}

@@ -17,4 +17,8 @@ export class ImageService {
     formData.append('file', file, file.name);
     return this.http.post<{ fileName: string }>(`${this.endpoint}/images`, formData);
   }
+
+  removeImage(imageName: string) {
+    return this.http.delete(`${this.endpoint}/images/${imageName}`);
+  }
 }

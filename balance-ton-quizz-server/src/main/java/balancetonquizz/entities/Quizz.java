@@ -2,7 +2,10 @@ package balancetonquizz.entities;
 
 import lombok.Data;
 
+import javax.annotation.Nullable;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +23,6 @@ public class Quizz {
     private Theme theme;
     @OneToMany(cascade=CascadeType.ALL)
     private List<Question> questions;
-    @Column(nullable=true)
     private String imageName;
 
     public Quizz() {
@@ -32,7 +34,7 @@ public class Quizz {
         this.description = description;
         this.questions = new ArrayList<Question>();
         this.theme = theme;
-	this.imageName = imageName;
+	    this.imageName = imageName;
     }
 
     public void addQuestion(Question e){

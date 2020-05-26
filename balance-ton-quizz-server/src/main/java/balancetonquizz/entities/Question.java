@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 @Entity
-class Question {
+public class Question {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -24,13 +24,5 @@ class Question {
         this.label = label;
         this.multiple = multiple;
         this.answers = new ArrayList<Answer>();
-    }
-
-    public void addAnswer(Answer e){
-        this.answers.add(e);
-    }
-
-    public void removeAnswer(int index){
-        this.answers.remove(index);
     }
 }

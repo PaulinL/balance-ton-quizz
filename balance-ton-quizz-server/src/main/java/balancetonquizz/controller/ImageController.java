@@ -51,4 +51,13 @@ public class ImageController {
         }
         return new ImageDto(fileName);
     }
+
+    @DeleteMapping("/{object}")
+    public void removeObject(@PathVariable("object") String object) {
+        try {
+            minioService.remove(Paths.get(object));
+        } catch (MinioException e) {
+            throw new IllegalStateException("The file cannot be deleted", e);
+        }
+    }
 }
