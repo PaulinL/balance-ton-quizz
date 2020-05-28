@@ -35,9 +35,9 @@ namespace TestBalanceTonQuizz.Configuration
 
             var config = new Config()
             {
-                Address = root.Element(NODE_CONFIG).Element(NODE_ADDRESS).Value,
-                Username = root.Element(NODE_CONFIG).Element(NODE_USERNAME).Value,
-                Password = root.Element(NODE_CONFIG).Element(NODE_PASSWORD).Value
+                Address = root.Element(NODE_ADDRESS).Value,
+                Username = root.Element(NODE_USERNAME).Value,
+                Password = root.Element(NODE_PASSWORD).Value
             };
 
             return config;

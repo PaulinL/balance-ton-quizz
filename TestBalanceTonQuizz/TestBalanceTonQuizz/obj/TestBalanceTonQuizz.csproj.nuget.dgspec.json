@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Documents\\GITrepos\\balance-ton-quizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz.csproj": {}
+    "D:\\Documents\\gitRepos\\balance-ton-quizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz.csproj": {}
   },
   "projects": {
-    "D:\\Documents\\GITrepos\\balance-ton-quizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz.csproj": {
+    "D:\\Documents\\gitRepos\\balance-ton-quizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documents\\GITrepos\\balance-ton-quizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz.csproj",
+        "projectUniqueName": "D:\\Documents\\gitRepos\\balance-ton-quizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz.csproj",
         "projectName": "TestBalanceTonQuizz",
-        "projectPath": "D:\\Documents\\GITrepos\\balance-ton-quizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz.csproj",
-        "packagesPath": "C:\\Users\\ludov\\.nuget\\packages\\",
-        "outputPath": "D:\\Documents\\GITrepos\\balance-ton-quizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz\\obj\\",
+        "projectPath": "D:\\Documents\\gitRepos\\balance-ton-quizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz.csproj",
+        "packagesPath": "C:\\Users\\Ludo\\.nuget\\packages\\",
+        "outputPath": "D:\\Documents\\gitRepos\\balance-ton-quizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ludov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Ludo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,12 +61,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

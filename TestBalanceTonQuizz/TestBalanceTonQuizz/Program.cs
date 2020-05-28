@@ -49,7 +49,6 @@ namespace TestBalanceTonQuizz
             }
 
 
-
             _log.Info("End of test");
         }
 
