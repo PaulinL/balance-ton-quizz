@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using TestBalanceTonQuizz.Configuration;
+using TestBalanceTonQuizz.Testcases;
 
 [assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4net.config")]
 
@@ -20,26 +21,40 @@ namespace TestBalanceTonQuizz
         private static ConfigLoader _configLoader;
         private static IWebDriver driver;
 
+        private static List<TestCase> _testcases;
+
         static void Main(string[] args)
         {
+            // Init log file with execution
+            _log.Info("====================== " + DateTime.Now.ToString("dd:MM:yyyy hh:mm:ss") + " ===================");
+            _log.Info("Start Tests application");
+
             if (args.Count() > 2)
-            { 
+            {
+                _log.Error("Invalid parameters");
                 Help();
                 return;
             }
 
             var jsonFile = args[args.Length - 1];
             _log.Info("Json file to follow : " + jsonFile);
-
-            var listTestcase = getAllTestCaseName(jsonFile);
-
-            // Init log file with execution
-            _log.Info("====================== " + DateTime.Now.ToString("dd:MM:yyyy hh:mm:ss") + " ===================");
-            _log.Info("Start Tests application");
             
             // load config
             _configLoader = new ConfigLoader();
             var config = _configLoader.LoadConfig(Path.Combine(Environment.CurrentDirectory, "config.xml"));
+
+            // declaration of all TestCase
+            _testcases = new List<TestCase>();
+            _testcases.Add(new LoginTestCase());
+
+            // play testcase
+            var listTestcaseName = getAllTestCaseName(jsonFile);
+            foreach(var tcName in listTestcaseName)
+            {
+                _testcases.First(x => x.Name.Equals(tcName)).Execute();
+            }
+
+            
 
             // open navigator to site
             if(!OpenWebSite(config.Address))
@@ -47,6 +62,7 @@ namespace TestBalanceTonQuizz
                 _log.Error("Can't open chrome Driver");
                 return;
             }
+
 
 
             _log.Info("End of test");
