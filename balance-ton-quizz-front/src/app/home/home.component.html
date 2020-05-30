@@ -15,7 +15,7 @@
   </mat-chip>
 </mat-chip-list>
 <div fxLayout="row wrap" fxLayoutGap="10px grid" *ngIf="quizzes; else noQuizz">
-  <div *ngFor="let quizz of quizzes" fxFlex.gt-md="25" fxFlex="33.333">
+  <div *ngFor="let quizz of quizzes | quizzFilter: searchText: selectedThemes" fxFlex.gt-md="25" fxFlex="33.333">
     <mat-card>
       <img *ngIf="quizz.imageName" mat-card-image [src]="getImageUrl(quizz)">
       <mat-card-title>{{quizz.title}}</mat-card-title>

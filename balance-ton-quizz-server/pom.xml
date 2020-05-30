@@ -60,6 +60,21 @@
         </profile>
 
         <profile>
+            <id>local</id>
+            <properties>
+                <env>local</env>
+                <spring.profiles.active>local</spring.profiles.active>
+                <url>jdbc:mysql://localhost:3306/btq?serverTimezone=UTC</url>
+                <username>root</username>
+                <password></password>
+                <minio.url>http://localhost:9000</minio.url>
+                <minio.bucket>btq</minio.bucket>
+                <minio.access-key>minio</minio.access-key>
+                <minio.secret-key>minio-admin</minio.secret-key>
+            </properties>
+        </profile>
+
+        <profile>
             <id>prod</id>
             <properties>
                 <env>prod</env>
