@@ -43,9 +43,16 @@ namespace TestBalanceTonQuizz
             _configLoader = new ConfigLoader();
             var config = _configLoader.LoadConfig(Path.Combine(Environment.CurrentDirectory, "config.xml"));
 
+            // open navigator to site
+            if(!OpenWebSite(config.Address))
+            {
+                _log.Error("Can't open chrome Driver");
+                return;
+            }
+            
             // declaration of all TestCase
             _testcases = new List<TestCase>();
-            _testcases.Add(new LoginTestCase());
+            _testcases.Add(new LoginTestCase(driver, Path.Combine(Environment.CurrentDirectory, "Maps", "homeMap.xml"), config));
 
             // play testcase
             var listTestcaseName = getAllTestCaseName(jsonFile);
@@ -54,18 +61,11 @@ namespace TestBalanceTonQuizz
                 _testcases.First(x => x.Name.Equals(tcName)).Execute();
             }
 
-            
-
-            // open navigator to site
-            if(!OpenWebSite(config.Address))
-            {
-                _log.Error("Can't open chrome Driver");
-                return;
-            }
-
-
-
+            driver.Close();
             _log.Info("End of test");
+            _log.Info("Pess any key to exit ...");
+            Console.ReadKey();
+            return;
         }
 
         /// <summary>
@@ -114,8 +114,8 @@ namespace TestBalanceTonQuizz
             }
             catch (Exception e)
             {
-                //_log.Error(e.StackTrace);
-                //_log.Error("Can't open chrome window to navigate to SonarQube");
+                _log.Error(e.StackTrace);
+                _log.Error("Can't open chrome window to navigate to SonarQube");
                 return false;
             }
         }

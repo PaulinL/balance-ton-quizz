@@ -1,6 +1,5 @@
 {
   "testcases": [
-    "LoginTestCase",
-    "test"
+    "LoginTestCase"
   ]
 }

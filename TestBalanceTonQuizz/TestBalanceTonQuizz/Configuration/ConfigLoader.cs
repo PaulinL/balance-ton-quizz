@@ -8,6 +8,7 @@ namespace TestBalanceTonQuizz.Configuration
 {
     public class ConfigLoader
     {
+        private static readonly log4net.ILog _log = log4net.LogManager.GetLogger(typeof(ConfigLoader));
 
         #region Tag label config
 
@@ -25,6 +26,8 @@ namespace TestBalanceTonQuizz.Configuration
         /// <returns></returns>
         public Config LoadConfig(string url)
         {
+            _log.Info("Load all data for test campagne");
+
             var doc = XDocument.Load(url);
             var root = doc.Element(NODE_CONFIG);
             if (root == null)
@@ -40,6 +43,7 @@ namespace TestBalanceTonQuizz.Configuration
                 Password = root.Element(NODE_PASSWORD).Value
             };
 
+            _log.Info("All data laod of test campagne");
             return config;
         }
 
