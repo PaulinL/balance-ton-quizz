@@ -128,3 +128,73 @@
 2020-05-31 13:33:43,378 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Field username found and value : 'lha' enter
 2020-05-31 13:33:43,427 [1] INFO TestBalanceTonQuizz.Program - End of test
 2020-05-31 13:33:43,427 [1] INFO TestBalanceTonQuizz.Program - Pess any key to exit ...
+2020-06-08 19:04:21,299 [1] INFO TestBalanceTonQuizz.Program - ====================== 08:06:2020 07:04:21 ===================
+2020-06-08 19:04:21,323 [1] INFO TestBalanceTonQuizz.Program - Start Tests application
+2020-06-08 19:04:21,324 [1] INFO TestBalanceTonQuizz.Program - Json file to follow : campagne.json
+2020-06-08 19:04:21,362 [1] INFO TestBalanceTonQuizz.Configuration.ConfigLoader - Load all data for test campagne
+2020-06-08 19:04:21,365 [1] INFO TestBalanceTonQuizz.Configuration.ConfigLoader - All data laod of test campagne
+2020-06-08 19:04:31,057 [1] INFO TestBalanceTonQuizz.Program - Testcase found : LoginTestCase
+2020-06-08 19:04:31,204 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Button "Suscribe" found and clicked
+2020-06-08 19:04:31,306 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Field username found and value : 'lha' enter
+2020-06-08 19:04:31,402 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Field username found and value : 'lha' enter
+2020-06-08 19:04:31,474 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Field username found and value : 'lha' enter
+2020-06-08 19:04:31,541 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Button suscribe on form clicked
+2020-06-08 19:36:49,807 [1] INFO TestBalanceTonQuizz.Program - ====================== 08:06:2020 07:36:49 ===================
+2020-06-08 19:36:49,836 [1] INFO TestBalanceTonQuizz.Program - Start Tests application
+2020-06-08 19:36:49,837 [1] INFO TestBalanceTonQuizz.Program - Json file to follow : campagne.json
+2020-06-08 19:36:49,861 [1] INFO TestBalanceTonQuizz.Configuration.ConfigLoader - Load all data for test campagne
+2020-06-08 19:36:49,870 [1] INFO TestBalanceTonQuizz.Configuration.ConfigLoader - All data laod of test campagne
+2020-06-08 19:36:57,239 [1] INFO TestBalanceTonQuizz.Program - Testcase found : LoginTestCase
+2020-06-08 19:36:57,331 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Button "Suscribe" found and clicked
+2020-06-08 19:36:57,419 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Field username found and value : 'lha' enter
+2020-06-08 19:36:57,485 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Field username found and value : 'lha' enter
+2020-06-08 19:36:57,543 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Field username found and value : 'lha' enter
+2020-06-08 19:36:57,606 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Button suscribe on form clicked
+2020-06-08 19:41:57,132 [1] INFO TestBalanceTonQuizz.Program - ====================== 08:06:2020 07:41:57 ===================
+2020-06-08 19:41:57,142 [1] INFO TestBalanceTonQuizz.Program - Start Tests application
+2020-06-08 19:41:57,142 [1] INFO TestBalanceTonQuizz.Program - Json file to follow : campagne.json
+2020-06-08 19:41:57,151 [1] INFO TestBalanceTonQuizz.Configuration.ConfigLoader - Load all data for test campagne
+2020-06-08 19:41:57,153 [1] INFO TestBalanceTonQuizz.Configuration.ConfigLoader - All data laod of test campagne
+2020-06-08 19:42:03,663 [1] INFO TestBalanceTonQuizz.Program - Testcase found : LoginTestCase
+2020-06-08 19:42:03,753 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Button "Suscribe" found and clicked
+2020-06-08 19:42:03,846 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Field username found and value : 'lha' enter
+2020-06-08 19:42:03,918 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Field username found and value : 'lha' enter
+2020-06-08 19:42:03,976 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Field username found and value : 'lha' enter
+2020-06-08 19:42:04,042 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Button suscribe on form clicked
+2020-06-08 20:15:55,560 [1] INFO TestBalanceTonQuizz.Program - ====================== 08:06:2020 08:15:55 ===================
+2020-06-08 20:15:55,572 [1] INFO TestBalanceTonQuizz.Program - Start Tests application
+2020-06-08 20:15:55,572 [1] INFO TestBalanceTonQuizz.Program - Json file to follow : campagne.json
+2020-06-08 20:15:55,586 [1] INFO TestBalanceTonQuizz.Configuration.ConfigLoader - Load all data for test campagne
+2020-06-08 20:15:55,588 [1] INFO TestBalanceTonQuizz.Configuration.ConfigLoader - All data laod of test campagne
+2020-06-08 20:16:02,502 [1] INFO TestBalanceTonQuizz.Program - Testcase found : LoginTestCase
+2020-06-08 20:16:02,606 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Button "Suscribe" found and clicked
+2020-06-08 20:16:02,676 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Field username found and value : 'lha' enter
+2020-06-08 20:16:02,748 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Field username found and value : 'lha' enter
+2020-06-08 20:16:02,807 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Field username found and value : 'lha' enter
+2020-06-08 20:16:02,872 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Button suscribe on form clicked
+2020-06-08 20:21:40,739 [1] INFO TestBalanceTonQuizz.Program - ====================== 08:06:2020 08:21:40 ===================
+2020-06-08 20:21:40,748 [1] INFO TestBalanceTonQuizz.Program - Start Tests application
+2020-06-08 20:21:40,748 [1] INFO TestBalanceTonQuizz.Program - Json file to follow : campagne.json
+2020-06-08 20:21:40,758 [1] INFO TestBalanceTonQuizz.Configuration.ConfigLoader - Load all data for test campagne
+2020-06-08 20:21:40,760 [1] INFO TestBalanceTonQuizz.Configuration.ConfigLoader - All data laod of test campagne
+2020-06-08 20:21:47,538 [1] INFO TestBalanceTonQuizz.Program - Testcase found : LoginTestCase
+2020-06-08 20:21:47,644 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Button "Suscribe" found and clicked
+2020-06-08 20:21:47,850 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Field username found and value : 'lha' enter
+2020-06-08 20:21:47,977 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Field username found and value : 'lha' enter
+2020-06-08 20:21:48,035 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Field username found and value : 'lha' enter
+2020-06-08 20:21:48,094 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Button suscribe on form clicked
+2020-06-08 20:21:48,194 [1] INFO TestBalanceTonQuizz.Program - End of test
+2020-06-08 20:21:48,195 [1] INFO TestBalanceTonQuizz.Program - Pess any key to exit ...
+2020-06-08 20:29:49,455 [1] INFO TestBalanceTonQuizz.Program - ====================== 08:06:2020 08:29:49 ===================
+2020-06-08 20:29:49,474 [1] INFO TestBalanceTonQuizz.Program - Start Tests application
+2020-06-08 20:29:49,474 [1] INFO TestBalanceTonQuizz.Program - Json file to follow : campagne.json
+2020-06-08 20:29:49,516 [1] INFO TestBalanceTonQuizz.Configuration.ConfigLoader - Load all data for test campagne
+2020-06-08 20:29:49,520 [1] INFO TestBalanceTonQuizz.Configuration.ConfigLoader - All data laod of test campagne
+2020-06-08 20:29:56,976 [1] INFO TestBalanceTonQuizz.Program - Testcase found : LoginTestCase
+2020-06-08 20:29:57,086 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Button "Suscribe" found and clicked
+2020-06-08 20:29:57,156 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Field username found and value : 'lha' enter
+2020-06-08 20:29:57,225 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Field username found and value : 'lha' enter
+2020-06-08 20:29:57,283 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Field username found and value : 'lha' enter
+2020-06-08 20:29:57,345 [1] INFO TestBalanceTonQuizz.Testcases.LoginTestCase - Button suscribe on form clicked
+2020-06-08 20:29:57,416 [1] INFO TestBalanceTonQuizz.Program - End of test
+2020-06-08 20:29:57,417 [1] INFO TestBalanceTonQuizz.Program - Pess any key to exit ...

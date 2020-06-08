@@ -9,6 +9,8 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using TestBalanceTonQuizz.Configuration;
+using TestBalanceTonQuizz.Entities;
+using TestBalanceTonQuizz.Report;
 using TestBalanceTonQuizz.Testcases;
 
 [assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4net.config")]
@@ -20,8 +22,9 @@ namespace TestBalanceTonQuizz
         private static readonly log4net.ILog _log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private static ConfigLoader _configLoader;
         private static IWebDriver driver;
+        private static ReportManager _reportManager;
 
-        private static List<TestCase> _testcases;
+        private static TestCampaign campaign;
 
         static void Main(string[] args)
         {
@@ -42,6 +45,7 @@ namespace TestBalanceTonQuizz
             // load config
             _configLoader = new ConfigLoader();
             var config = _configLoader.LoadConfig(Path.Combine(Environment.CurrentDirectory, "config.xml"));
+            _reportManager = new ReportManager();
 
             // open navigator to site
             if(!OpenWebSite(config.Address))
@@ -51,17 +55,27 @@ namespace TestBalanceTonQuizz
             }
             
             // declaration of all TestCase
-            _testcases = new List<TestCase>();
-            _testcases.Add(new LoginTestCase(driver, Path.Combine(Environment.CurrentDirectory, "Maps", "homeMap.xml"), config));
+            campaign = new TestCampaign();
+            campaign.TestCases.Add(new LoginTestCase(driver, Path.Combine(Environment.CurrentDirectory, "Maps", "homeMap.xml"), config));
 
             // play testcase
             var listTestcaseName = getAllTestCaseName(jsonFile);
             foreach(var tcName in listTestcaseName)
             {
-                _testcases.First(x => x.Name.Equals(tcName)).Execute();
+                var tc = campaign.TestCases.First(x => x.Name.Equals(tcName));
+
+                tc.StartTestCase();
+                tc.Execute();
+                tc.CloseTestCase();
+                tc.SetResult();
             }
 
             driver.Close();
+            campaign.CloseCampaign();
+
+            // build report
+            _reportManager.BuildReport(campaign);
+
             _log.Info("End of test");
             _log.Info("Pess any key to exit ...");
             Console.ReadKey();
