@@ -24,6 +24,7 @@ export class CreateComponent implements OnInit {
   selectedTheme: Theme;
   url: string;
   file: File;
+  searchText: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -43,7 +44,7 @@ export class CreateComponent implements OnInit {
     });
     this.addEmptyQuestion();
     this.themeService.getAllThemes().subscribe(themes => {
-      console.log(themes)
+      //console.log(themes)
       this.themes = themes;
     }, error => console.error);
   }
@@ -92,6 +93,29 @@ export class CreateComponent implements OnInit {
         this.url = result.url
       } catch (e) {
         this.toastrService.error("Une erreur est survenue")
+      }
+    }
+  }
+
+  searchTheme($event: string) {
+    this.searchText = $event;
+  }
+
+  async createTheme(){
+    if(this.searchText){
+      try {
+        const createdThemeId = await this.themeService.postTheme(this.searchText).toPromise();
+        this.toastrService.success('Thème créé');
+        // Reload
+        this.themeService.getAllThemes().subscribe(themes => {
+          console.log(themes)
+          this.themes = themes;
+          // Select theme
+          this.selectedTheme = this.themes.find(theme => theme.id === createdThemeId);
+        }, error => console.error);
+      } catch (e) {
+        console.log(e);
+        this.toastrService.error('Une erreur est survenue pendant la création du thème');
       }
     }
   }

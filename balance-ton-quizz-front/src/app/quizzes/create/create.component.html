@@ -41,8 +41,17 @@
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>Choisir un theme</ng-template>
+        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="2em">
+          <app-search-quizz
+            (search)="searchTheme($event)">
+          </app-search-quizz>
+          <button mat-flat-button color="primary" [disabled]="searchText? searchText.length <= 0 : true" (click)="createTheme()">
+            <mat-icon>add_box</mat-icon>
+            Créer
+          </button>
+        </div>
         <mat-radio-group [(ngModel)]="selectedTheme" aria-label="Selectionnez un theme" fxLayout="column">
-          <mat-radio-button *ngFor="let theme of themes" [value]="theme">{{theme.title}}</mat-radio-button>
+          <mat-radio-button *ngFor="let theme of themes | themeTitleFilter: searchText;" [value]="theme">{{theme.title}}</mat-radio-button>
         </mat-radio-group>
         <div fxLayout="row" class="button-container">
           <button mat-stroked-button color="primary" matStepperPrevious>Retour

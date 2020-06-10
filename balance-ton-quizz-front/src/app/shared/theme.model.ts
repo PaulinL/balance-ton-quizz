@@ -1,4 +1,4 @@
 export interface Theme {
-  id?: number,
-  title: string
+  id?: bigint,
+  title: string;
 }
