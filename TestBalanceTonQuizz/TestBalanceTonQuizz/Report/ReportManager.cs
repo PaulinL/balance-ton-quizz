@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using TestBalanceTonQuizz.Entities;
+using TestBalanceTonQuizz.Enums;
 using TestBalanceTonQuizz.Testcases;
 
 namespace TestBalanceTonQuizz.Report
@@ -20,7 +21,7 @@ namespace TestBalanceTonQuizz.Report
         public ReportManager()
         {
             pathReportFolder = Path.Combine(Environment.CurrentDirectory, "Reports");
-            pathFileStyle = Path.Combine(pathReportFolder, "theme", "style.css");
+            pathFileStyle = Path.Combine("theme", "style.css");
         }
 
         /// <summary>
@@ -42,7 +43,7 @@ namespace TestBalanceTonQuizz.Report
             pathReportFolder = Path.Combine(pathReportFolder, "_" +testCampaign.Name + testCampaign.StartDate.ToString("yyyy_MM_dd_HH_mm_ss"));
             Directory.CreateDirectory(pathReportFolder);
             WriteDeclarationHTMLFile();
-            WriteHeadHTMLFile("Report campaign", pathFileStyle);
+            WriteHeadHTMLFile("Report campaign", "../" +pathFileStyle);
             WriteTitlePage("Result " +testCampaign.Name + DateTime.Now.ToString("yyyy-mm-dd hh:MM:ss"));
             WriteInfoCampaign(testCampaign);
             WriteTabTestcases(testCampaign);
@@ -63,7 +64,7 @@ namespace TestBalanceTonQuizz.Report
                 Directory.CreateDirectory(Path.Combine(pathReportFolder, tc.Name));
 
                 WriteDeclarationHTMLFile();
-                WriteHeadHTMLFile(tc.Name + " report", pathFileStyle);
+                WriteHeadHTMLFile(tc.Name + " report", "../../" +pathFileStyle);
                 WriteTitlePage("Result " + tc.Name + " campaign " + DateTime.Now.ToString("yyyy-mm-dd hh:MM:ss"));
                 WriteInfoTC(tc);
                 WriteTabTask(tc);
@@ -80,7 +81,7 @@ namespace TestBalanceTonQuizz.Report
         /// <param name="title"></param>
         public void WriteTitlePage(string title)
         {
-            html += "<h1>" + title + "</h1>";
+            html += "<h1>" + title + "</h1>" +"\n";
         }
 
         /// <summary>
@@ -89,8 +90,8 @@ namespace TestBalanceTonQuizz.Report
         /// <param name="testCampaign"></param>
         public void WriteInfoCampaign(TestCampaign testCampaign)
         {
-            html += "<h2>Start date : " +testCampaign.StartDate +"</h2>";
-            html += "<h2>End date : " +testCampaign.EndDate +"</h2>";
+            html += "<h2>Start date : " +testCampaign.StartDate + "</h2>" + "\n";
+            html += "<h2>End date : " +testCampaign.EndDate + "</h2>" + "\n";
         }
 
         /// <summary>
@@ -99,33 +100,39 @@ namespace TestBalanceTonQuizz.Report
         /// <param name="tc"></param>
         public void WriteInfoTC(TestCase tc)
         {
-            html += "<h2>Start date : " + tc.StartDate + "</h2>";
-            html += "<h2>End date : " + tc.EndDate + "</h2>";
+            html += "<h2>Start date : " + tc.StartDate + "</h2>" + "\n";
+            html += "<h2>End date : " + tc.EndDate + "</h2>" + "\n";
         }
 
         /// <summary>
         /// To write table with list of testcases
-        /// </summary>
+        /// </summary>lin
         /// <param name="testCampaign"></param>
         public void WriteTabTestcases(TestCampaign testCampaign)
         {
-            html += "<table>";
-            html += "   <thead>";
-            html += "       <th>Testcase</th>";
-            html += "       <th>Result</th>";
-            html += "   </thead>";
-            html += "   <tbody>";
+            html += "<table>" + "\n";
+            html += "   <thead>" + "\n";
+            html += "       <th>Testcase</th>" +"\n";
+            html += "       <th>Result</th>" + "\n";
+            html += "   </thead>" + "\n";
+            html += "   <tbody>" + "\n";
 
             foreach (var tc in testCampaign.TestCases)
             {
-                html += "       <tr>";
-                html += "           <td><a href=\"" +Path.Combine(tc.Name, tc.Name +".html") +"\">" +tc.Name+"</a></td>";
-                html += "           <td>" +tc.Result +"</td>";
-                html += "       </tr>";
+                if(tc.Result.Equals(Result.PASSED))
+                    html += "       <tr class=\"passed\">" + "\n";
+                else if (tc.Result.Equals(Result.FAILED))
+                    html += "       <tr class=\"failed\">" + "\n";
+                else
+                    html += "       <tr class=\"error\">" + "\n";
+
+                html += "           <td><a href=\"" +Path.Combine(tc.Name, tc.Name +".html") +"\">" +tc.Name+ "</a></td>" + "\n";
+                html += "           <td>" +tc.Result + "</td>" + "\n";
+                html += "       </tr>" + "\n";
             }
 
-            html += "   </tbody>";
-            html += "</table>";
+            html += "   </tbody>" + "\n";
+            html += "</table>" + "\n";
         }
 
         /// <summary>
@@ -134,34 +141,40 @@ namespace TestBalanceTonQuizz.Report
         /// <param name="tc"></param>
         public void WriteTabTask(TestCase tc)
         {
-            html += "<table>";
-            html += "   <thead>";
-            html += "       <th>Task</th>";
-            html += "       <th>Result</th>";
-            html += "       <th>Value</th>";
-            html += "   </thead>";
-            html += "   <tbody>";
+            html += "<table>" + "\n";
+            html += "   <thead>" + "\n";
+            html += "       <th>Task</th>" + "\n";
+            html += "       <th>Result</th>" + "\n";
+            html += "       <th>Value</th>" + "\n";
+            html += "   </thead>" + "\n";
+            html += "   <tbody>" + "\n";
 
             foreach (var task in tc.Tasks)
             {
-                html += "       <tr>";
-                html += "           <td>" +task.Name +"</td>";
-                html += "           <td>" + task.Result + "</td>";
+                if (task.Result.Equals(Result.PASSED))
+                    html += "       <tr class=\"passed\">" + "\n";
+                else if (task.Result.Equals(Result.FAILED))
+                    html += "       <tr class=\"failed\">" + "\n";
+                else
+                    html += "       <tr class=\"error\">" + "\n";
+
+                html += "           <td>" +task.Name + "</td>" + "\n";
+                html += "           <td>" + task.Result + "</td>" + "\n";
                 if(task.ListValue.Count != 0)
                 {
-                    html += "       <td>";
-                    html += "           <ul>";
+                    html += "       <td>" + "\n";
+                    html += "           <ul>" + "\n";
 
                     foreach (var value in task.ListValue)
-                        html += "             <li>" + value + "</li>";
+                        html += "             <li>" + value + "</li>" + "\n";
 
-                    html += "           </ul>";
-                    html += "       </td>";
+                    html += "           </ul>" + "\n";
+                    html += "       </td>" + "\n";
                 }
             }
 
-            html += "   </tbody>";
-            html += "</table>";
+            html += "   </tbody>" + "\n";
+            html += "</table>" + "\n";
         }
 
 
@@ -175,8 +188,8 @@ namespace TestBalanceTonQuizz.Report
         /// </summary>
         public void WriteDeclarationHTMLFile()
         {
-            html = "<!DOCTYPE html>";
-            html += "   <html>";
+            html = "<!DOCTYPE html>" + "\n";
+            html += "   <html>" + "\n";
         }
 
         /// <summary>
@@ -186,11 +199,11 @@ namespace TestBalanceTonQuizz.Report
         /// <param name="pathStyleFile"></param>
         public void WriteHeadHTMLFile(string titlePage, string pathStyleFile)
         {
-            html += "       <head>";
-            html += "           <title>" +titlePage + "</title>";
-            html += "           <link rel=\"stylesheet\" href=" + pathStyleFile + ">";
-            html += "       </head>";
-            html += "       <body>";
+            html += "       <head>" + "\n";
+            html += "           <title>" +titlePage + "</title>" + "\n";
+            html += "           <link rel=\"stylesheet\" href=" + pathStyleFile + ">" + "\n";
+            html += "       </head>" + "\n";
+            html += "       <body>" + "\n";
         }
 
         /// <summary>
@@ -198,8 +211,8 @@ namespace TestBalanceTonQuizz.Report
         /// </summary>
         public void WriteEndHTMLFile()
         {
-            html += "   </body>";
-            html += "</html>";
+            html += "   </body>" + "\n";
+            html += "</html>" + "\n";
         }
 
         /// <summary>

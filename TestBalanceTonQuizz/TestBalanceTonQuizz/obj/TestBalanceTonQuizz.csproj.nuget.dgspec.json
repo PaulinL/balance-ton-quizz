@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Documents\\gitRepos\\balance-ton-quizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz.csproj": {}
+    "D:\\Documents\\GITrepos\\balance-ton-quizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz.csproj": {}
   },
   "projects": {
-    "D:\\Documents\\gitRepos\\balance-ton-quizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz.csproj": {
+    "D:\\Documents\\GITrepos\\balance-ton-quizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documents\\gitRepos\\balance-ton-quizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz.csproj",
+        "projectUniqueName": "D:\\Documents\\GITrepos\\balance-ton-quizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz.csproj",
         "projectName": "TestBalanceTonQuizz",
-        "projectPath": "D:\\Documents\\gitRepos\\balance-ton-quizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz.csproj",
-        "packagesPath": "C:\\Users\\Ludo\\.nuget\\packages\\",
-        "outputPath": "D:\\Documents\\gitRepos\\balance-ton-quizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz\\obj\\",
+        "projectPath": "D:\\Documents\\GITrepos\\balance-ton-quizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz.csproj",
+        "packagesPath": "C:\\Users\\ludov\\.nuget\\packages\\",
+        "outputPath": "D:\\Documents\\GITrepos\\balance-ton-quizz\\TestBalanceTonQuizz\\TestBalanceTonQuizz\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Ludo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ludov\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

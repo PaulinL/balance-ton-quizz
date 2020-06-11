@@ -25,5 +25,13 @@
 		<id>mat-button-wrapper</id>
 		<type>Class</type>
 	</Node>
+  <Node>
+    <name>btn_disconnect</name>
+    <id>mat-list-item-content</id>
+    <type>Class</type>
+  </Node>
+  
+
+
 </Nodes>
 		

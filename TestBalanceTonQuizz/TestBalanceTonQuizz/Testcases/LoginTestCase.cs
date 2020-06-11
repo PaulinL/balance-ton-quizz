@@ -145,7 +145,7 @@ namespace TestBalanceTonQuizz.Testcases
             var btn_suscribe_Searched = WebElementManager.FindFirstElement(Driver, btn_suscribe);
             if (btn_suscribe_Searched != null)
             {
-                btn_suscribe_Searched.Click(); ;
+                btn_suscribe_Searched.Click();
                 _log.Info("Button suscribe on form clicked");
                 taskBtnSuscribeForm.SetResult(Result.PASSED);
             }
@@ -158,6 +158,29 @@ namespace TestBalanceTonQuizz.Testcases
             }
             taskBtnSuscribeForm.CloseTask();
             Tasks.Add(taskBtnSuscribeForm);
+
+            // Check button disconect is displayed
+            var taskCheckConnected = new Task()
+            {
+                Name = "Button disconnect",
+                Description = "check button disconnected is displayed on main page afeter connection."
+            };
+            var btn_disconnect = new WebElement("btn_disconnect", PathMap);
+            var btn_disconnect_Searched = WebElementManager.FindFirstElement(Driver, btn_disconnect);
+            if (btn_disconnect_Searched != null && btn_disconnect_Searched.Text.Equals(" Se déconnecter "))
+            {
+                _log.Info("User connected");
+                taskBtnSuscribeForm.SetResult(Result.PASSED);
+            }
+            else
+            {
+                _log.Error("Can't found button disconnect, user not connected");
+                taskCheckConnected.SetErrorMessage("Can't found button disconnect, user not connected");
+                taskCheckConnected.SetResult(Result.ERROR);
+                return false;
+            }
+            taskCheckConnected.CloseTask();
+            Tasks.Add(taskCheckConnected);
 
             return true;
         }
