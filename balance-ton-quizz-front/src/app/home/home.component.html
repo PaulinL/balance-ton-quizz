@@ -14,14 +14,14 @@
 <app-search-quizz
   (search)="search($event)">
 </app-search-quizz>
-<mat-chip-list [multiple]="true">
+<mat-chip-list class="filtersContainer" [multiple]="true">
   <mat-chip *ngFor="let theme of themes"
             [selected]="selectedThemes.includes(theme)"
             (click)="selectThemeFilter(theme)">
     {{theme.title}}
   </mat-chip>
 </mat-chip-list>
-<div fxLayout="row wrap" fxLayoutGap="10px grid" *ngIf="quizzes; else noQuizz">
+<div class="quizzContainer" fxLayout="row wrap" fxLayoutGap="10px grid" *ngIf="quizzes; else noQuizz">
   <div *ngFor="let quizz of quizzes | quizzFilter: searchText: selectedThemes" fxFlex.gt-md="25" fxFlex="33.333">
     <mat-card>
       <img *ngIf="quizz.imageName" mat-card-image [src]="getImageUrl(quizz)">

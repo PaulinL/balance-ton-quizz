@@ -19,3 +19,17 @@
   max-height: 200px;
   margin: 20px;
 }
+
+.button-container
+{
+  margin-top: 10px;
+}
+
+.selectedTheme
+{
+  border: 1px solid blue !important;
+}
+
+mat-card {
+  cursor: pointer;
+}

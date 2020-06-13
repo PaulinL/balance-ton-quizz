@@ -118,6 +118,14 @@ export class CreateComponent implements OnInit {
       }
     }
   }
+
+  getImageUrl(theme: Theme) {
+    return `${environment.backendUrl}/images/${theme.imageName}`
+  }
+
+  selectCard(theme: Theme) {
+    this.selectedTheme = theme;
+  }
 }
 
 
