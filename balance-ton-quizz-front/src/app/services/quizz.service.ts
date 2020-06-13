@@ -30,4 +30,8 @@ export class QuizzService {
   getQuizzUrl(quizzId: string) {
     return `${this.frontEndpoint}/quizzes/${quizzId}/answer`;
   }
+
+  getRandomQuizzId() {
+    return this.http.get<number>(`${this.endpoint}/quizzes/random`);
+  }
 }

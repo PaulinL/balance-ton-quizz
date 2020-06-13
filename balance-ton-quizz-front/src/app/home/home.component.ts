@@ -5,6 +5,7 @@ import {ThemeService} from '../services/theme.service';
 import {Theme} from '../shared/theme.model';
 import {environment} from "../../environments/environment";
 import {ImageService} from '../services/image.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private quizzService: QuizzService,
     private themeService: ThemeService,
-    private imageService: ImageService
+    private imageService: ImageService,
+    private router: Router
   ) {
   }
 
@@ -55,5 +57,10 @@ export class HomeComponent implements OnInit {
     } else {
       this.selectedThemes.push(selectedTheme);
     }
+  }
+
+  async getRandomQuizz() {
+    const quizzId = await this.quizzService.getRandomQuizzId().toPromise();
+    await this.router.navigateByUrl(`/quizzes/${quizzId}/answer`);
   }
 }

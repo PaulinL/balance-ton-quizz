@@ -51,4 +51,9 @@ public class QuizzController {
         return ResponseEntity.ok();
     }
 
+    @GetMapping("/quizzes/random")
+    public Long getRandomQuizz(){
+        return quizzRepository.findRandomQuizz().getId();
+    }
+
 }

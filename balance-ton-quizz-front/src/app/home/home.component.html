@@ -4,7 +4,7 @@
     <p class="home-description-parag">Aprennez en plus sur des tas de sujets ou partagez votre savoir avec <span>Balance ton Quizz</span> !</p>
     <div fxLayout="row" fxLayoutGap="10px">
       <a mat-flat-button color="primary" routerLink="/quizzes/create">Créer un quizz</a>
-      <a mat-stroked-button color="primary">Trouver un quizz</a>
+      <a mat-stroked-button color="primary" (click)="getRandomQuizz()">Jouer un quizz au hasard</a>
     </div>
   </div>
   <img class="home-img" src="assets/quizz_home.svg" fxFlex.gt-sm="50" fxHide.lt-md="true">
