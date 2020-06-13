@@ -3,21 +3,23 @@ package balancetonquizz.entities;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @Entity
-public class Question {
-
+public class Participation {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
-    private String label;
-    private boolean multiple;
-    @OneToMany(cascade=CascadeType.ALL)
-    private List<Answer> answers;
 
-    public Question(){}
+    @OneToMany(cascade=CascadeType.ALL)
+    private List<QuestionAnswer> questionAnswers;
+
+    @OneToOne
+    private User player;
+
+    @OneToOne
+    private Quizz quizz;
+
 
 }

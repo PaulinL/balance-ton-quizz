@@ -1,14 +1,8 @@
 package balancetonquizz.entities;
 
-import balancetonquizz.security.JwtTokenProvider;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.annotation.Nullable;
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Null;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -27,23 +21,6 @@ public class Quizz {
     private List<Question> questions;
     private String imageName;
 
-    public Quizz() {
-    }
+    public Quizz() {}
 
-    public Quizz(String title, User author, String description, Theme theme, String imageName) {
-        this.title = title;
-        this.author = author;
-        this.description = description;
-        this.questions = new ArrayList<Question>();
-        this.theme = theme;
-	    this.imageName = imageName;
-    }
-
-    public void addQuestion(Question e){
-        this.questions.add(e);
-    }
-
-    public void removeQuestion(int index){
-        this.questions.remove(index);
-    }
 }
