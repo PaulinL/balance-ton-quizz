@@ -16,15 +16,29 @@ namespace TestBalanceTonQuizz.Testcases
     public class LoginTestCase : TestCase
     {
         private static readonly log4net.ILog _log = log4net.LogManager.GetLogger(typeof(LoginTestCase));
+        private static ConfigTCLogin configTC;
 
-        public LoginTestCase (IWebDriver driver, string pathMap, Config config)
+        public LoginTestCase (IWebDriver driver, string pathMap)
         {
             Name = "LoginTestCase";
             Driver = driver;
             PathMap = pathMap;
-            Config = config;
             Tasks = new List<Task>();
+            ConfigLoader = new ConfigLoader();
         }
+
+        #region Config
+
+        /// <summary>
+        /// Load config for tc login
+        /// </summary>
+        public override void LoadConfigTC()
+        {
+            configTC = ConfigLoader.LoadConfigTCLogin(Path.Combine(Environment.CurrentDirectory, "config.xml"));
+        }
+
+        #endregion  
+
 
         #region - Execution -
 
@@ -37,28 +51,28 @@ namespace TestBalanceTonQuizz.Testcases
             Console.WriteLine("Start Testcase Login");
 
             // Button "S'inscrire"
-            var taskBtnSuscribe = new Task ()
+            var taskBtnConnect = new Task ()
             {
-                Name = "Btn \"S'inscrire\"",
-                Description = "Appuyer sur le bouton \"S'inscrire\""
+                Name = "Btn \"Se connecter\"",
+                Description = "Appuyer sur le bouton \"Se connecter\""
             };
-            var buttonSuscribe = new WebElement("ButtonSubscribe", PathMap);
-            var buttonSuscribeSearched = WebElementManager.FindFirstElement(Driver, buttonSuscribe);
-            if (buttonSuscribeSearched != null)
+            var buttonConnect = new WebElement("ButtonConnect", PathMap);
+            var buttonConnectSearched = WebElementManager.FindElements(Driver, buttonConnect).ElementAt(1);
+            if (buttonConnectSearched != null)
             {
-                buttonSuscribeSearched.Click();
-                _log.Info("Button \"Suscribe\" found and clicked");
-                taskBtnSuscribe.SetResult(Result.PASSED);
+                buttonConnectSearched.Click();
+                _log.Info("Button \"Se connecter\" found and clicked");
+                taskBtnConnect.SetResult(Result.PASSED);
             }
             else
             {
-                _log.Error("Can't found button 'S'inscrire'");
-                taskBtnSuscribe.SetErrorMessage("Can't found button 'S'inscrire'");
-                taskBtnSuscribe.SetResult(Result.ERROR);
+                _log.Error("Can't found button \"Se connecter\"");
+                taskBtnConnect.SetErrorMessage("Can't found button \"Se connecter\"");
+                taskBtnConnect.SetResult(Result.ERROR);
                 return false;
             }
-            taskBtnSuscribe.CloseTask();
-            Tasks.Add(taskBtnSuscribe);
+            taskBtnConnect.CloseTask();
+            Tasks.Add(taskBtnConnect);
 
             // field Username
             var taskFieldUsername = new Task()
@@ -66,13 +80,13 @@ namespace TestBalanceTonQuizz.Testcases
                 Name = "Field Username",
                 Description = "Set value on username field"
             };
-            taskFieldUsername.SetValue(Config.Username);
-            var fieldSuscribe = new WebElement("field_username", PathMap);
-            var fieldSuscribeSearched = WebElementManager.FindFirstElement(Driver, fieldSuscribe);
-            if (fieldSuscribeSearched != null)
+            taskFieldUsername.SetValue(configTC.Username);
+            var fieldUsername = new WebElement("field_username_connect", PathMap);
+            var fieldUsernameSearched = WebElementManager.FindFirstElement(Driver, fieldUsername);
+            if (fieldUsernameSearched != null)
             {
-                fieldSuscribeSearched.SendKeys(Config.Username);
-                _log.Info("Field username found and value : '" + Config.Username + "' enter");
+                fieldUsernameSearched.SendKeys(configTC.Username);
+                _log.Info("Field username found and value : '" + configTC.Username + "' enter");
                 taskFieldUsername.SetResult(Result.PASSED);
             }
             else
@@ -91,13 +105,13 @@ namespace TestBalanceTonQuizz.Testcases
                 Name = "Field Password",
                 Description = "Set value on username field"
             };
-            taskFieldPassword.SetValue(Config.Password);
-            var fieldPassword = new WebElement("field_password", PathMap);
+            taskFieldPassword.SetValue(configTC.Password);
+            var fieldPassword = new WebElement("field_password_connect", PathMap);
             var fieldPasswordSearched = WebElementManager.FindFirstElement(Driver, fieldPassword);
             if (fieldPasswordSearched != null)
             {
-                fieldPasswordSearched.SendKeys(Config.Password);
-                _log.Info("Field username found and value : '" + Config.Password + "' enter");
+                fieldPasswordSearched.SendKeys(configTC.Password);
+                _log.Info("Field username found and value : '" + configTC.Password + "' enter");
                 taskFieldPassword.SetResult(Result.PASSED);
             }
             else
@@ -110,54 +124,32 @@ namespace TestBalanceTonQuizz.Testcases
             taskFieldPassword.CloseTask();
             Tasks.Add(taskFieldPassword);
 
-            // field Confirm Password
-            var taskFieldConfPassword = new Task()
-            {
-                Name = "Field confirm password",
-                Description = "Set value on username field"
-            };
-            taskFieldConfPassword.SetValue(Config.Password);
-            var fieldConfirmPassword = new WebElement("field_ConfirmPassword", PathMap);
-            var fieldConfirmPasswordSearched = WebElementManager.FindFirstElement(Driver, fieldConfirmPassword);
-            if (fieldConfirmPasswordSearched != null)
-            {
-                fieldConfirmPasswordSearched.SendKeys(Config.Password);
-                _log.Info("Field username found and value : '" + Config.Password + "' enter");
-                taskFieldConfPassword.SetResult(Result.PASSED);
-            }
-            else
-            {
-                _log.Error("Can't found field confirm username");
-                taskFieldConfPassword.SetErrorMessage("Can't found field confirm password");
-                taskFieldConfPassword.SetResult(Result.ERROR);
-                return false;
-            }
-            taskFieldConfPassword.CloseTask();
-            Tasks.Add(taskFieldConfPassword);
-
             // Button Suscribe
             var taskBtnSuscribeForm = new Task()
             {
-                Name = "Field Username",
-                Description = "Set value on username field"
+                Name = "Button \"Se connecter\"",
+                Description = "Click on button \"Se connecter\""
             };
-            var btn_suscribe = new WebElement("btn_suscribe", PathMap);
-            var btn_suscribe_Searched = WebElementManager.FindFirstElement(Driver, btn_suscribe);
+            var btn_suscribe = new WebElement("Button_connexion", PathMap);
+            var btn_suscribe_Searched = WebElementManager.FindElements(Driver, btn_suscribe).ElementAt(0);
             if (btn_suscribe_Searched != null)
             {
                 btn_suscribe_Searched.Click();
-                _log.Info("Button suscribe on form clicked");
+                _log.Info("Button \"Se connecter\" on form clicked");
                 taskBtnSuscribeForm.SetResult(Result.PASSED);
             }
             else
             {
-                _log.Error("Can't found button suscribe");
-                taskBtnSuscribeForm.SetErrorMessage("Can't found button suscribe");
+                _log.Error("Can't found button \"Se connecter\"");
+                taskBtnSuscribeForm.SetErrorMessage("Can't found button \"Se connecter\"");
                 taskBtnSuscribeForm.SetResult(Result.ERROR);
                 return false;
             }
             taskBtnSuscribeForm.CloseTask();
             Tasks.Add(taskBtnSuscribeForm);
+
+
+
 
             // Check button disconect is displayed
             var taskCheckConnected = new Task()

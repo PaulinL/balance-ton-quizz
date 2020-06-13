@@ -5,6 +5,28 @@
 		<id>mat-list-item-content</id>
 		<type>Class</type>
 	</Node>
+  <Node>
+    <name>ButtonConnect</name>
+    <id>mat-list-item-content</id>
+    <type>Class</type>
+  </Node>
+
+  <Node>
+    <name>field_username_connect</name>
+    <id>mat-input-19</id>
+    <type>Id</type>
+  </Node>
+  <Node>
+    <name>field_password_connect</name>
+    <id>mat-input-20</id>
+    <type>Id</type>
+  </Node>
+  <Node>
+    <name>Button_connexion</name>
+    <id>mat-button-wrapper</id>
+    <type>Class</type>
+  </Node>
+  
 	<Node>
 		<name>field_username</name>
 		<id>mat-input-0</id>
@@ -25,5 +47,10 @@
 		<id>mat-button-wrapper</id>
 		<type>Class</type>
 	</Node>
+  <Node>
+    <name>btn_disconnect</name>
+    <id>mat-list-item-ripple</id>
+    <type>Class</type>
+  </Node>
 </Nodes>
 		
