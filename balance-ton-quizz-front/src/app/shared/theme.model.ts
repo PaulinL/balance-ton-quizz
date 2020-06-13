@@ -1,4 +1,5 @@
 export interface Theme {
-  id?: bigint,
+  id?: bigint;
   title: string;
+  imageName?: string;
 }
