@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Getter
@@ -20,6 +21,7 @@ public class User {
     private String username;
 
     @Column
+    @NotNull
     @JsonIgnore
     private String password;
 
