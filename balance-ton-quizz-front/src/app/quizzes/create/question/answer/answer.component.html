@@ -1,4 +1,5 @@
 <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px" [formGroup]="answerForm">
+  <ng-content></ng-content>
   <mat-form-field fxFlex>
     <mat-label>Réponse n°{{index}}</mat-label>
     <input matInput formControlName="label" required>

@@ -8,6 +8,8 @@ import {ThemeService} from '../../services/theme.service';
 import {Theme} from '../../shared/theme.model';
 import {environment} from '../../../environments/environment';
 import {ImageService} from '../../services/image.service';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import {Question} from '../../shared/question.model';
 
 @Component({
   selector: 'app-create',
@@ -125,6 +127,13 @@ export class CreateComponent implements OnInit {
 
   selectCard(theme: Theme) {
     this.selectedTheme = theme;
+  }
+
+  drop(event: CdkDragDrop<Question[]>) {
+    moveItemInArray(
+      ((this.quizzForm.controls.questions as FormArray).controls as FormGroup[]),
+      event.previousIndex, event.currentIndex
+    );
   }
 }
 

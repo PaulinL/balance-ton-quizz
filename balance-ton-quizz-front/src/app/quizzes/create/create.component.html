@@ -26,10 +26,18 @@
               </div>
               <img class="question-img" src="assets/question.svg" fxHide.lt-md="true">
             </div>
-            <app-question *ngFor="let questionForm of getQuestions(); index as i"
-                          [questionForm]="questionForm"
-                          [index]="(i + 1)"
-                          (deleteQuestion)="deleteQuestion(i)"></app-question>
+            <div class="question-list" cdkDropList (cdkDropListDropped)="drop($event)" fxLayout="column" fxLayoutGap="10px">
+              <app-question *ngFor="let questionForm of getQuestions(); index as i"
+                            [questionForm]="questionForm"
+                            [index]="(i + 1)"
+                            (deleteQuestion)="deleteQuestion(i)"
+                            class="question-item"
+                            cdkDrag
+                            cdkDragBoundary=".question-list">
+                <mat-icon class="drag-handle" cdkDragHandle>drag_indicator</mat-icon>
+              </app-question>
+            </div>
+
             <div fxLayout="row" class="button-container">
               <button mat-stroked-button color="primary" (click)="addEmptyQuestion()" type="button">
                 <mat-icon>add_circle_outline</mat-icon>
@@ -58,7 +66,7 @@
 
         <div class="themeContainer" fxLayout="row wrap" fxLayoutGap="10px grid">
           <div *ngFor="let theme of themes" fxFlex.gt-md="25" fxFlex="33.333">
-            <mat-card (click)="selectCard(theme)" [class.selectedTheme]="theme === selectedTheme">
+            <mat-card (click)="selectCard(theme)" [class.selectedTheme]="theme === selectedTheme" class="theme-card">
               <img *ngIf="theme.imageName" mat-card-image [src]="getImageUrl(theme)">
               <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
                 <div>{{theme.title}}</div>
@@ -67,14 +75,6 @@
             </mat-card>
           </div>
         </div>
-
-
-<!--
-        <mat-radio-group [(ngModel)]="selectedTheme" aria-label="Selectionnez un theme" fxLayout="column">
-          <mat-radio-button *ngFor="let theme of themes | themeTitleFilter: searchText;" [value]="theme">{{theme.title}}</mat-radio-button>
-        </mat-radio-group>
--->
-
 
         <div fxLayout="row" class="button-container">
           <button mat-stroked-button color="primary" matStepperPrevious>Retour

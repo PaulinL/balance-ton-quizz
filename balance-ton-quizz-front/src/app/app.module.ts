@@ -37,6 +37,7 @@ import { QuizzPreviewComponent } from './quizzes/create-answer/quizz-preview/qui
 import { ThemeFilterPipe } from './search-quizz/theme-filter.pipe';
 import { QuestionAnswerComponent } from './quizzes/create-answer/question-answer/question-answer.component';
 import {ClipboardModule} from '@angular/cdk/clipboard';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -79,6 +80,7 @@ import {ClipboardModule} from '@angular/cdk/clipboard';
     FormsModule,
     MatChipsModule,
     ClipboardModule,
+    DragDropModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

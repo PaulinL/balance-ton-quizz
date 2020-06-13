@@ -1,5 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import {Question} from '../../../shared/question.model';
+import {Answer} from '../../../shared/answer.model';
 
 @Component({
   selector: 'app-question',
@@ -77,5 +80,12 @@ export class QuestionComponent implements OnInit {
       index++;
     }
     return null;
+  }
+
+  drop(event: CdkDragDrop<Answer[]>) {
+    moveItemInArray(
+      ((this.questionForm.controls.answers as FormArray).controls as FormGroup[]),
+      event.previousIndex, event.currentIndex
+    );
   }
 }
