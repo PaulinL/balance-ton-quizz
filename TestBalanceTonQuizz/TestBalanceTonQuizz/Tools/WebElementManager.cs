@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -39,6 +40,27 @@ namespace TestBalanceTonQuizz.Tools
             else
             {
                 _log.Error("Element not found, element name : " + element.Name + " id : " + element.Id);
+                return null;
+            }
+        }
+
+
+        public static ReadOnlyCollection<IWebElement> FindElements(IWebDriver driver, WebElement element)
+        {
+            var condition = "";
+            if (element.Type.Equals(WebElementType.Class))
+                condition = "." + element.Id;
+            else if (element.Type.Equals(WebElementType.Id))
+                condition = "#" + element.Id;
+            else if (element.Type.Equals(WebElementType.Tag))
+                condition = element.Id;
+
+            var retour = driver.FindElements(By.CssSelector(condition));
+            if (retour != null)
+                return retour;
+            else
+            {
+                _log.Error("Elements not found, element name : " + element.Name + " id : " + element.Id);
                 return null;
             }
         }

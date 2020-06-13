@@ -44,7 +44,7 @@ namespace TestBalanceTonQuizz
             
             // load config
             _configLoader = new ConfigLoader();
-            var config = _configLoader.LoadConfig(Path.Combine(Environment.CurrentDirectory, "config.xml"));
+            var config = _configLoader.LoadGlobalConfig(Path.Combine(Environment.CurrentDirectory, "config.xml"));
             _reportManager = new ReportManager();
 
             // open navigator to site
@@ -56,7 +56,10 @@ namespace TestBalanceTonQuizz
             
             // declaration of all TestCase
             campaign = new TestCampaign();
-            campaign.TestCases.Add(new LoginTestCase(driver, Path.Combine(Environment.CurrentDirectory, "Maps", "homeMap.xml"), config));
+            campaign.TestCases.Add(new SuscribeTestcase(driver, Path.Combine(Environment.CurrentDirectory, "Maps", "homeMap.xml")));
+            campaign.TestCases.Add(new LogoutTestcase(driver, Path.Combine(Environment.CurrentDirectory, "Maps", "homeMap.xml")));
+            campaign.TestCases.Add(new LoginTestCase(driver, Path.Combine(Environment.CurrentDirectory, "Maps", "homeMap.xml")));
+            campaign.TestCases.Add(new CreateQuizzTestcase(driver, Path.Combine(Environment.CurrentDirectory, "Maps", "create_quizz_Map.xml")));
 
             // play testcase
             var listTestcaseName = getAllTestCaseName(jsonFile);
@@ -64,6 +67,7 @@ namespace TestBalanceTonQuizz
             {
                 var tc = campaign.TestCases.First(x => x.Name.Equals(tcName));
 
+                tc.LoadConfigTC();
                 tc.StartTestCase();
                 tc.Execute();
                 tc.CloseTestCase();

@@ -144,6 +144,8 @@ namespace TestBalanceTonQuizz.Report
             html += "<table>" + "\n";
             html += "   <thead>" + "\n";
             html += "       <th>Task</th>" + "\n";
+            html += "       <th>Start date</th>" + "\n";
+            html += "       <th>End date</th>" + "\n";
             html += "       <th>Result</th>" + "\n";
             html += "       <th>Value</th>" + "\n";
             html += "   </thead>" + "\n";
@@ -159,8 +161,10 @@ namespace TestBalanceTonQuizz.Report
                     html += "       <tr class=\"error\">" + "\n";
 
                 html += "           <td>" +task.Name + "</td>" + "\n";
+                html += "           <td>" + task.StartDate.ToString("HH:mm:ss") + " </td>" + "\n";
+                html += "           <td>" + task.EndDate.ToString("HH:mm:ss") + " </td>" + "\n";
                 html += "           <td>" + task.Result + "</td>" + "\n";
-                if(task.ListValue.Count != 0)
+                if (task.ListValue.Count != 0)
                 {
                     html += "       <td>" + "\n";
                     html += "           <ul>" + "\n";
@@ -171,6 +175,8 @@ namespace TestBalanceTonQuizz.Report
                     html += "           </ul>" + "\n";
                     html += "       </td>" + "\n";
                 }
+                else
+                    html += "<td></td>" + "\n";
             }
 
             html += "   </tbody>" + "\n";
