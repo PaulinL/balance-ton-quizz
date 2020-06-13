@@ -1,0 +1,30 @@
+<div fxLayout="row">
+  <div fxFlex="25" style="border: 1px solid blue;" fxLayout="column" fxLayoutAlign="top center">
+
+    <div class="user-img-container" fxLayoutAlign="center center">
+      <img [src]="user.imageUrl !== undefined && user.imageUrl !== null ? getImageUrl(user) : 'assets/default_avatar.png'"
+           class="user-img"
+      />
+    </div>
+
+    <h1>{{user.username}}</h1>
+    <!-- Edition de l'image -->
+    <div *ngIf="editImage" fxLayout="column" fxLayoutAlign="center center">
+      <app-upload-image  [(file)]="file"></app-upload-image>
+      <div fxLayout="row" style="margin-top: 0.5rem;">
+        <button mat-button (click)="onSubmitImage()">Annuler</button>
+        <button mat-flat-button color="primary" (click)="onSubmitImage()">Valider</button>
+      </div>
+    </div>
+    <button *ngIf="!editImage" mat-button (click)="editImage = !editImage">Modifier l'avatar</button>
+
+  </div>
+  <div fxFlex="75" style="border: 1px solid red">
+    <div>
+      <h2>Parties jouées</h2>
+    </div>
+    <div>
+      <h2>Quizz créés</h2>
+    </div>
+  </div>
+</div>

@@ -33,6 +33,7 @@ import { SearchQuizzComponent } from './search-quizz/search-quizz.component';
 import { QuizzFilterPipe } from './search-quizz/quizz-filter.pipe';
 import {MatChipsModule} from "@angular/material/chips";
 import { ThemeFilterPipe } from './search-quizz/theme-filter.pipe';
+import { ProfileComponent } from './user/profile/profile.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { ThemeFilterPipe } from './search-quizz/theme-filter.pipe';
     RegisterComponent,
     LoginComponent,
     UploadImageComponent,
-    ThemeFilterPipe
+    ThemeFilterPipe,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

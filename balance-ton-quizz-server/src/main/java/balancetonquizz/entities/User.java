@@ -1,10 +1,15 @@
 package balancetonquizz.entities;
 
 import balancetonquizz.dto.UserDto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
 public class User {
 
     @Id
@@ -15,36 +20,16 @@ public class User {
     private String username;
 
     @Column
+    @JsonIgnore
     private String password;
+
+    @Column
+    private String imageUrl;
 
     public User(){}
 
     public User(UserDto userDto) {
         this.username = userDto.getUsername();
         this.password = userDto.getPassword();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }

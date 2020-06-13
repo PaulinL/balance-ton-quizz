@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
           this.loginForm.controls.password.value
         ).toPromise();
         this.authService.setToken((<any>result).token);
+        this.authService.setUser((result as any).user);
         await this.router.navigateByUrl(this.returnUrl);
       } catch (e) {
         if (e.status === 401) {

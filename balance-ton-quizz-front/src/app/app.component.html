@@ -18,6 +18,10 @@
           <mat-icon matListIcon>home</mat-icon>
           Accueil
         </mat-list-item>
+        <mat-list-item *ngIf="isAuthenticated()" [routerLink]="['/profile']" routerLinkActive="active">
+          <mat-icon matListIcon>account_circle</mat-icon>
+          Mon profil
+        </mat-list-item>
         <mat-list-item [routerLink]="['/quizzes/create']" routerLinkActive="active">
           <mat-icon matListIcon>note_add</mat-icon>
           Nouveau quizz
