@@ -26,7 +26,7 @@ Change parameters on server (file : application.properties) to launch serveur
 
 
 ## Automatics Tests
-[![Quality Gate Status](http://localhost:9005/api/project_badges/measure?project=BTQ_TestsAuto&metric=alert_status)](http://localhost:9005/dashboard?id=BTQ_TestsAuto)
+[![Quality Gate Status](http://90.127.230.73:1052/api/project_badges/measure?project=BTQ_TestsAuto&metric=alert_status)](http://90.127.230.73:1052/dashboard?id=BTQ_TestsAuto)
 
 Automatics tests is doing with C# language, it use Framework Selenium to spot and make action with Web element
 Testcases :
