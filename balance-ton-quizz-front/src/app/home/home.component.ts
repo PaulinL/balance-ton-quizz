@@ -4,6 +4,7 @@ import {Quizz} from '../shared/quizz.model';
 import {ThemeService} from '../services/theme.service';
 import {Theme} from '../shared/theme.model';
 import {environment} from "../../environments/environment";
+import {ImageService} from '../services/image.service';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private quizzService: QuizzService,
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    private imageService: ImageService
   ) {
   }
 
@@ -35,7 +37,7 @@ export class HomeComponent implements OnInit {
   }
 
   getImageUrl(quizz: Quizz) {
-    return `${environment.backendUrl}/images/${quizz.imageName}`
+    return this.imageService.getImageUrl(quizz.imageName);
   }
 
   // recoit la recherche pour filtrer les quizz

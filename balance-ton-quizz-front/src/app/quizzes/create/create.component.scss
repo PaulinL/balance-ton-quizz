@@ -1,3 +1,21 @@
 ::ng-deep .mat-horizontal-stepper-header {
   pointer-events: none !important;
 }
+
+.copy-button {
+  cursor: pointer;
+}
+
+.link-input {
+  width: 350px;
+}
+
+.share-link-img {
+  margin-top: 20px;
+  width: 80%;
+}
+
+.question-img {
+  max-height: 200px;
+  margin: 20px;
+}

@@ -1,13 +1,14 @@
 <mat-card class="quizz-preview-card">
   <mat-card-content fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start center">
     <img
+      [src]="getImageUrl(quizz)"
+      *ngIf="quizz.imageName"
       class="quizz-preview-img"
-      src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-      alt="Photo of a Shiba Inu">
+    >
     <div>
-      <mat-card-title>Ceci est le titre du quizz !</mat-card-title>
-      <mat-card-subtitle>Ceci est une description assez complete du quizz ou j'essaye d'en ecrire un max</mat-card-subtitle>
-      <button mat-flat-button color="primary">Répondre au quizz</button>
+      <mat-card-title>{{quizz.title}}</mat-card-title>
+      <mat-card-subtitle>{{quizz.description}}</mat-card-subtitle>
+      <button mat-flat-button color="primary" (click)="onAnswerQuizz()">Répondre au quizz</button>
     </div>
   </mat-card-content>
 </mat-card>

@@ -1,10 +1,20 @@
-<div fxLayout="row" fxLayoutAlign="center">
+<div fxLayout="row" fxLayoutAlign="center" class="create-answer-container">
   <div fxFlex.xs="100"
        fxFlex.sm="100"
        fxFlex.md="100"
        fxFlex.lg="960px"
        fxFlex.xl="1140px"
-       fxLayoutAlign="center center">
-    <app-quizz-preview></app-quizz-preview>
+       fxLayoutAlign.gt-sm="center center"
+       fxLayoutAlign.lt-md="center start">
+    <app-quizz-preview
+      [quizz]="quizz"
+      *ngIf="currentQuestionIndex === -1  && quizz"
+      (answerQuizz)="onQuizzStart()"></app-quizz-preview>
+    <app-question-answer
+      [question]="quizz.questions[currentQuestionIndex]"
+      *ngIf="currentQuestionIndex !== -1"
+      (answerQuestion)="onQuestionAnswer($event)"
+      [index]="currentQuestionIndex + 1"
+      [nbQuestions]="quizz.questions.length"></app-question-answer>
   </div>
 </div>

@@ -1,0 +1,22 @@
+<mat-card class="question-answer">
+  <mat-card-title>Question n°{{index}}/{{nbQuestions}}</mat-card-title>
+  <mat-card-content fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="stretch center">
+    <div fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="start stretch" fxFlex>
+      <div class="question-label">{{question.label}}</div>
+      <div class="question-choice-label">Votre choix :</div>
+      <div *ngIf="question.multiple; else notMultiple" fxLayout="column" fxLayoutGap="5px">
+        <mat-checkbox *ngFor="let answer of questionAnswers" [(ngModel)]="answer.checked">
+          {{answer.answer.label}}
+        </mat-checkbox>
+      </div>
+      <ng-template #notMultiple>
+        <mat-radio-group [(ngModel)]="selectedAnswer" fxLayout="column" fxLayoutGap="5px">
+          <mat-radio-button *ngFor="let answer of question.answers">{{answer.label}}</mat-radio-button>
+        </mat-radio-group>
+      </ng-template>
+      <div fxLayout="row" fxLayoutAlign="end">
+        <button mat-flat-button color="primary" (click)="onAnswerQuestion()">{{index === nbQuestions ? "Terminer" : "Question suivante"}}</button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

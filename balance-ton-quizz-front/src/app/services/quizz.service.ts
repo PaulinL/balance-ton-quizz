@@ -10,6 +10,7 @@ import {Observable} from "rxjs";
 export class QuizzService {
 
   private readonly endpoint = environment.backendUrl;
+  private readonly frontEndpoint = environment.frontendUrl;
 
   constructor(private http: HttpClient) {
   }
@@ -24,5 +25,9 @@ export class QuizzService {
 
   getQuizzById(quizzId: string) {
     return this.http.get<Quizz>(`${this.endpoint}/quizzes/${quizzId}`);
+  }
+
+  getQuizzUrl(quizzId: string) {
+    return `${this.frontEndpoint}/quizzes/${quizzId}/answer`;
   }
 }

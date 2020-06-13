@@ -12,15 +12,20 @@
             Créer un quizz
           </mat-card-title>
           <form [formGroup]="quizzForm" (submit)="onSubmitQuizz(quizzForm.value)" fxLayout="column" fxLayoutGap="10px">
-            <mat-form-field>
-              <mat-label>Titre</mat-label>
-              <input matInput required type="text" formControlName="title">
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Description</mat-label>
-              <textarea formControlName="description" matInput></textarea>
-            </mat-form-field>
-            <app-upload-image [(file)]="file"></app-upload-image>
+            <div fxLayout="row">
+              <div fxLayout="column" fxFlex fxLayoutAlign="space-between">
+                <mat-form-field>
+                  <mat-label>Titre</mat-label>
+                  <input matInput required type="text" formControlName="title">
+                </mat-form-field>
+                <mat-form-field fxFlex>
+                  <mat-label>Description</mat-label>
+                  <textarea formControlName="description" matInput></textarea>
+                </mat-form-field>
+                <app-upload-image [(file)]="file"></app-upload-image>
+              </div>
+              <img class="question-img" src="assets/question.svg" fxHide.lt-md="true">
+            </div>
             <app-question *ngFor="let questionForm of getQuestions(); index as i"
                           [questionForm]="questionForm"
                           [index]="(i + 1)"
@@ -62,7 +67,15 @@
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>Confirmation</ng-template>
-        <a [routerLink]="url">Repondre a ce quizz</a>
+        <div fxLayout="column" fxLayoutAlign="start center">
+          <p>Il est maintenant temps de la partager avec vos amis avec ce lien !</p>
+          <mat-form-field appearance="outline" class="link-input">
+            <mat-label>Lien du quizz</mat-label>
+            <input matInput [value]="url">
+            <mat-icon class="copy-button" matSuffix [cdkCopyToClipboard]="url">content_copy</mat-icon>
+          </mat-form-field>
+          <img class="share-link-img" src="assets/share_link.svg">
+        </div>
       </mat-step>
     </mat-horizontal-stepper>
   </div>

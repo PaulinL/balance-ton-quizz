@@ -28,7 +28,7 @@
       <mat-card-title>{{quizz.title}}</mat-card-title>
       <mat-card-subtitle>{{quizz.theme.title}}</mat-card-subtitle>
       <mat-card-actions>
-        <button mat-button>Répondre</button>
+        <a mat-flat-button [routerLink]="'/quizzes/' + quizz.id + '/answer'">Répondre</a>
       </mat-card-actions>
     </mat-card>
   </div>

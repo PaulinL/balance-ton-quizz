@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {Quizz} from "../../shared/quizz.model";
-import {QuizzService} from "../../services/quizz.service";
-import {Router} from "@angular/router";
-import {ToastrService} from "ngx-toastr";
-import {ThemeService} from "../../services/theme.service";
-import {Theme} from "../../shared/theme.model";
-import {environment} from "../../../environments/environment";
-import {ImageService} from "../../services/image.service";
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {Quizz} from '../../shared/quizz.model';
+import {QuizzService} from '../../services/quizz.service';
+import {Router} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
+import {ThemeService} from '../../services/theme.service';
+import {Theme} from '../../shared/theme.model';
+import {environment} from '../../../environments/environment';
+import {ImageService} from '../../services/image.service';
 
 @Component({
   selector: 'app-create',
@@ -51,7 +51,7 @@ export class CreateComponent implements OnInit {
 
   addEmptyQuestion() {
     (this.quizzForm.controls.questions as FormArray).push(new FormGroup({
-      title: new FormControl('', Validators.required),
+      label: new FormControl('', Validators.required),
       multiple: new FormControl(false),
       answers: new FormArray([])
     }));
@@ -76,10 +76,9 @@ export class CreateComponent implements OnInit {
             });
           }
           this.quizz.imageName = res.fileName as string;
-          this.toastrService.success("Image envoyée");
         }, error => {
-          this.toastrService.error("Upload de l'image impossible");
-          console.error(error)
+          this.toastrService.error('Upload de l\'image impossible');
+          console.error(error);
         });
       }
     }
@@ -90,9 +89,9 @@ export class CreateComponent implements OnInit {
       this.quizz.theme = this.selectedTheme;
       try {
         const result = await this.quizzService.createQuizz(this.quizz).toPromise();
-        this.url = result.url
+        this.url = this.quizzService.getQuizzUrl(result.quizzId);
       } catch (e) {
-        this.toastrService.error("Une erreur est survenue")
+        this.toastrService.error('Une erreur est survenue');
       }
     }
   }
@@ -101,14 +100,14 @@ export class CreateComponent implements OnInit {
     this.searchText = $event;
   }
 
-  async createTheme(){
-    if(this.searchText){
+  async createTheme() {
+    if (this.searchText) {
       try {
         const createdThemeId = await this.themeService.postTheme(this.searchText).toPromise();
         this.toastrService.success('Thème créé');
         // Reload
         this.themeService.getAllThemes().subscribe(themes => {
-          console.log(themes)
+          console.log(themes);
           this.themes = themes;
           // Select theme
           this.selectedTheme = this.themes.find(theme => theme.id === createdThemeId);

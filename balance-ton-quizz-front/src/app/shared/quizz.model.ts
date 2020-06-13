@@ -4,8 +4,9 @@ import {Theme} from "./theme.model";
 export interface Quizz {
   id?: number;
   title: string;
+  description?: string;
   creator: string;
-  question: Question[];
+  questions: Question[];
   theme: Theme;
   imageName?: string;
 }

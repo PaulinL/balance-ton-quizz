@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
+import {Quizz} from '../shared/quizz.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +21,9 @@ export class ImageService {
 
   removeImage(imageName: string) {
     return this.http.delete(`${this.endpoint}/images/${imageName}`);
+  }
+
+  getImageUrl(imageName: string) {
+    return `${environment.backendUrl}/images/${imageName}`;
   }
 }

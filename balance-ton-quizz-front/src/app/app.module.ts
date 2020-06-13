@@ -35,6 +35,8 @@ import {MatChipsModule} from "@angular/material/chips";
 import { CreateAnswerComponent } from './quizzes/create-answer/create-answer.component';
 import { QuizzPreviewComponent } from './quizzes/create-answer/quizz-preview/quizz-preview.component';
 import { ThemeFilterPipe } from './search-quizz/theme-filter.pipe';
+import { QuestionAnswerComponent } from './quizzes/create-answer/question-answer/question-answer.component';
+import {ClipboardModule} from '@angular/cdk/clipboard';
 
 
 @NgModule({
@@ -49,7 +51,11 @@ import { ThemeFilterPipe } from './search-quizz/theme-filter.pipe';
     QuizzFilterPipe,
     RegisterComponent,
     LoginComponent,
-    UploadImageComponent
+    UploadImageComponent,
+    ThemeFilterPipe,
+    QuizzPreviewComponent,
+    CreateAnswerComponent,
+    QuestionAnswerComponent
   ],
   imports: [
     BrowserModule,
@@ -72,6 +78,7 @@ import { ThemeFilterPipe } from './search-quizz/theme-filter.pipe';
     MatRadioModule,
     FormsModule,
     MatChipsModule,
+    ClipboardModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
