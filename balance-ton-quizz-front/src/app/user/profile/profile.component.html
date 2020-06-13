@@ -2,7 +2,7 @@
   <div fxFlex="25" style="border: 1px solid blue;" fxLayout="column" fxLayoutAlign="top center">
 
     <div class="user-img-container" fxLayoutAlign="center center">
-      <img [src]="user.imageUrl !== undefined && user.imageUrl !== null ? getImageUrl(user) : 'assets/default_avatar.png'"
+      <img [src]="user.imageUrl !== undefined && user.imageUrl !== null ? getImageUrlUser(user) : 'assets/default_avatar.png'"
            class="user-img"
       />
     </div>
@@ -21,10 +21,35 @@
   </div>
   <div fxFlex="75" style="border: 1px solid red">
     <div>
-      <h2>Parties jouées</h2>
+      <h2>Score</h2>
+
     </div>
     <div>
       <h2>Quizz créés</h2>
+      <div fxLayout="row wrap" fxLayoutGap="10px grid" *ngIf="user.quizzList.length > 0; else noQuizz">
+        <div *ngFor="let quizz of user.quizzList " fxFlex.gt-md="25" fxFlex="33.333">
+          <mat-card>
+            <img *ngIf="quizz.imageName" mat-card-image [src]="getImageUrlQuizz(quizz)">
+            <mat-card-title>{{quizz.title}}</mat-card-title>
+            <mat-card-subtitle>{{quizz.theme.title}}</mat-card-subtitle>
+            <mat-card-actions>
+              <button mat-stroked-button class="icon-button">
+                <mat-icon>edit</mat-icon>
+                Modifier
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+      <ng-template #noQuizz>
+        <div fxLayout="row">
+          <p>Créez votre premier Quizz</p>
+          <button mat-flat-button color="primary" [routerLink]="['/quizzes/create']" class="icon-button">
+            <mat-icon>arrow_forward</mat-icon>
+            Go!
+          </button>
+        </div>
+      </ng-template>
     </div>
   </div>
 </div>

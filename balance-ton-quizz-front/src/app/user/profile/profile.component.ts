@@ -49,8 +49,12 @@ export class ProfileComponent implements OnInit {
     this.editImage = false;
   }
 
-  getImageUrl(user: User) {
+  getImageUrlUser(user: User) {
     return `${environment.backendUrl}/images/${user.imageUrl}`;
+  }
+
+  getImageUrlQuizz(quizz: Quizz) {
+    return `${environment.backendUrl}/images/${quizz.imageName}`;
   }
 
 }
