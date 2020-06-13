@@ -34,6 +34,7 @@ import { QuizzFilterPipe } from './search-quizz/quizz-filter.pipe';
 import {MatChipsModule} from "@angular/material/chips";
 import { ThemeFilterPipe } from './search-quizz/theme-filter.pipe';
 import { ProfileComponent } from './user/profile/profile.component';
+import {MatTabsModule} from "@angular/material/tabs";
 
 
 @NgModule({
@@ -52,28 +53,29 @@ import { ProfileComponent } from './user/profile/profile.component';
     ThemeFilterPipe,
     ProfileComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatSidenavModule,
-    FlexLayoutModule,
-    MatListModule,
-    MatIconModule,
-    HttpClientModule,
-    MatCardModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatSlideToggleModule,
-    MatCheckboxModule,
-    ToastrModule.forRoot(),
-    MatStepperModule,
-    MatRadioModule,
-    FormsModule,
-    MatChipsModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatSidenavModule,
+        FlexLayoutModule,
+        MatListModule,
+        MatIconModule,
+        HttpClientModule,
+        MatCardModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatSlideToggleModule,
+        MatCheckboxModule,
+        ToastrModule.forRoot(),
+        MatStepperModule,
+        MatRadioModule,
+        FormsModule,
+        MatChipsModule,
+        MatTabsModule,
+    ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
