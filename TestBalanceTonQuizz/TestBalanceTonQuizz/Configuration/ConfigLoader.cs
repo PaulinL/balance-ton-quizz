@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Xml.Linq;
 
 namespace TestBalanceTonQuizz.Configuration
@@ -26,6 +23,7 @@ namespace TestBalanceTonQuizz.Configuration
         private const string NODE_CREATEQUIZZTC = "createQuizzTestcase";
         private const string NODE_TITLEQUIZZ = "title";
         private const string NODE_DESCQUIZZ = "description";
+        private const string NODE_PATHPICTURE = "pathPicture";
         private const string NODE_THEME = "theme";
         private const string NODE_Q1 = "question1";
         private const string NODE_R1 = "reponse1";
@@ -112,6 +110,7 @@ namespace TestBalanceTonQuizz.Configuration
             {
                 TitleQuizz = root.Element(NODE_TESTCASES).Element(NODE_CREATEQUIZZTC).Element(NODE_TITLEQUIZZ).Value,
                 DescriptionQuizz = root.Element(NODE_TESTCASES).Element(NODE_CREATEQUIZZTC).Element(NODE_DESCQUIZZ).Value,
+                PathPicture = root.Element(NODE_TESTCASES).Element(NODE_CREATEQUIZZTC).Element(NODE_PATHPICTURE).Value,
                 Theme = root.Element(NODE_TESTCASES).Element(NODE_CREATEQUIZZTC).Element(NODE_THEME).Value,
                 Question1 = root.Element(NODE_TESTCASES).Element(NODE_CREATEQUIZZTC).Element(NODE_Q1).Value,
             };

@@ -53,10 +53,10 @@
 
         <div class="themeContainer" fxLayout="row wrap" fxLayoutGap="10px grid">
           <div *ngFor="let theme of themes" fxFlex.gt-md="25" fxFlex="33.333">
-            <mat-card (click)="selectCard(theme)" [class.selectedTheme]="theme === selectedTheme">
+            <mat-card class="theme" (click)="selectCard(theme)" [class.selectedTheme]="theme === selectedTheme">
               <img *ngIf="theme.imageName" mat-card-image [src]="getImageUrl(theme)">
               <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
-                <div>{{theme.title}}</div>
+                <div class="titleTheme">{{theme.title}}</div>
                 <mat-icon *ngIf="theme === selectedTheme">check_box</mat-icon>
               </mat-card-title>
             </mat-card>

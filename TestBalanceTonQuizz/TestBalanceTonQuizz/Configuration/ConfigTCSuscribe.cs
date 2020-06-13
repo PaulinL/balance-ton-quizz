@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TestBalanceTonQuizz.Configuration
+﻿namespace TestBalanceTonQuizz.Configuration
 {
     public class ConfigTCSuscribe
     {

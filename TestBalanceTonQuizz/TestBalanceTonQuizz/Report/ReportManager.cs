@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
-using System.Text;
+using TestBalanceTonQuizz.Configuration;
 using TestBalanceTonQuizz.Entities;
 using TestBalanceTonQuizz.Enums;
-using TestBalanceTonQuizz.Testcases;
 
 namespace TestBalanceTonQuizz.Report
 {
@@ -15,7 +14,6 @@ namespace TestBalanceTonQuizz.Report
     {
         private static string pathReportFolder;
         private static string pathFileStyle;
-        private static string NameCampaignResultFile;
         private static string html;
 
         public ReportManager()
@@ -33,6 +31,16 @@ namespace TestBalanceTonQuizz.Report
             CreatePageCampaign(testCampaign);
             CreateAllTCPage(testCampaign);
         } 
+
+        /// <summary>
+        /// To open report on navigator
+        /// </summary>
+        public void OpenReport(Config config, TestCampaign campaign)
+        {
+            var param = new ProcessStartInfo(Path.Combine("C:\\Program Files\\Internet Explorer\\iexplore.exe"));
+            param.Arguments = Path.Combine(pathReportFolder, "Report_testCampaign_" + campaign.StartDate.ToString("yyyy_MM_dd_HH_mm_ss") + ".html");
+            System.Diagnostics.Process.Start(param);
+        }
 
         /// <summary>
         /// To creat html result page for a test campaign

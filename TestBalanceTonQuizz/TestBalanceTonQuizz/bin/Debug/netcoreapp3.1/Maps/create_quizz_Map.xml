@@ -8,19 +8,19 @@
   
 	<Node>
 		<name>Field-title</name>
-		<id>mat-input-2</id>
-		<type>Id</type>
+		<id>input</id>
+		<type>Tag</type>
 	</Node>
   <Node>
     <name>Field-description</name>
-    <id>mat-input-3</id>
-    <type>Id</type>
+    <id>textarea</id>
+    <type>Tag</type>
   </Node>
   
   <Node>
     <name>Field-question-1</name>
-    <id>mat-input-4</id>
-    <type>Id</type>
+    <id>input</id>
+    <type>Tag</type>
   </Node>
   <Node>
     <name>Btn-multiple-answers</name>
@@ -29,13 +29,13 @@
   </Node>
   <Node>
     <name>Field-answer-1</name>
-    <id>mat-input-14</id>
-    <type>Id</type>
+    <id>input</id>
+    <type>Tag</type>
   </Node>
   <Node>
     <name>Field-answer-1-2</name>
-    <id>mat-input-6</id>
-    <type>Id</type>
+    <id>input</id>
+    <type>Tag</type>
   </Node>
   <Node>
     <name>Radio-btn-correct-answer</name>
@@ -51,30 +51,35 @@
   
   <Node>
     <name>Field-question-2</name>
-    <id>mat-input-16</id>
-    <type>Id</type>
+    <id>input</id>
+    <type>Tag</type>
   </Node>
   <Node>
     <name>Field-answer-2</name>
-    <id>mat-input-17</id>
-    <type>Id</type>
+    <id>input</id>
+    <type>Tag</type>
   </Node>
  
 
   <Node>
     <name>Btn-continue</name>
-    <id>mat-button-wrapper</id>
+    <id>button</id>
+    <type>Tag</type>
+  </Node>
+  <Node>
+    <name>theme-card</name>
+    <id>theme</id>
     <type>Class</type>
   </Node>
   <Node>
-    <name>Radio-btn-theme</name>
-    <id>mat-radio-outer-circle</id>
+    <name>theme-card-title</name>
+    <id>titleTheme</id>
     <type>Class</type>
   </Node>
   <Node>
     <name>Btn-create</name>
-    <id>mat-button-wrapper</id>
-    <type>Class</type>
+    <id>button</id>
+    <type>Tag</type>
   </Node>
   <Node>
     <name>Btn-home</name>

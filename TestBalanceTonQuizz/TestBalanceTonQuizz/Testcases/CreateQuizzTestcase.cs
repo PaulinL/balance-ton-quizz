@@ -1,11 +1,8 @@
 ﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Transactions;
 using TestBalanceTonQuizz.Configuration;
 using TestBalanceTonQuizz.Entities;
 using TestBalanceTonQuizz.Enums;
@@ -34,7 +31,7 @@ namespace TestBalanceTonQuizz.Testcases
         /// </summary>
         public override void LoadConfigTC()
         {
-            configTC = ConfigLoader.LoadConfigTCCreateQuizz(Path.Combine(Environment.CurrentDirectory, "confix.xml"));
+            configTC = ConfigLoader.LoadConfigTCCreateQuizz(Path.Combine(Environment.CurrentDirectory, "config.xml"));
         }
 
         #endregion
@@ -82,7 +79,7 @@ namespace TestBalanceTonQuizz.Testcases
             };
             taskFieldTitleQuizz.SetValue(configTC.TitleQuizz);
             var fieldTitle = new WebElement("Field-title", PathMap);
-            var fieldtitleSearched = WebElementManager.FindFirstElement(Driver, fieldTitle);
+            var fieldtitleSearched = WebElementManager.FindElements(Driver, fieldTitle).ElementAt(0);
             if (fieldtitleSearched != null)
             {
                 fieldtitleSearched.SendKeys(configTC.TitleQuizz);
@@ -107,10 +104,10 @@ namespace TestBalanceTonQuizz.Testcases
             };
             taskFieldTitleQuizz.SetValue(configTC.DescriptionQuizz);
             var fieldDescription = new WebElement("Field-description", PathMap);
-            var fieldDescriptionSearched = WebElementManager.FindFirstElement(Driver, fieldDescription);
+            var fieldDescriptionSearched = WebElementManager.FindElements(Driver, fieldDescription).ElementAt(0);
             if (fieldDescriptionSearched != null)
             {
-                fieldtitleSearched.SendKeys(configTC.DescriptionQuizz);
+                fieldDescriptionSearched.SendKeys(configTC.DescriptionQuizz);
                 _log.Info("Field description found and value : '" + configTC.DescriptionQuizz + "' enter");
                 taskFieldDescriptionQuizz.SetResult(Result.PASSED);
             }
@@ -124,15 +121,16 @@ namespace TestBalanceTonQuizz.Testcases
             taskFieldDescriptionQuizz.CloseTask();
             Tasks.Add(taskFieldDescriptionQuizz);
 
+
             // Enter first quiestion
-            var taskFieldFirstQuestion= new Task()
+            var taskFieldFirstQuestion = new Task()
             {
                 Name = "Field first question",
                 Description = "Set value of first question field"
             };
             taskFieldFirstQuestion.SetValue(configTC.Question1);
             var fieldfirstquestion = new WebElement("Field-question-1", PathMap);
-            var fieldfirstquestionSearched = WebElementManager.FindFirstElement(Driver, fieldfirstquestion);
+            var fieldfirstquestionSearched = WebElementManager.FindElements(Driver, fieldfirstquestion).ElementAt(2);
             if (fieldfirstquestionSearched != null)
             {
                 fieldfirstquestionSearched.SendKeys(configTC.Question1);
@@ -181,7 +179,7 @@ namespace TestBalanceTonQuizz.Testcases
             };
             taskEnterFirstAnswer.SetValue(configTC.Reponse1.ElementAt(0));
             var fieldFirstAnswer = new WebElement("Field-answer-1", PathMap);
-            var fieldFirstAnswerSearched = WebElementManager.FindFirstElement(Driver, fieldFirstAnswer);
+            var fieldFirstAnswerSearched = WebElementManager.FindElements(Driver, fieldFirstAnswer).ElementAt(4);
             if (fieldFirstAnswerSearched != null)
             {
                 fieldFirstAnswerSearched.SendKeys(configTC.Reponse1.ElementAt(0));
@@ -206,7 +204,7 @@ namespace TestBalanceTonQuizz.Testcases
             };
             taskEnterSecondAnswer.SetValue(configTC.Reponse1.ElementAt(1));
             var fieldSecondAnswer = new WebElement("Field-answer-1-2", PathMap);
-            var fieldSecondAnswerSearched = WebElementManager.FindFirstElement(Driver, fieldSecondAnswer);
+            var fieldSecondAnswerSearched = WebElementManager.FindElements(Driver, fieldSecondAnswer).ElementAt(6);
             if (fieldSecondAnswerSearched != null)
             {
                 fieldSecondAnswerSearched.SendKeys(configTC.Reponse1.ElementAt(1));
@@ -249,82 +247,6 @@ namespace TestBalanceTonQuizz.Testcases
             taskSelectCorrectAnswer.CloseTask();
             Tasks.Add(taskSelectCorrectAnswer);
 
-
-            // Add question button
-            var taskBtnAddQuestion= new Task()
-            {
-                Name = "Button add question",
-                Description = "Click on button add question"
-            };
-            var btnAddQuestion = new WebElement("Btn-add-question", PathMap);
-            var btnAddQuestionSearched = WebElementManager.FindFirstElement(Driver, btnAddQuestion);
-            if (btnAddQuestionSearched != null)
-            {
-                btnAddQuestionSearched.Click();
-                _log.Info("Button add question clicked");
-                taskBtnAddQuestion.SetResult(Result.PASSED);
-            }
-            else
-            {
-                _log.Error("Button add question not found");
-                taskBtnAddQuestion.SetErrorMessage("Button add question not found");
-                taskBtnAddQuestion.SetResult(Result.ERROR);
-                return false;
-            }
-            taskBtnAddQuestion.CloseTask();
-            Tasks.Add(taskBtnAddQuestion);
-
-
-            // Enter second question
-            var taskFieldSecondQuestion = new Task()
-            {
-                Name = "Field second question",
-                Description = "Set value of second question field"
-            };
-            taskFieldSecondQuestion.SetValue(configTC.Question2);
-            var fieldSecondQuestion = new WebElement("Field-question-2", PathMap);
-            var fieldSecondQuestionSearched = WebElementManager.FindFirstElement(Driver, fieldSecondQuestion);
-            if (fieldSecondQuestionSearched != null)
-            {
-                fieldSecondQuestionSearched.SendKeys(configTC.Question2);
-                _log.Info("Field secondquestion found and value : '" + configTC.Question2 + "' enter");
-                taskFieldSecondQuestion.SetResult(Result.PASSED);
-            }
-            else
-            {
-                _log.Error("Can't found field second question");
-                taskFieldSecondQuestion.SetErrorMessage("Can't found field second question");
-                taskFieldSecondQuestion.SetResult(Result.ERROR);
-                return false;
-            }
-            taskFieldSecondQuestion.CloseTask();
-            Tasks.Add(taskFieldSecondQuestion);
-
-            // First answer, second question
-            var taskEnterFirstAnswerQ2 = new Task()
-            {
-                Name = "Second answer, first question",
-                Description = "enter second answer for first question"
-            };
-            taskEnterFirstAnswerQ2.SetValue(configTC.Reponse2.ElementAt(0));
-            var fieldFirstAnswerQ2 = new WebElement("Field-answer-1-2", PathMap);
-            var fieldFirstAnswerQ2Searched = WebElementManager.FindFirstElement(Driver, fieldFirstAnswerQ2);
-            if (fieldFirstAnswerQ2Searched != null)
-            {
-                fieldFirstAnswerQ2Searched.SendKeys(configTC.Reponse2.ElementAt(0));
-                _log.Info("First answer, question 2 value enter : " + configTC.Reponse2.ElementAt(0));
-                taskEnterFirstAnswerQ2.SetResult(Result.PASSED);
-            }
-            else
-            {
-                _log.Error("Can't found field for first answer, second question");
-                taskEnterFirstAnswerQ2.SetErrorMessage("Can't found field for first answer, second question");
-                taskEnterFirstAnswerQ2.SetResult(Result.ERROR);
-                return false;
-            }
-            taskEnterFirstAnswerQ2.CloseTask();
-            Tasks.Add(taskEnterFirstAnswerQ2);
-
             // Button "Continuer"
             var taskBtnContinue = new Task()
             {
@@ -332,9 +254,11 @@ namespace TestBalanceTonQuizz.Testcases
                 Description = "Click on button \"Continuer\" after enter quizz questions"
             };
             var btnContinue = new WebElement("Btn-continue", PathMap);
-            var btnContinueSearched = WebElementManager.FindFirstElement(Driver, btnContinue);
+            var temp = WebElementManager.FindElements(Driver, btnContinue);
+            var btnContinueSearched = temp.ElementAt(5);
             if (btnContinueSearched != null)
             {
+                btnContinueSearched.SendKeys("");
                 btnContinueSearched.Click();
                 _log.Info("Button \"Continuer\" clicked");
                 taskBtnContinue.SetResult(Result.PASSED);
@@ -356,18 +280,24 @@ namespace TestBalanceTonQuizz.Testcases
                 Description = "choose theme for this quizz"
             };
             taskselectTheme.SetValue(configTC.Theme);
-            var radioBtnTheme = new WebElement("Radio-btn-theme", PathMap);
-            var radioBtnThemeSearched = WebElementManager.FindFirstElement(Driver, radioBtnTheme);
-            if (radioBtnThemeSearched != null)
+            var cardTheme = new WebElement("theme-card-title", PathMap);
+            var cardsThemeSearched = WebElementManager.FindElements(Driver, cardTheme);
+            if (cardsThemeSearched != null)
             {
-                radioBtnThemeSearched.Click();
-                _log.Info("Radio buttn of theme " +configTC.Theme +" selected");
-                taskselectTheme.SetResult(Result.PASSED);
+                foreach(var card in cardsThemeSearched)
+                {
+                    if (card.Text.Equals(configTC.Theme))
+                    {
+                        card.Click();
+                        _log.Info("Radio buttn of theme " + configTC.Theme + " selected");
+                        taskselectTheme.SetResult(Result.PASSED);
+                    }
+                }
             }
             else
             {
-                _log.Error("Radio button of theme : " +configTC.Theme +" not found");
-                taskselectTheme.SetErrorMessage("Radio button of theme : " + configTC.Theme + " not found");
+                _log.Error("Theme not found or not exist");
+                taskselectTheme.SetErrorMessage("Theme not found or not exist");
                 taskselectTheme.SetResult(Result.ERROR);
                 return false;
             }
@@ -381,7 +311,7 @@ namespace TestBalanceTonQuizz.Testcases
                 Description = "Click on button \"Créer\""
             };
             var btnCreate = new WebElement("Btn-create", PathMap);
-            var btnCreateSearched = WebElementManager.FindFirstElement(Driver, btnCreate);
+            var btnCreateSearched = WebElementManager.FindElements(Driver, btnCreate).ElementAt(8);
             if (btnCreateSearched != null)
             {
                 btnCreateSearched.Click();

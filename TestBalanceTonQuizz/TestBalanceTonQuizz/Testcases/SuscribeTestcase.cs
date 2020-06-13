@@ -1,11 +1,7 @@
 ﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Transactions;
 using TestBalanceTonQuizz.Configuration;
 using TestBalanceTonQuizz.Entities;
 using TestBalanceTonQuizz.Enums;
@@ -171,32 +167,6 @@ namespace TestBalanceTonQuizz.Testcases
             }
             taskBtnSuscribeForm.CloseTask();
             Tasks.Add(taskBtnSuscribeForm);
-
-            // Check button disconect is displayed
-            var taskCheckConnected = new Task()
-            {
-                Name = "Button disconnect",
-                Description = "check button disconnected is displayed on main page afeter connection."
-            };
-            var btn_disconnect = new WebElement("btn_disconnect", PathMap);
-            var btn_disconnect_Searched = WebElementManager.FindElements(Driver, btn_disconnect).ElementAt(0);
-            if (btn_disconnect_Searched != null)
-            {
-                if(btn_disconnect_Searched.Text.Contains(" Se déconnecter "))
-                {
-                    _log.Info("User connected");
-                    taskBtnSuscribeForm.SetResult(Result.PASSED);
-                }
-            }
-            else
-            {
-                _log.Error("Can't found button disconnect, user not connected");
-                taskCheckConnected.SetErrorMessage("Can't found button disconnect, user not connected");
-                taskCheckConnected.SetResult(Result.ERROR);
-                return false;
-            }
-            taskCheckConnected.CloseTask();
-            Tasks.Add(taskCheckConnected);
 
             return true;
         }

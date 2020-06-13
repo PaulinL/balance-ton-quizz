@@ -4,7 +4,6 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -17,7 +16,7 @@ using TestBalanceTonQuizz.Testcases;
 
 namespace TestBalanceTonQuizz
 {
-    class Program
+    public static class Program
     {
         private static readonly log4net.ILog _log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private static ConfigLoader _configLoader;
@@ -79,11 +78,11 @@ namespace TestBalanceTonQuizz
 
             // build report
             _reportManager.BuildReport(campaign);
+            _reportManager.OpenReport(config, campaign);
 
             _log.Info("End of test");
             _log.Info("Pess any key to exit ...");
             Console.ReadKey();
-            return;
         }
 
         /// <summary>
@@ -126,6 +125,7 @@ namespace TestBalanceTonQuizz
             try
             {
                 driver = new ChromeDriver();
+                driver.Manage().Window.Maximize();
                 driver.Navigate().GoToUrl(url);
                 Thread.Sleep(2000);
                 return true;

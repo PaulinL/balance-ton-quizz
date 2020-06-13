@@ -1,11 +1,7 @@
 ﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Transactions;
 using TestBalanceTonQuizz.Configuration;
 using TestBalanceTonQuizz.Entities;
 using TestBalanceTonQuizz.Enums;

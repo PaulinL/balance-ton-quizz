@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TestBalanceTonQuizz.Configuration
+﻿namespace TestBalanceTonQuizz.Configuration
 {
     /// <summary>
     /// Class contain all properties to test web site

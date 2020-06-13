@@ -1,19 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Config>
-  <Address>https://btq.plambert.dev/</Address>
+  <Address>localhost:4200</Address>
   <testcases>
     <suscribeTestcase>
       <Username>lha17</Username>
       <Password>lha17</Password>
     </suscribeTestcase>
     <loginTestcase>
-      <Username>lha13</Username>
-      <Password>lha13</Password>
+      <Username>lha17</Username>
+      <Password>lha17</Password>
     </loginTestcase>
     <createQuizzTestcase>
       <title>TA_quizz</title>
       <description>Quizz de test pour tests automatique</description>
-      <theme>Histoire de France</theme>
+      <pathPicture>D:\Documents\GITrepos\balance-ton-quizz\TestBalanceTonQuizz\TestBalanceTonQuizz\bin\Debug\netcoreapp3.1\ane.png</pathPicture>
+      <theme>Histoire</theme>
       <question1>Quelle est la vitesse d'un TA</question1>
       <reponse1>Très rapide</reponse1>
       <reponse1.2>Très très rapide</reponse1.2>

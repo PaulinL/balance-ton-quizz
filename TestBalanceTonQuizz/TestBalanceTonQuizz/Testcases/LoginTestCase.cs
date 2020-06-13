@@ -1,11 +1,8 @@
 ﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Transactions;
 using TestBalanceTonQuizz.Configuration;
 using TestBalanceTonQuizz.Entities;
 using TestBalanceTonQuizz.Enums;
@@ -82,7 +79,7 @@ namespace TestBalanceTonQuizz.Testcases
             };
             taskFieldUsername.SetValue(configTC.Username);
             var fieldUsername = new WebElement("field_username_connect", PathMap);
-            var fieldUsernameSearched = WebElementManager.FindFirstElement(Driver, fieldUsername);
+            var fieldUsernameSearched = WebElementManager.FindElements(Driver, fieldUsername).ElementAt(0);
             if (fieldUsernameSearched != null)
             {
                 fieldUsernameSearched.SendKeys(configTC.Username);
@@ -107,7 +104,7 @@ namespace TestBalanceTonQuizz.Testcases
             };
             taskFieldPassword.SetValue(configTC.Password);
             var fieldPassword = new WebElement("field_password_connect", PathMap);
-            var fieldPasswordSearched = WebElementManager.FindFirstElement(Driver, fieldPassword);
+            var fieldPasswordSearched = WebElementManager.FindElements(Driver, fieldPassword).ElementAt(1);
             if (fieldPasswordSearched != null)
             {
                 fieldPasswordSearched.SendKeys(configTC.Password);
@@ -147,32 +144,6 @@ namespace TestBalanceTonQuizz.Testcases
             }
             taskBtnSuscribeForm.CloseTask();
             Tasks.Add(taskBtnSuscribeForm);
-
-
-
-
-            // Check button disconect is displayed
-            var taskCheckConnected = new Task()
-            {
-                Name = "Button disconnect",
-                Description = "check button disconnected is displayed on main page afeter connection."
-            };
-            var btn_disconnect = new WebElement("btn_disconnect", PathMap);
-            var btn_disconnect_Searched = WebElementManager.FindFirstElement(Driver, btn_disconnect);
-            if (btn_disconnect_Searched != null && btn_disconnect_Searched.Text.Equals(" Se déconnecter "))
-            {
-                _log.Info("User connected");
-                taskBtnSuscribeForm.SetResult(Result.PASSED);
-            }
-            else
-            {
-                _log.Error("Can't found button disconnect, user not connected");
-                taskCheckConnected.SetErrorMessage("Can't found button disconnect, user not connected");
-                taskCheckConnected.SetResult(Result.ERROR);
-                return false;
-            }
-            taskCheckConnected.CloseTask();
-            Tasks.Add(taskCheckConnected);
 
             return true;
         }

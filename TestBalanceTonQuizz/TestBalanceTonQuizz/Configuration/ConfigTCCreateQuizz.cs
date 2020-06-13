@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace TestBalanceTonQuizz.Configuration
 {
@@ -8,6 +6,7 @@ namespace TestBalanceTonQuizz.Configuration
     {
         public string TitleQuizz { get; set; }
         public string DescriptionQuizz { get; set; }
+        public string PathPicture { get; set; }
         public string Theme { get; set; }
         public string Question1 { get; set; }
         public List<string> Reponse1 { get; set; }
