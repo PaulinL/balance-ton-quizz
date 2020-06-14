@@ -79,6 +79,9 @@ export class EditComponent implements OnInit {
     if (this.quizzForm.valid) {
       if (this.isUpdate) {
         value.id = this.quizz.id;
+        if (!this.file) {
+          value.imageName = this.quizz.imageName;
+        }
       }
       this.quizz = value;
       if (this.file) {

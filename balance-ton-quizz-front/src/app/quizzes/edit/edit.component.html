@@ -9,7 +9,7 @@
         <ng-template matStepLabel>Questions et reponses</ng-template>
         <mat-card>
           <mat-card-title>
-            Créer un quizz
+            {{isUpdate ? "Modifier un quizz" : "Créer un quizz" }}
           </mat-card-title>
           <form [formGroup]="quizzForm" (submit)="onSubmitQuizz(quizzForm.value)" fxLayout="column" fxLayoutGap="10px">
             <div fxLayout="row">
