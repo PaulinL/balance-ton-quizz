@@ -60,12 +60,6 @@ Testcases :
 - Logout
 - Login
 - Create a quizz
-
-## Authors
-Etienne BERRIE \
-Ludovic HAMEL \
-Paulin LAMBERT \
-Alexandre MARIE
 - Replay to a quizz
 
 # Execution
@@ -78,3 +72,9 @@ Launch executable file "TestBalanceTonQuizz.exe" (path : balance-ton-quizz\TestB
 # Report
 An HTML report is automaticaly generate to write all result for automatics tests, it should be open at the end of execution.
 You can fin all result report on folder "Reports" (path : balance-ton-quizz\TestBalanceTonQuizz\TestBalanceTonQuizz\bin\Debug\netcoreapp3.1\Reports)
+
+## Authors
+Etienne BERRIE \
+Ludovic HAMEL \
+Paulin LAMBERT \
+Alexandre MARIE
