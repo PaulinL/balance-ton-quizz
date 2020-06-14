@@ -2,6 +2,13 @@
 <Config>
   <Address>localhost:4200</Address>
   <timePause>5000</timePause>
+  <database>
+    <addressDB>localhost</addressDB>
+    <portDB>3306</portDB>
+    <userDB>root</userDB>
+    <passwordDB>btq_polytech</passwordDB>
+    <nameDB>btq</nameDB>
+  </database>
   <testcases>
     <suscribeTestcase>
       <Username>lha17</Username>
@@ -22,5 +29,10 @@
       <question2>Quel va être le résultat</question2>
       <reponse2>Correct</reponse2>
     </createQuizzTestcase>
+    <replayQuizzTestcase>
+      <nameQuizz>TA_quizz</nameQuizz>
+      <answer1>Très rapide</answer1>
+      <answer1-2>Très très rapide</answer1-2>
+    </replayQuizzTestcase>
   </testcases>
 </Config> 

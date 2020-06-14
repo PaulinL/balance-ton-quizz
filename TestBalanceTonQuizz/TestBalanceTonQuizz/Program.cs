@@ -55,10 +55,11 @@ namespace TestBalanceTonQuizz
             
             // declaration of all TestCase
             campaign = new TestCampaign();
-            campaign.TestCases.Add(new SuscribeTestcase(driver, Path.Combine(Environment.CurrentDirectory, "Maps", "homeMap.xml")));
+            campaign.TestCases.Add(new SuscribeTestcase(driver, Path.Combine(Environment.CurrentDirectory, "Maps", "homeMap.xml"), config));
             campaign.TestCases.Add(new LogoutTestcase(driver, Path.Combine(Environment.CurrentDirectory, "Maps", "homeMap.xml")));
             campaign.TestCases.Add(new LoginTestCase(driver, Path.Combine(Environment.CurrentDirectory, "Maps", "homeMap.xml")));
             campaign.TestCases.Add(new CreateQuizzTestcase(driver, Path.Combine(Environment.CurrentDirectory, "Maps", "create_quizz_Map.xml")));
+            campaign.TestCases.Add(new ReplyQuizzTestCase(driver, Path.Combine(Environment.CurrentDirectory, "Maps", "replay_quizz_Map.xml")));
 
             // play testcase
             var listTestcaseName = getAllTestCaseName(jsonFile);

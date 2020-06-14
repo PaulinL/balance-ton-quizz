@@ -66,3 +66,15 @@ Etienne BERRIE \
 Ludovic HAMEL \
 Paulin LAMBERT \
 Alexandre MARIE
+- Replay to a quizz
+
+# Execution
+To launch automatics tests (on Windows) you need :
+- Google chrome (version 83.0.4103.97)
+- Enter all parameters for test on file "config.xml" (path : balance-ton-quizz\TestBalanceTonQuizz\TestBalanceTonQuizz\bin\Debug\netcoreapp3.1\config.xml)
+
+Launch executable file "TestBalanceTonQuizz.exe" (path : balance-ton-quizz\TestBalanceTonQuizz\TestBalanceTonQuizz\bin\Debug\netcoreapp3.1\TestBalanceTonQuizz.exe)
+
+# Report
+An HTML report is automaticaly generate to write all result for automatics tests, it should be open at the end of execution.
+You can fin all result report on folder "Reports" (path : balance-ton-quizz\TestBalanceTonQuizz\TestBalanceTonQuizz\bin\Debug\netcoreapp3.1\Reports)

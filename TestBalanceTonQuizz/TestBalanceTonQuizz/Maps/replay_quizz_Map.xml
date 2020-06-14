@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Nodes>
+  
+  <Node>
+    <name>card-quizz</name>
+    <id>mat-card</id>
+    <type>Class</type>
+  </Node>
+  <Node>
+    <name>title-card-quizz</name>
+    <id>mat-card-title</id>
+    <type>Class</type>
+  </Node>
+  <Node>
+    <name>btn_replay_home_page</name>
+    <id>mat-button-wrapper</id>
+    <type>Class</type>
+  </Node>
+  <Node>
+    <name>btn_replay_second_page</name>
+    <id>button</id>
+    <type>Tag</type>
+  </Node>
+  <Node>
+    <name>answer-panel</name>
+    <id>mat-checkbox</id>
+    <type>Tag</type>
+  </Node>
+  <Node>
+    <name>answer-label</name>
+    <id>mat-checkbox-label</id>
+    <type>Class</type>
+  </Node>
+  <Node>
+    <name>answer-text</name>
+    <id>mat-checkbox-label</id>
+    <type>Class</type>
+  </Node>
+  <Node>
+    <name>button-end</name>
+    <id>button</id>
+    <type>Tag</type>
+  </Node>
+  <Node>
+    <name>score-label</name>
+    <id>result-score</id>
+    <type>Class</type>
+  </Node>
+  <Node>
+    <name>Btn-home</name>
+    <id>mat-icon</id>
+    <type>Class</type>
+  </Node>
+</Nodes>
+		

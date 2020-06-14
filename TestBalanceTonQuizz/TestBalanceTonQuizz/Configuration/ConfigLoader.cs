@@ -13,6 +13,13 @@ namespace TestBalanceTonQuizz.Configuration
         private const string NODE_ADDRESS = "Address";
         private const string NODE_TIMEPAUSE = "timePause";
 
+        private const string NODE_DB = "database";
+        private const string NODE_ADDRESSDB = "addressDB";
+        private const string NODE_PORTDB = "portDB";
+        private const string NODE_USERDB = "userDB";
+        private const string NODE_PASSWORDDB = "passwordDB";
+        private const string NODE_NAMEDB = "nameDB";
+
         private const string NODE_TESTCASES = "testcases";
 
         private const string NODE_SUSCRIBETC = "suscribeTestcase";
@@ -29,8 +36,11 @@ namespace TestBalanceTonQuizz.Configuration
         private const string NODE_Q1 = "question1";
         private const string NODE_R1 = "reponse1";
         private const string NODE_R1_2 = "reponse1.2";
-        private const string NODE_Q2 = "question2";
-        private const string NODE_R2 = "reponse2";
+
+        private const string NODE_REPLAYQUIZZTC = "replayQuizzTestcase";
+        private const string NODE_REPLAYQUIZZNAME = "nameQuizz";
+        private const string NODE_REPLAYQUIZANSWER1 = "answer1";
+        private const string NODE_REPLAYQUIZANSWER1_2 = "answer1-2";
 
         #endregion
 
@@ -54,7 +64,12 @@ namespace TestBalanceTonQuizz.Configuration
             var config = new Config()
             {
                 Address = root.Element(NODE_ADDRESS).Value,
-                TimePause = Convert.ToInt32(root.Element(NODE_TIMEPAUSE).Value)
+                TimePause = Convert.ToInt32(root.Element(NODE_TIMEPAUSE).Value),
+                AddressDB = root.Element(NODE_DB).Element(NODE_ADDRESSDB).Value,
+                PortDB = root.Element(NODE_DB).Element(NODE_PORTDB).Value,
+                UsernameDB = root.Element(NODE_DB).Element(NODE_USERDB).Value,
+                PasswordDB = root.Element(NODE_DB).Element(NODE_PASSWORDDB).Value,
+                NameDB = root.Element(NODE_DB).Element(NODE_NAMEDB).Value
             };
 
             _log.Info("All data laod of test campagne");
@@ -119,7 +134,6 @@ namespace TestBalanceTonQuizz.Configuration
 
             config.Reponse1.Add(root.Element(NODE_TESTCASES).Element(NODE_CREATEQUIZZTC).Element(NODE_R1).Value);
             config.Reponse1.Add(root.Element(NODE_TESTCASES).Element(NODE_CREATEQUIZZTC).Element(NODE_R1_2).Value);
-            config.Reponse2.Add(root.Element(NODE_TESTCASES).Element(NODE_CREATEQUIZZTC).Element(NODE_R2).Value);
 
             _log.Info("All data laod for TC CreateQuizz");
             return config;
@@ -152,6 +166,34 @@ namespace TestBalanceTonQuizz.Configuration
             return config;
         }
 
+        /// <summary>
+        /// to load conf for testcase replay quizz
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
+        public ConfigTCReplayQuizz LoadConfigTCReplayQuizz(string url)
+        {
+            _log.Info("Load all data for test campagne");
+
+            var doc = XDocument.Load(url);
+            var root = doc.Element(NODE_CONFIG);
+            if (root == null)
+            {
+                Console.WriteLine("Can't find root element of config");
+                return null;
+            }
+
+            var config = new ConfigTCReplayQuizz()
+            {
+                NameQuizz = root.Element(NODE_TESTCASES).Element(NODE_REPLAYQUIZZTC).Element(NODE_REPLAYQUIZZNAME).Value
+            };
+
+            config.Answer1.Add(root.Element(NODE_TESTCASES).Element(NODE_REPLAYQUIZZTC).Element(NODE_REPLAYQUIZANSWER1).Value);
+            config.Answer1.Add(root.Element(NODE_TESTCASES).Element(NODE_REPLAYQUIZZTC).Element(NODE_REPLAYQUIZANSWER1_2).Value);
+
+            _log.Info("All data laod for TC Suscribe");
+            return config;
+        }
 
         #endregion
 
