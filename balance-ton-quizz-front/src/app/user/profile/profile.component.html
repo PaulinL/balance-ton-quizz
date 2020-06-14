@@ -1,0 +1,67 @@
+<div fxLayout="row">
+  <div fxFlex="25" fxLayout="column" fxLayoutAlign="top center">
+
+
+      <img [src]="user.imageUrl !== undefined && user.imageUrl !== null ? getImageUrlUser(user) : 'assets/default_avatar.png'"
+           class="user-img"
+      />
+
+    <h1>{{user.username}}</h1>
+    <!-- Edition de l'image -->
+    <div *ngIf="editImage" fxLayout="column" fxLayoutAlign="center center">
+      <app-upload-image  [(file)]="file"></app-upload-image>
+      <div fxLayout="row" style="margin-top: 0.5rem;">
+        <button mat-button (click)="onSubmitImage()">Annuler</button>
+        <button mat-flat-button color="primary" (click)="onSubmitImage()">Valider</button>
+      </div>
+    </div>
+    <button *ngIf="!editImage" mat-button (click)="editImage = !editImage">Modifier l'avatar</button>
+
+  </div>
+  <div fxFlex="75">
+
+    <mat-tab-group>
+      <mat-tab>
+        <!-- Label -->
+        <ng-template mat-tab-label>
+          <h2>Quizz créés</h2>
+        </ng-template>
+        <!--Content-->
+        <div fxLayout="row wrap" fxLayoutGap="10px grid" *ngIf="user.quizzList.length > 0; else noQuizz">
+          <div *ngFor="let quizz of user.quizzList " fxFlex.gt-md="25" fxFlex="33.333">
+            <mat-card>
+              <img *ngIf="quizz.imageName" mat-card-image [src]="getImageUrlQuizz(quizz)">
+              <mat-card-title>{{quizz.title}}</mat-card-title>
+              <mat-card-subtitle>{{quizz.theme.title}}</mat-card-subtitle>
+              <mat-card-actions>
+                <button mat-stroked-button class="icon-button">
+                  <mat-icon>edit</mat-icon>
+                  Modifier
+                </button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </div>
+        <ng-template #noQuizz>
+          <div fxLayout="row" fxLayoutAlign="start center" style="margin-top: 2rem;">
+            <p class="mat-typography">Créez votre premier Quizz</p>
+            <button mat-flat-button color="primary" [routerLink]="['/quizzes/create']" class="icon-button" style="margin-left: 10px;">
+              <mat-icon>arrow_forward</mat-icon>
+              Go!
+            </button>
+          </div>
+        </ng-template>
+
+      </mat-tab>
+      <mat-tab>
+        <!-- Label -->
+        <ng-template mat-tab-label>
+          <h2>Scores</h2>
+        </ng-template>
+        <!--Content-->
+
+      </mat-tab>
+    </mat-tab-group>
+
+  </div>
+</div>

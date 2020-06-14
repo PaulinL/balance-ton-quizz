@@ -3,6 +3,7 @@ package balancetonquizz.controller;
 import balancetonquizz.security.JwtRequest;
 import balancetonquizz.security.JwtResponse;
 import balancetonquizz.security.JwtTokenProvider;
+import balancetonquizz.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,6 +18,9 @@ public class SecurityController {
 
     @Autowired
     private JwtTokenProvider jwtTokenProvider;
+
+    @Autowired
+    private UserService userService;
 
     /**
      * Authenticate a registered user
@@ -39,6 +43,8 @@ public class SecurityController {
                         authenticationRequest.getPassword()
         );
 
-        return ResponseEntity.ok(new JwtResponse(token));
+        return ResponseEntity.ok(
+                new JwtResponse(token, userService.findByUsername(authenticationRequest.getUsername()))
+        );
     }
 }

@@ -39,10 +39,18 @@ public class UserService {
 
     public User getUserByToken(String userToken) {
         String username = jwttp.getUsernameFromToken(removeTokenPrefix(userToken));
-        return userRepository.findByUsername(username);
+        return this.findByUsername(username);
     }
 
     public String removeTokenPrefix(String token){
         return token.substring(PREFIX_BEARER.length());
+    }
+
+    public User findByUsername(String username){
+        return userRepository.findByUsername(username);
+    }
+
+    public User save(User user){
+        return userRepository.save(user);
     }
 }

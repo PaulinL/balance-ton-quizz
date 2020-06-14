@@ -38,6 +38,8 @@ import { ThemeFilterPipe } from './search-quizz/theme-filter.pipe';
 import { QuestionAnswerComponent } from './quizzes/create-answer/question-answer/question-answer.component';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { ProfileComponent } from './user/profile/profile.component';
+import {MatTabsModule} from "@angular/material/tabs";
 import { QuizzResultComponent } from './quizzes/create-answer/quizz-result/quizz-result.component';
 
 
@@ -58,32 +60,34 @@ import { QuizzResultComponent } from './quizzes/create-answer/quizz-result/quizz
     QuizzPreviewComponent,
     CreateAnswerComponent,
     QuestionAnswerComponent,
-    QuizzResultComponent
+    QuizzResultComponent,
+    ProfileComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatSidenavModule,
-    FlexLayoutModule,
-    MatListModule,
-    MatIconModule,
-    HttpClientModule,
-    MatCardModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatSlideToggleModule,
-    MatCheckboxModule,
-    ToastrModule.forRoot(),
-    MatStepperModule,
-    MatRadioModule,
-    FormsModule,
-    MatChipsModule,
-    ClipboardModule,
-    DragDropModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatSidenavModule,
+        FlexLayoutModule,
+        MatListModule,
+        MatIconModule,
+        HttpClientModule,
+        MatCardModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatSlideToggleModule,
+        MatCheckboxModule,
+        ToastrModule.forRoot(),
+        MatStepperModule,
+        MatRadioModule,
+        FormsModule,
+        MatChipsModule,
+        ClipboardModule,
+		DragDropModule,
+        MatTabsModule,
+    ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},

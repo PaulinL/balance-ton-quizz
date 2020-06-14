@@ -1,0 +1,30 @@
+.user-img{
+  width: 40%;
+  min-height: 12rem;
+  min-width: 12rem;
+  border-radius: 5%;
+  border: 3px solid lightgrey;
+  background-color: lightgrey;
+  margin-top: 2rem;
+  object-fit:cover; //pour que l'image s'adapte
+}
+
+.icon-button mat-icon{
+  margin-left: -0.4em;
+  margin-top: -0.1em;
+}
+
+mat-tab-group{
+  height: 100vh;
+}
+
+/*.mat-tab-body-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.mat-tab-body-wrapper{
+  height: 100%;
+  scrollbar-width: none;
+}*/
+
+

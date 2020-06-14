@@ -6,6 +6,7 @@ import {RegisterComponent} from "./auth/register/register.component";
 import {AuthGuard} from "./guards/auth.guard";
 import {LoginComponent} from "./auth/login/login.component";
 import {CreateAnswerComponent} from "./quizzes/create-answer/create-answer.component";
+import {ProfileComponent} from "./user/profile/profile.component";
 
 
 const routes: Routes = [
@@ -31,6 +32,10 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent
   },
+  {
+    path: 'profile',
+    component: ProfileComponent
+  }
 ];
 
 @NgModule({

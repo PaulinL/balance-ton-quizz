@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {JwtHelperService} from "@auth0/angular-jwt";
+import {User} from "../shared/user.model";
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class AuthService {
 
   private readonly endpoint = environment.backendUrl;
   private readonly tokenKey = 'token';
+  private user: User;
 
   constructor(private http: HttpClient,
               public jwtHelper: JwtHelperService) {
@@ -17,6 +19,9 @@ export class AuthService {
 
   public isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
+    if (token === undefined){
+      return false;
+    }
     return !this.jwtHelper.isTokenExpired(token);
   }
 
@@ -34,6 +39,14 @@ export class AuthService {
 
   public setToken(token: string): void {
     localStorage.setItem(this.tokenKey, token);
+  }
+
+  public setUser(user: User): void{
+    this.user = user;
+  }
+
+  public getUser(): User{
+    return this.user;
   }
 
   public logout() {
