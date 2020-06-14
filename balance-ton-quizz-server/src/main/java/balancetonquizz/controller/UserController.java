@@ -45,7 +45,6 @@ public class UserController {
     @GetMapping(value = "/user")
     public ResponseEntity<User> getUser(@RequestHeader(value="Authorization") String authToken){
         User user = userService.getUserByToken(authToken);
-        System.out.println(user);
         if (user != null){
             return ResponseEntity.ok(user);
         } else {
