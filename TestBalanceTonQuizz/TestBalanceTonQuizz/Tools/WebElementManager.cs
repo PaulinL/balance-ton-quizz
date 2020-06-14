@@ -45,13 +45,8 @@ namespace TestBalanceTonQuizz.Tools
 
         public static ReadOnlyCollection<IWebElement> FindElements(IWebDriver driver, WebElement element)
         {
-            var condition = "";
-            if (element.Type.Equals(WebElementType.Class))
-                condition = "." + element.Id;
-            else if (element.Type.Equals(WebElementType.Id))
-                condition = "#" + element.Id;
-            else if (element.Type.Equals(WebElementType.Tag))
-                condition = element.Id;
+            var condition = CreateCondition(element);
+            
 
             var retour = driver.FindElements(By.CssSelector(condition));
             if (retour != null)
@@ -61,6 +56,40 @@ namespace TestBalanceTonQuizz.Tools
                 _log.Error("Elements not found, element name : " + element.Name + " id : " + element.Id);
                 return null;
             }
+        }
+
+        /// <summary>
+        /// to get an element on an other element
+        /// </summary>
+        /// <param name="elementSource"></param>
+        /// <param name="element"></param>
+        /// <returns></returns>
+        public static IWebElement findElementOnElement(IWebElement elementSource, WebElement element)
+        {
+            var condition = CreateCondition(element);
+
+            var retour = elementSource.FindElement(By.CssSelector(condition));
+            if (retour != null)
+                return retour;
+            else
+            {
+                _log.Error("Elements not found, element name : " + element.Name + " id : " + element.Id);
+                return null;
+            }
+        }
+
+
+        public static string CreateCondition(WebElement element)
+        {
+            var condition = "";
+            if (element.Type.Equals(WebElementType.Class))
+                condition = "." + element.Id;
+            else if (element.Type.Equals(WebElementType.Id))
+                condition = "#" + element.Id;
+            else if (element.Type.Equals(WebElementType.Tag))
+                condition = element.Id;
+
+            return condition;
         }
 
         #endregion

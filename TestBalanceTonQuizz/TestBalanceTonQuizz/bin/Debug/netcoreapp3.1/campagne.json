@@ -3,6 +3,8 @@
     "SuscribeTestcase",
     "LogoutTestcase",
     "LoginTestCase",
-    "CreateQuizzTestcase"
+    "CreateQuizzTestcase",
+    "ReplyQuizzTestcase",
+    "LogoutTestcase"
   ]
 }

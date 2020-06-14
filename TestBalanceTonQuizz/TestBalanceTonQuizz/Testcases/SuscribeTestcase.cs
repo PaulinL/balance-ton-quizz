@@ -2,9 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 using TestBalanceTonQuizz.Configuration;
 using TestBalanceTonQuizz.Entities;
 using TestBalanceTonQuizz.Enums;
+using TestBalanceTonQuizz.Managers;
 using TestBalanceTonQuizz.Tools;
 
 namespace TestBalanceTonQuizz.Testcases
@@ -14,13 +16,14 @@ namespace TestBalanceTonQuizz.Testcases
         private static readonly log4net.ILog _log = log4net.LogManager.GetLogger(typeof(SuscribeTestcase));
         private static ConfigTCSuscribe configTC;
 
-        public SuscribeTestcase(IWebDriver driver, string pathMap)
+        public SuscribeTestcase(IWebDriver driver, string pathMap, Config config)
         {
             Name = "SuscribeTestcase";
             Driver = driver;
             PathMap = pathMap;
             Tasks = new List<Task>();
             ConfigLoader = new ConfigLoader();
+            SQLManager = new SQLManager(config.AddressDB, config.PortDB, config.UsernameDB, config.PasswordDB, config.NameDB);
         }
 
         #region Config
@@ -64,7 +67,6 @@ namespace TestBalanceTonQuizz.Testcases
                 _log.Error("Can't found button 'S'inscrire'");
                 taskBtnSuscribe.SetErrorMessage("Can't found button 'S'inscrire'");
                 taskBtnSuscribe.SetResult(Result.ERROR);
-                return false;
             }
             taskBtnSuscribe.CloseTask();
             Tasks.Add(taskBtnSuscribe);
@@ -89,7 +91,6 @@ namespace TestBalanceTonQuizz.Testcases
                 _log.Error("Can't found field username");
                 taskFieldUsername.SetErrorMessage("Can't found field username");
                 taskFieldUsername.SetResult(Result.ERROR);
-                return false;
             }
             taskFieldUsername.CloseTask();
             Tasks.Add(taskFieldUsername);
@@ -114,7 +115,6 @@ namespace TestBalanceTonQuizz.Testcases
                 _log.Error("Can't found field password");
                 taskFieldPassword.SetErrorMessage("Can't found field password");
                 taskFieldPassword.SetResult(Result.ERROR);
-                return false;
             }
             taskFieldPassword.CloseTask();
             Tasks.Add(taskFieldPassword);
@@ -139,7 +139,6 @@ namespace TestBalanceTonQuizz.Testcases
                 _log.Error("Can't found field confirm username");
                 taskFieldConfPassword.SetErrorMessage("Can't found field confirm password");
                 taskFieldConfPassword.SetResult(Result.ERROR);
-                return false;
             }
             taskFieldConfPassword.CloseTask();
             Tasks.Add(taskFieldConfPassword);
@@ -163,10 +162,31 @@ namespace TestBalanceTonQuizz.Testcases
                 _log.Error("Can't found button suscribe");
                 taskBtnSuscribeForm.SetErrorMessage("Can't found button suscribe");
                 taskBtnSuscribeForm.SetResult(Result.ERROR);
-                return false;
             }
             taskBtnSuscribeForm.CloseTask();
             Tasks.Add(taskBtnSuscribeForm);
+
+            // Checl on DB
+            Thread.Sleep(1000);
+            var taskCheckDB = new Task()
+            {
+                Name = "Check database",
+                Description = "Check user is created on database"
+            };
+            if(SQLManager.CheckUserDB(configTC.Username, configTC.Password))
+            {
+                _log.Info("User created on database");
+                taskCheckDB.SetResult(Result.PASSED);
+            }
+            else
+            {
+                _log.Error("Can't found user on database");
+                taskCheckDB.SetErrorMessage("Can't found user on database");
+                taskCheckDB.SetResult(Result.ERROR);
+            }
+            SQLManager.CloseConnection();
+            taskCheckDB.CloseTask();
+            Tasks.Add(taskCheckDB);
 
             return true;
         }

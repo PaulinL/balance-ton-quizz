@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TestBalanceTonQuizz.Configuration;
 using TestBalanceTonQuizz.Enums;
 using System.Linq;
+using TestBalanceTonQuizz.Managers;
 
 namespace TestBalanceTonQuizz.Entities
 {
@@ -48,6 +49,10 @@ namespace TestBalanceTonQuizz.Entities
         /// config loader for all TC
         /// </summary>
         public ConfigLoader ConfigLoader { get; set; }
+        /// <summary>
+        /// Manager to do sql request
+        /// </summary>
+        public SQLManager SQLManager { get; set; }
 
         /// <summary>
         /// Test method with all action to do
