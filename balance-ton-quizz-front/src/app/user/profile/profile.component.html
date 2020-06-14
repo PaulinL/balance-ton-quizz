@@ -1,11 +1,7 @@
 <div fxLayout="row" *ngIf="user">
+  <!--  Image Utilisateur -->
   <div fxFlex="25" fxLayout="column" fxLayoutAlign="top center">
-
-
-      <img [src]="user.imageUrl ? getImageUrlUser(user) : 'assets/default_avatar.png'"
-           class="user-img"
-      />
-
+    <img [src]="getImageUrlUser(user)" class="user-img"/>
     <h1>{{user.username}}</h1>
     <!-- Edition de l'image -->
     <div *ngIf="editImage" fxLayout="column" fxLayoutAlign="center center">
@@ -18,26 +14,32 @@
     <button *ngIf="!editImage" mat-button (click)="editImage = !editImage">Modifier l'avatar</button>
 
   </div>
+  <!-- Tabs -->
   <div fxFlex="75">
 
-    <mat-tab-group>
+    <mat-tab-group dynamicHeight>
+
+      <!-- Quizz tabs -->
       <mat-tab>
         <!-- Label -->
         <ng-template mat-tab-label>
           Quizz créés
         </ng-template>
         <!--Content-->
-        <div fxLayout="row wrap" fxLayoutGap="10px grid" *ngIf="user.quizzList.length > 0; else noQuizz">
-          <div *ngFor="let quizz of user.quizzList " fxFlex.gt-md="25" fxFlex="33.333">
+        <div fxLayout="row wrap" fxLayoutGap=".7rem grid" *ngIf="quizzes.length > 0; else noQuizz" style="padding-top: .7rem;">
+          <div *ngFor="let quizz of quizzes" fxFlex.gt-md="25" fxFlex="33.333">
             <mat-card>
-              <img *ngIf="quizz.imageName" mat-card-image [src]="getImageUrlQuizz(quizz)">
+              <img mat-card-image class="card-image" [src]="getImageUrlQuizz(quizz)">
               <mat-card-title>{{quizz.title}}</mat-card-title>
               <mat-card-subtitle>{{quizz.theme.title}}</mat-card-subtitle>
               <mat-card-actions>
-                <a mat-stroked-button class="icon-button" [routerLink]="'/quizzes/update/' + quizz.id">
-                  <mat-icon>edit</mat-icon>
-                  Modifier
-                </a>
+                <div fxLayout="row" fxLayoutAlign="start center">
+                  <a mat-flat-button color="primary" [routerLink]="'/quizzes/' + quizz.id + '/answer'">Répondre</a>
+                  <a mat-stroked-button class="icon-button" [routerLink]="'/quizzes/update/' + quizz.id">
+                    <mat-icon>edit</mat-icon>
+                    Modifier
+                  </a>
+                </div>
               </mat-card-actions>
             </mat-card>
           </div>
@@ -51,14 +53,44 @@
             </button>
           </div>
         </ng-template>
-
       </mat-tab>
+
+      <!-- Scores tab -->
       <mat-tab>
         <!-- Label -->
         <ng-template mat-tab-label>
           Scores
         </ng-template>
-        <!--Content-->
+        <div fxLayout="row" fxLayoutAlign="center">
+          <div fxFlex="100">
+            <mat-table [dataSource]="participations" class="mat-elevation-z2">
+              <!-- Quizz Column -->
+              <ng-container matColumnDef="quizz">
+                <mat-header-cell *matHeaderCellDef> Quizz</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.quizz.title}} </mat-cell>
+              </ng-container>
+
+              <!-- Quizz Column -->
+              <ng-container matColumnDef="author">
+                <mat-header-cell *matHeaderCellDef> Créé par</mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <img [src]="getImageUrlUser(element.quizz.author)"  class="user-icon"/>
+                  {{element.quizz.author.username}}
+                </mat-cell>
+              </ng-container>
+
+              <!-- Score Column -->
+              <ng-container matColumnDef="score">
+                <mat-header-cell *matHeaderCellDef> Score</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.nbCorrectAnswers}}
+                  / {{element.nbTotalQuestions}} </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+          </div>
+        </div>
 
       </mat-tab>
     </mat-tab-group>

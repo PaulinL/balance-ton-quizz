@@ -9,22 +9,30 @@
   object-fit:cover; //pour que l'image s'adapte
 }
 
+.user-icon{
+  width: 1.5em;
+  height: 1.5em;
+  max-width: 2rem;
+  max-height: 2rem;
+  border-radius: 3px;
+  border: 1px solid lightgrey;
+  background-color: lightgrey;
+  object-fit:cover;
+  margin-right: .5em;
+}
+
 .icon-button mat-icon{
   margin-left: -0.4em;
   margin-top: -0.1em;
 }
 
+.card-image{
+  height: 12rem;
+  object-fit:cover;
+}
+
 mat-tab-group{
   height: 100vh;
 }
-
-/*.mat-tab-body-wrapper::-webkit-scrollbar {
-  display: none;
-}
-
-.mat-tab-body-wrapper{
-  height: 100%;
-  scrollbar-width: none;
-}*/
 
 

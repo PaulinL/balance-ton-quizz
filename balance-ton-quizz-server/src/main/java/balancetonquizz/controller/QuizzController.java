@@ -4,6 +4,7 @@ import balancetonquizz.dto.QuizzDto;
 import balancetonquizz.entities.*;
 import balancetonquizz.repositories.QuizzRepository;
 import balancetonquizz.service.QuizzService;
+import balancetonquizz.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,9 @@ public class QuizzController {
 
     @Autowired
     private QuizzService quizzService;
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/quizzes")
     public Iterable<Quizz> getAllQuizz(){
@@ -56,4 +60,8 @@ public class QuizzController {
         return quizzRepository.findRandomQuizz().getId();
     }
 
+    @GetMapping("/quizzes/user")
+    public List<Quizz> getUserQuizzes(@RequestHeader(value="Authorization") String authToken){
+        return quizzRepository.findByAuthor(userService.getUserByToken(authToken));
+    }
 }

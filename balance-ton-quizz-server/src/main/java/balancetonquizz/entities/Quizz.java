@@ -17,7 +17,6 @@ public class Quizz {
     private String title;
 
     @ManyToOne(cascade =CascadeType.MERGE)
-    @JsonBackReference
     private User author;
 
     private String description;

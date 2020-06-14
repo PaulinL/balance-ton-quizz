@@ -34,4 +34,8 @@ export class QuizzService {
   getRandomQuizzId() {
     return this.http.get<number>(`${this.endpoint}/quizzes/random`);
   }
+
+  getUserQuizz(){
+    return this.http.get<Quizz[]>(`${this.endpoint}/quizzes/user`);
+  }
 }

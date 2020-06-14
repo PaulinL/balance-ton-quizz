@@ -32,7 +32,7 @@ public class User {
     private String imageUrl;
 
     @OneToMany(mappedBy = "author")
-    @JsonManagedReference
+    @JsonIgnore
     private List<Quizz> quizzList;
 
     public User(){
