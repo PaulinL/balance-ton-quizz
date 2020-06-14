@@ -9,7 +9,7 @@ import {ImageService} from "../services/image.service";
 export class UploadImageComponent implements OnInit {
 
   @Input()
-  file: File
+  file: File;
 
   @Output()
   fileChange: EventEmitter<File>;

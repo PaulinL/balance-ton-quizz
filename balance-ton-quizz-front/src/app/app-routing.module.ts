@@ -1,13 +1,14 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {HomeComponent} from "./home/home.component";
-import {CreateComponent} from "./quizzes/create/create.component";
 import {RegisterComponent} from "./auth/register/register.component";
 import {AuthGuard} from "./guards/auth.guard";
 import {LoginComponent} from "./auth/login/login.component";
 import {CreateAnswerComponent} from "./quizzes/create-answer/create-answer.component";
 import {ProfileComponent} from "./user/profile/profile.component";
 import {QuizzResultsComponent} from './results/quizz-results/quizz-results.component';
+import {UpdateComponent} from './quizzes/update/update.component';
+import {CreateComponent} from './quizzes/create/create.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,11 @@ const routes: Routes = [
   {
     path: 'quizzes/create',
     component: CreateComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'quizzes/update/:quizzId',
+    component: UpdateComponent,
     canActivate: [AuthGuard],
   },
   {

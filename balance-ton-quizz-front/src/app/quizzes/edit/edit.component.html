@@ -1,0 +1,105 @@
+<div fxLayout="row" fxLayoutAlign="center" *ngIf="quizzForm">
+  <div fxFlex.xs="100"
+       fxFlex.sm="100"
+       fxFlex.md="100"
+       fxFlex.lg="960px"
+       fxFlex.xl="1140px">
+    <mat-horizontal-stepper [linear]="true" #stepper>
+      <mat-step [stepControl]="quizzForm">
+        <ng-template matStepLabel>Questions et reponses</ng-template>
+        <mat-card>
+          <mat-card-title>
+            Créer un quizz
+          </mat-card-title>
+          <form [formGroup]="quizzForm" (submit)="onSubmitQuizz(quizzForm.value)" fxLayout="column" fxLayoutGap="10px">
+            <div fxLayout="row">
+              <div fxLayout="column" fxFlex fxLayoutAlign="space-between">
+                <mat-form-field>
+                  <mat-label>Titre</mat-label>
+                  <input matInput required type="text" formControlName="title">
+                </mat-form-field>
+                <mat-form-field fxFlex>
+                  <mat-label>Description</mat-label>
+                  <textarea formControlName="description" matInput></textarea>
+                </mat-form-field>
+                <app-upload-image [(file)]="file"></app-upload-image>
+              </div>
+              <img class="question-img" src="assets/question.svg" fxHide.lt-md="true">
+            </div>
+            <div class="question-list" cdkDropList (cdkDropListDropped)="drop($event)" fxLayout="column"
+                 fxLayoutGap="10px">
+              <app-question *ngFor="let questionForm of getQuestions(); index as i"
+                            [questionForm]="questionForm"
+                            [index]="(i + 1)"
+                            (deleteQuestion)="deleteQuestion(i)"
+                            [isUpdate]="isUpdate"
+                            class="question-item"
+                            cdkDrag
+                            cdkDragLockAxis="y">
+                <mat-icon class="drag-handle" cdkDragHandle>drag_indicator</mat-icon>
+              </app-question>
+            </div>
+
+            <div fxLayout="row" class="button-container">
+              <button mat-stroked-button color="primary" (click)="addEmptyQuestion()" type="button">
+                <mat-icon>add_circle_outline</mat-icon>
+                Ajouter une question
+              </button>
+              <div fxFlex></div>
+              <button mat-flat-button color="primary" matStepperNext type="button"
+                      (click)="onSubmitQuizz(quizzForm.value)">
+                Continuer
+              </button>
+            </div>
+          </form>
+        </mat-card>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Choisir un theme</ng-template>
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="2em">
+          <app-search-quizz
+            (search)="searchTheme($event)">
+          </app-search-quizz>
+          <button mat-flat-button color="primary" [disabled]="searchText? searchText.length <= 0 : true"
+                  (click)="createTheme()">
+            <mat-icon>add_box</mat-icon>
+            Créer
+          </button>
+        </div>
+
+        <div class="themeContainer" fxLayout="row wrap" fxLayoutGap="10px grid">
+          <div *ngFor="let theme of themes" fxFlex.gt-md="25" fxFlex="33.333">
+            <mat-card (click)="selectCard(theme)" [class.selectedTheme]="theme === selectedTheme" class="theme-card">
+              <img *ngIf="theme.imageName" mat-card-image [src]="getImageUrl(theme)">
+              <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+                <div>{{theme.title}}</div>
+                <mat-icon *ngIf="theme === selectedTheme">check_box</mat-icon>
+              </mat-card-title>
+            </mat-card>
+          </div>
+        </div>
+
+        <div fxLayout="row" class="button-container">
+          <button mat-stroked-button color="primary" matStepperPrevious>Retour
+          </button>
+          <div fxFlex></div>
+          <button mat-flat-button color="primary" matStepperNext
+                  (click)="onSubmitTheme()">{{isUpdate ? "Mettre à jour" : "Créer"}}</button>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Confirmation</ng-template>
+        <div fxLayout="column" fxLayoutAlign="start center">
+          <p>Il est maintenant temps de la partager avec vos amis avec ce lien !</p>
+          <mat-form-field appearance="outline" class="link-input">
+            <mat-label>Lien du quizz</mat-label>
+            <input matInput [value]="url">
+            <mat-icon class="copy-button" matSuffix [cdkCopyToClipboard]="url">content_copy</mat-icon>
+          </mat-form-field>
+          <img class="share-link-img" src="assets/share_link.svg">
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+</div>
+

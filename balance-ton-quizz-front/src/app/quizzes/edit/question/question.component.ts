@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {Question} from '../../../shared/question.model';
 import {Answer} from '../../../shared/answer.model';
@@ -17,6 +17,9 @@ export class QuestionComponent implements OnInit {
   @Input()
   index: number;
 
+  @Input()
+  isUpdate: boolean;
+
   @Output()
   deleteQuestion: EventEmitter<void>;
 
@@ -25,9 +28,11 @@ export class QuestionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.addEmptyAnswer();
-    this.addEmptyAnswer();
-    this.questionForm.controls.multiple.valueChanges.subscribe(() => this.onIsCorrectChange())
+    if (!this.isUpdate) {
+      this.addEmptyAnswer();
+      this.addEmptyAnswer();
+    }
+    this.questionForm.controls.multiple.valueChanges.subscribe(() => this.onIsCorrectChange());
   }
 
   addEmptyAnswer() {
@@ -66,7 +71,7 @@ export class QuestionComponent implements OnInit {
       if (i !== except) {
         answers[i].controls.isCorrect.setValue(false);
       } else {
-        setTimeout(() => answers[i].controls.isCorrect.setValue(true), 10)
+        setTimeout(() => answers[i].controls.isCorrect.setValue(true), 10);
       }
     }
   }

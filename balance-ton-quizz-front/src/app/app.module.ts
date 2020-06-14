@@ -14,10 +14,10 @@ import {MatButtonModule} from "@angular/material/button";
 import {CreateComponent} from './quizzes/create/create.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import {QuestionComponent} from './quizzes/create/question/question.component';
+import {QuestionComponent} from './quizzes/edit/question/question.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
-import {AnswerComponent} from './quizzes/create/question/answer/answer.component';
+import {AnswerComponent} from './quizzes/edit/question/answer/answer.component';
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {ToastrModule, ToastrService} from "ngx-toastr";
 import {MatStepperModule} from "@angular/material/stepper";
@@ -43,6 +43,8 @@ import {MatTabsModule} from "@angular/material/tabs";
 import { QuizzResultComponent } from './quizzes/create-answer/quizz-result/quizz-result.component';
 import { QuizzResultsComponent } from './results/quizz-results/quizz-results.component';
 import {MatTableModule} from '@angular/material/table';
+import { EditComponent } from './quizzes/edit/edit.component';
+import { UpdateComponent } from './quizzes/update/update.component';
 
 
 @NgModule({
@@ -64,7 +66,9 @@ import {MatTableModule} from '@angular/material/table';
     QuestionAnswerComponent,
     QuizzResultComponent,
     ProfileComponent,
-    QuizzResultsComponent
+    QuizzResultsComponent,
+    EditComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,
