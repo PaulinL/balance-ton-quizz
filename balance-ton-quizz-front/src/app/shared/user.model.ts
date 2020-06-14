@@ -1,3 +1,8 @@
+import {Quizz} from "./quizz.model";
+
 export interface User {
-  username: string
+  id?: number;
+  username: string,
+  imageUrl?: string;
+  quizzList: Quizz[];
 }

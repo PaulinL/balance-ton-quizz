@@ -39,6 +39,7 @@ export class RegisterComponent implements OnInit {
           this.registerForm.controls.password.value
         ).toPromise();
         this.authService.setToken((<any>result).token);
+        this.authService.setUser((result as any).user);
         await this.router.navigateByUrl('');
       } catch (e) {
         const errors = {alreadyExists: true};

@@ -1,6 +1,7 @@
 package balancetonquizz.entities;
 
 import balancetonquizz.security.JwtTokenProvider;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -14,17 +15,25 @@ import java.util.List;
 @Data
 @Entity
 public class Quizz {
+
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
+
     private String title;
+
     @ManyToOne(cascade =CascadeType.MERGE)
+    @JsonBackReference
     private User author;
+
     private String description;
+
     @ManyToOne(cascade=CascadeType.MERGE)
     private Theme theme;
+
     @OneToMany(cascade=CascadeType.ALL)
     private List<Question> questions;
+
     private String imageName;
 
     public Quizz() {

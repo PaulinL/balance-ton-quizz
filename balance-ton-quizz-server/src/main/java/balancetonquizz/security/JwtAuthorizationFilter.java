@@ -77,7 +77,7 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
             }
 
         } else {
-            logger.error("No token or JWT Token does not begin with Bearer String");
+            logger.error("No token or JWT Token does not begin with Bearer String: " + tokenHeader);
         }
 
         chain.doFilter(request, response);
