@@ -1,0 +1,42 @@
+<div fxLayout="row" fxLayoutAlign="center" class="create-answer-container">
+  <div fxFlex.xs="100"
+       fxFlex.sm="100"
+       fxFlex.md="100"
+       fxFlex.lg="960px"
+       fxFlex.xl="1140px"
+       fxLayoutAlign="center start">
+    <mat-card>
+      <div fxLayout="column">
+        <mat-card-title *ngIf="quizz">{{quizz.title}}</mat-card-title>
+        <mat-card-subtitle>Score de ce quizz</mat-card-subtitle>
+        <div fxLayout="row" fxLayoutAlign="center">
+          <div fxFlex.xs="100"
+               fxFlex.sm="100"
+               fxFlex.md="100"
+               fxFlex.lg="80"
+               fxFlex.xl="70">
+            <mat-table [dataSource]="participations" class="mat-elevation-z2">
+              <!-- Name Column -->
+              <ng-container matColumnDef="username">
+                <mat-header-cell *matHeaderCellDef> Joueur</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.player.username}} </mat-cell>
+              </ng-container>
+
+              <!-- Weight Column -->
+              <ng-container matColumnDef="score">
+                <mat-header-cell *matHeaderCellDef> Score</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.nbCorrectAnswers}}
+                  / {{element.nbTotalQuestions}} </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+          </div>
+        </div>
+      </div>
+
+    </mat-card>
+
+  </div>
+</div>

@@ -41,6 +41,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import { ProfileComponent } from './user/profile/profile.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import { QuizzResultComponent } from './quizzes/create-answer/quizz-result/quizz-result.component';
+import { QuizzResultsComponent } from './results/quizz-results/quizz-results.component';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -61,33 +63,35 @@ import { QuizzResultComponent } from './quizzes/create-answer/quizz-result/quizz
     CreateAnswerComponent,
     QuestionAnswerComponent,
     QuizzResultComponent,
-    ProfileComponent
+    ProfileComponent,
+    QuizzResultsComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatSidenavModule,
-        FlexLayoutModule,
-        MatListModule,
-        MatIconModule,
-        HttpClientModule,
-        MatCardModule,
-        MatButtonModule,
-        MatFormFieldModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        MatSlideToggleModule,
-        MatCheckboxModule,
-        ToastrModule.forRoot(),
-        MatStepperModule,
-        MatRadioModule,
-        FormsModule,
-        MatChipsModule,
-        ClipboardModule,
-		DragDropModule,
-        MatTabsModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    FlexLayoutModule,
+    MatListModule,
+    MatIconModule,
+    HttpClientModule,
+    MatCardModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatSlideToggleModule,
+    MatCheckboxModule,
+    ToastrModule.forRoot(),
+    MatStepperModule,
+    MatRadioModule,
+    FormsModule,
+    MatChipsModule,
+    ClipboardModule,
+    DragDropModule,
+    MatTabsModule,
+    MatTableModule,
+  ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},

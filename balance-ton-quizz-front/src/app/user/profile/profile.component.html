@@ -2,7 +2,7 @@
   <div fxFlex="25" fxLayout="column" fxLayoutAlign="top center">
 
 
-      <img [src]="user.imageUrl !== undefined && user.imageUrl !== null ? getImageUrlUser(user) : 'assets/default_avatar.png'"
+      <img [src]="user.imageUrl ? getImageUrlUser(user) : 'assets/default_avatar.png'"
            class="user-img"
       />
 
@@ -24,7 +24,7 @@
       <mat-tab>
         <!-- Label -->
         <ng-template mat-tab-label>
-          <h2>Quizz créés</h2>
+          Quizz créés
         </ng-template>
         <!--Content-->
         <div fxLayout="row wrap" fxLayoutGap="10px grid" *ngIf="user.quizzList.length > 0; else noQuizz">

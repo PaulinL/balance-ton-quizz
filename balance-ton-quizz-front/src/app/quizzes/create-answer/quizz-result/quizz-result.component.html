@@ -5,4 +5,7 @@
     <div class="answer-label">réponses correctes !</div>
     <img src="assets/result.svg">
   </mat-card-content>
+  <mat-card-actions>
+    <a mat-stroked-button color="primary" [routerLink]="'/quizzes/' + result.quizz.id + '/results'">Consulter les scores</a>
+  </mat-card-actions>
 </mat-card>

@@ -28,7 +28,8 @@
       <mat-card-title>{{quizz.title}}</mat-card-title>
       <mat-card-subtitle>{{quizz.theme.title}}</mat-card-subtitle>
       <mat-card-actions>
-        <a mat-flat-button [routerLink]="'/quizzes/' + quizz.id + '/answer'">Répondre</a>
+        <a mat-flat-button color="primary" [routerLink]="'/quizzes/' + quizz.id + '/answer'">Répondre</a>
+        <a mat-stroked-button color="primary" [routerLink]="'/quizzes/' + quizz.id + '/results'">Consulter les scores</a>
       </mat-card-actions>
     </mat-card>
   </div>

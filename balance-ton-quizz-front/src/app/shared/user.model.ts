@@ -2,7 +2,7 @@ import {Quizz} from "./quizz.model";
 
 export interface User {
   id?: number;
-  username: string,
+  username: string;
   imageUrl?: string;
   quizzList: Quizz[];
 }

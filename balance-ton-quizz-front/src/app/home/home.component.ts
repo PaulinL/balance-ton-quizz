@@ -3,7 +3,6 @@ import {QuizzService} from '../services/quizz.service';
 import {Quizz} from '../shared/quizz.model';
 import {ThemeService} from '../services/theme.service';
 import {Theme} from '../shared/theme.model';
-import {environment} from "../../environments/environment";
 import {ImageService} from '../services/image.service';
 import {Router} from '@angular/router';
 
