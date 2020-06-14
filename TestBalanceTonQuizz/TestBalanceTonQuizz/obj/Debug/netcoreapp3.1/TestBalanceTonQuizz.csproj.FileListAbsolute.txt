@@ -19,3 +19,4 @@ D:\Documents\gitRepos\balance-ton-quizz\TestBalanceTonQuizz\TestBalanceTonQuizz\
 D:\Documents\gitRepos\balance-ton-quizz\TestBalanceTonQuizz\TestBalanceTonQuizz\obj\Debug\netcoreapp3.1\TestBalanceTonQuizz.csproj.CoreCompileInputs.cache
 D:\Documents\gitRepos\balance-ton-quizz\TestBalanceTonQuizz\TestBalanceTonQuizz\bin\Debug\netcoreapp3.1\Maps\homeMap.xml
 D:\Documents\gitRepos\balance-ton-quizz\TestBalanceTonQuizz\TestBalanceTonQuizz\obj\Debug\netcoreapp3.1\TestBalanceTonQuizz.csprojAssemblyReference.cache
+D:\Documents\GITrepos\balance-ton-quizz\TestBalanceTonQuizz\TestBalanceTonQuizz\bin\Debug\netcoreapp3.1\Maps\create_quizz_Map.xml

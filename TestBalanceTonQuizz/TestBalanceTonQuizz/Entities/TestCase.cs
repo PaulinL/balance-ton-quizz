@@ -1,8 +1,6 @@
 ﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using TestBalanceTonQuizz.Entities;
 using TestBalanceTonQuizz.Configuration;
 using TestBalanceTonQuizz.Enums;
 using System.Linq;
@@ -47,15 +45,20 @@ namespace TestBalanceTonQuizz.Entities
         /// </summary>
         public List<Task> Tasks { get; set; }
         /// <summary>
-        /// Configuration of tests
+        /// config loader for all TC
         /// </summary>
-        public Config Config { get; set; }
+        public ConfigLoader ConfigLoader { get; set; }
 
         /// <summary>
         /// Test method with all action to do
         /// </summary>
         /// <returns></returns>
         public abstract bool Execute();
+
+        /// <summary>
+        /// To load all parameters for this testcase
+        /// </summary>
+        public abstract void LoadConfigTC();
 
         #region - Report section -
 

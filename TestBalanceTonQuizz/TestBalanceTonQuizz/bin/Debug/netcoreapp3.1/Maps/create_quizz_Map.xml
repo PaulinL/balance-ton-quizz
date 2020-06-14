@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Nodes>
+  <Node>
+    <name>btn_create_quizz</name>
+    <id>mat-button-wrapper</id>
+    <type>Class</type>
+  </Node>
+  
+	<Node>
+		<name>Field-title</name>
+		<id>input</id>
+		<type>Tag</type>
+	</Node>
+  <Node>
+    <name>Field-description</name>
+    <id>textarea</id>
+    <type>Tag</type>
+  </Node>
+  
+  <Node>
+    <name>Field-question-1</name>
+    <id>input</id>
+    <type>Tag</type>
+  </Node>
+  <Node>
+    <name>Btn-multiple-answers</name>
+    <id>mat-slide-toggle-bar</id>
+    <type>Class</type>
+  </Node>
+  <Node>
+    <name>Field-answer-1</name>
+    <id>input</id>
+    <type>Tag</type>
+  </Node>
+  <Node>
+    <name>Field-answer-1-2</name>
+    <id>input</id>
+    <type>Tag</type>
+  </Node>
+  <Node>
+    <name>Radio-btn-correct-answer</name>
+    <id>mat-checkbox-inner-container</id>
+    <type>Class</type>
+  </Node>
+
+  <Node>
+    <name>Btn-add-question</name>
+    <id>mat-button-wrapper</id>
+    <type>Class</type>
+  </Node>
+  
+  <Node>
+    <name>Field-question-2</name>
+    <id>input</id>
+    <type>Tag</type>
+  </Node>
+  <Node>
+    <name>Field-answer-2</name>
+    <id>input</id>
+    <type>Tag</type>
+  </Node>
+ 
+
+  <Node>
+    <name>Btn-continue</name>
+    <id>button</id>
+    <type>Tag</type>
+  </Node>
+  <Node>
+    <name>theme-card</name>
+    <id>theme</id>
+    <type>Class</type>
+  </Node>
+  <Node>
+    <name>theme-card-title</name>
+    <id>titleTheme</id>
+    <type>Class</type>
+  </Node>
+  <Node>
+    <name>Btn-create</name>
+    <id>button</id>
+    <type>Tag</type>
+  </Node>
+  <Node>
+    <name>Btn-home</name>
+    <id>mat-icon</id>
+    <type>Class</type>
+  </Node>
+</Nodes>
+		

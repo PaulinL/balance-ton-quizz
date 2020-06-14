@@ -1,0 +1,6 @@
+projectKey=BTQ_TestsAuto
+serverUrl=http://localhost:9005
+serverVersion=8.0.0.29455
+dashboardUrl=http://localhost:9005/dashboard?id=BTQ_TestsAuto
+ceTaskId=AXKuPWnCbfcmAJggYoY_
+ceTaskUrl=http://localhost:9005/api/ce/task?id=AXKuPWnCbfcmAJggYoY_
