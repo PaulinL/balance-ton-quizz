@@ -5,6 +5,8 @@ import {ThemeService} from '../services/theme.service';
 import {Theme} from '../shared/theme.model';
 import {ImageService} from '../services/image.service';
 import {Router} from '@angular/router';
+import {environment} from "../../environments/environment";
+import {User} from "../shared/user.model";
 
 @Component({
   selector: 'app-home',
@@ -38,7 +40,19 @@ export class HomeComponent implements OnInit {
   }
 
   getImageUrl(quizz: Quizz) {
-    return this.imageService.getImageUrl(quizz.imageName);
+    if(quizz.imageName){
+      return this.imageService.getImageUrl(quizz.imageName);
+    } else {
+      return 'assets/question.svg';
+    }
+  }
+
+  getUserImageUrl(user: User) {
+    if (user.imageUrl){
+      return `${environment.backendUrl}/images/${user.imageUrl}`;
+    } else {
+      return 'assets/default_avatar.png';
+    }
   }
 
   // recoit la recherche pour filtrer les quizz

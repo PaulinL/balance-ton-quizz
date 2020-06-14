@@ -10,8 +10,8 @@
 }
 
 .user-icon{
-  width: 1.5em;
-  height: 1.5em;
+  width: 1.2em;
+  height: 1.2em;
   max-width: 2rem;
   max-height: 2rem;
   border-radius: 3px;
@@ -27,12 +27,18 @@
 }
 
 .card-image{
-  height: 12rem;
+  height: 15rem;
   object-fit:cover;
 }
 
 mat-tab-group{
   height: 100vh;
+}
+
+mat-card-title, mat-card-subtitle{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 

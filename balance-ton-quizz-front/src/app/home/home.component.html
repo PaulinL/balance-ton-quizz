@@ -24,9 +24,13 @@
 <div class="quizzContainer" fxLayout="row wrap" fxLayoutGap="10px grid" *ngIf="quizzes; else noQuizz">
   <div *ngFor="let quizz of quizzes | quizzFilter: searchText: selectedThemes" fxFlex.gt-md="25" fxFlex="33.333">
     <mat-card>
-      <img *ngIf="quizz.imageName" mat-card-image [src]="getImageUrl(quizz)">
+      <img mat-card-image class="card-image" [src]="getImageUrl(quizz)">
       <mat-card-title>{{quizz.title}}</mat-card-title>
       <mat-card-subtitle>{{quizz.theme.title}}</mat-card-subtitle>
+      <div fxLayout="row" fxLayoutAlign="start center" style="margin-bottom: .5em;">
+        <img [src]="getUserImageUrl(quizz.author)"  class="user-icon"/>
+        <span class="mat-typography">{{quizz.author.username}}</span>
+      </div>
       <mat-card-actions>
         <a mat-flat-button color="primary" [routerLink]="'/quizzes/' + quizz.id + '/answer'">Répondre</a>
         <a mat-stroked-button color="primary" [routerLink]="'/quizzes/' + quizz.id + '/results'">Consulter les scores</a>
