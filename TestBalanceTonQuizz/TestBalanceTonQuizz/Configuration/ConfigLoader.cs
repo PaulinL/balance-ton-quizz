@@ -11,6 +11,7 @@ namespace TestBalanceTonQuizz.Configuration
 
         private const string NODE_CONFIG = "Config";
         private const string NODE_ADDRESS = "Address";
+        private const string NODE_TIMEPAUSE = "timePause";
 
         private const string NODE_TESTCASES = "testcases";
 
@@ -53,6 +54,7 @@ namespace TestBalanceTonQuizz.Configuration
             var config = new Config()
             {
                 Address = root.Element(NODE_ADDRESS).Value,
+                TimePause = Convert.ToInt32(root.Element(NODE_TIMEPAUSE).Value)
             };
 
             _log.Info("All data laod of test campagne");

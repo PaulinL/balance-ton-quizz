@@ -71,6 +71,7 @@ namespace TestBalanceTonQuizz
                 tc.Execute();
                 tc.CloseTestCase();
                 tc.SetResult();
+                Thread.Sleep(config.TimePause);
             }
 
             driver.Close();

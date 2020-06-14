@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using TestBalanceTonQuizz.Configuration;
 using TestBalanceTonQuizz.Entities;
 using TestBalanceTonQuizz.Enums;
@@ -99,10 +100,10 @@ namespace TestBalanceTonQuizz.Testcases
             // Enter description Quizz
             var taskFieldDescriptionQuizz = new Task()
             {
-                Name = "Field Title",
+                Name = "Field description",
                 Description = "Set value on description field"
             };
-            taskFieldTitleQuizz.SetValue(configTC.DescriptionQuizz);
+            taskFieldDescriptionQuizz.SetValue(configTC.DescriptionQuizz);
             var fieldDescription = new WebElement("Field-description", PathMap);
             var fieldDescriptionSearched = WebElementManager.FindElements(Driver, fieldDescription).ElementAt(0);
             if (fieldDescriptionSearched != null)
@@ -274,6 +275,7 @@ namespace TestBalanceTonQuizz.Testcases
             Tasks.Add(taskBtnContinue);
 
             // Select a theme
+            Thread.Sleep(2000);
             var taskselectTheme = new Task()
             {
                 Name = "Select theme quizz",

@@ -1,7 +1,7 @@
 {
   "testcases": [
-    /*"SuscribeTestcase",
-    "LogoutTestcase",*/
+    "SuscribeTestcase",
+    "LogoutTestcase",
     "LoginTestCase",
     "CreateQuizzTestcase"
   ]

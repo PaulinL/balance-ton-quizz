@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Config>
   <Address>localhost:4200</Address>
+  <timePause>5000</timePause>
   <testcases>
     <suscribeTestcase>
       <Username>lha17</Username>
