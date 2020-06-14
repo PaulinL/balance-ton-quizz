@@ -1,11 +1,10 @@
 <div fxLayout="row">
   <div fxFlex="25" fxLayout="column" fxLayoutAlign="top center">
 
-    <div class="user-img-container" fxLayoutAlign="center center">
+
       <img [src]="user.imageUrl !== undefined && user.imageUrl !== null ? getImageUrlUser(user) : 'assets/default_avatar.png'"
            class="user-img"
       />
-    </div>
 
     <h1>{{user.username}}</h1>
     <!-- Edition de l'image -->
