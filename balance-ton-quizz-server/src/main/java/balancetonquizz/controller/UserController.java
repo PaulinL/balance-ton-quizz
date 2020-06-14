@@ -41,4 +41,15 @@ public class UserController {
         dbUser.setImageUrl(user.getImageUrl());
         return ResponseEntity.ok(userService.save(dbUser));
     }
+
+    @GetMapping(value = "/user")
+    public ResponseEntity<User> getUser(@RequestHeader (name="Authorization") String token){
+        User user = userService.getUserByToken(token);
+        System.out.println(user);
+        if (user != null){
+            return ResponseEntity.ok(user);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

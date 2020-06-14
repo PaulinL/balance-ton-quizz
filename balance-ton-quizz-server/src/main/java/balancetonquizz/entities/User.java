@@ -44,4 +44,8 @@ public class User {
         this.username = userDto.getUsername();
         this.password = userDto.getPassword();
     }
+
+    public String toString(){
+        return "(" + this.username + "," + this.password.substring(0,1) +"...)";
+    }
 }
