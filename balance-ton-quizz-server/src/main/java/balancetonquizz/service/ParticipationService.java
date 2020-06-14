@@ -1,19 +1,22 @@
 package balancetonquizz.service;
 
 import balancetonquizz.dto.CreateParticipationDto;
+import balancetonquizz.dto.QuestionAnswerDto;
 import balancetonquizz.dto.ScoreDto;
 import balancetonquizz.entities.Answer;
 import balancetonquizz.entities.Question;
 import balancetonquizz.entities.Participation;
 import balancetonquizz.entities.QuestionAnswer;
 import balancetonquizz.entities.Quizz;
-import balancetonquizz.repositories.ParticipationRepository;
-import balancetonquizz.repositories.QuizzRepository;
+import balancetonquizz.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Service
 public class ParticipationService {
@@ -26,18 +29,24 @@ public class ParticipationService {
     @Autowired
     private ParticipationRepository participationRepository;
 
-    public ScoreDto registerParticipation(CreateParticipationDto cp, String token) {
-        Participation p = new Participation();
-        p.setQuizz(quizzRepository.findById(cp.getQuizzId()).orElse(null));
-        p.setPlayer(userService.getUserByToken(token));
-        p.setQuestionAnswers(cp.getQuestionAnswers());
+    @Autowired
+    private AnswerRepository answerRepository;
 
-        ScoreDto scoreDto = new ScoreDto();
-        scoreDto.setParticipationId(participationRepository.save(p).getId());
-        scoreDto.setQuizzId(p.getId());
-        scoreDto.setNbTotalQuestions(cp.getQuestionAnswers().size());
-        scoreDto.setNbCorrectQuestions(scoreCompute(cp.getQuestionAnswers(), p.getQuizz()));
-        return scoreDto;
+    @Autowired
+    private QuestionRepository questionRepository;
+
+    public Participation registerParticipation(CreateParticipationDto cp, String token) {
+        Participation p = new Participation();
+        Quizz quizz = quizzRepository.findById(cp.getQuizzId()).orElse(null);
+
+        Objects.requireNonNull(quizz);
+
+        p.setQuizz(quizz);
+        p.setPlayer(userService.getUserByToken(token));
+        p.setNbTotalQuestions(quizz.getQuestions().size());
+        p.setNbCorrectAnswers(scoreCompute(resolveQuestionAnswer(cp), quizz));
+
+        return participationRepository.save(p);
     }
 
     public int scoreCompute(List<QuestionAnswer> questionAnswers, Quizz q) {
@@ -53,10 +62,23 @@ public class ParticipationService {
                     break;
                 }
             }
-            if(questionCorrect){
+            if (questionCorrect) {
                 score++;
             }
         }
         return score;
+    }
+
+    public List<QuestionAnswer> resolveQuestionAnswer(CreateParticipationDto cp) {
+        List<QuestionAnswer> questionAnswers = new ArrayList<>();
+        for (QuestionAnswerDto qa : cp.getQuestionAnswers()) {
+            List<Answer> answers = StreamSupport.stream(this.answerRepository.findAllById(qa.getAnswers()).spliterator(), false)
+                    .collect(Collectors.toList());
+            QuestionAnswer temp = new QuestionAnswer();
+            temp.setAnswers(answers);
+            temp.setQuestion(this.questionRepository.findById(qa.getQuestionId()).orElse(null));
+            questionAnswers.add(temp);
+        }
+        return questionAnswers;
     }
 }

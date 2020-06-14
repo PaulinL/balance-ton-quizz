@@ -1,6 +1,8 @@
 package balancetonquizz.dto;
 
 import balancetonquizz.entities.QuestionAnswer;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
@@ -15,5 +17,5 @@ public class CreateParticipationDto {
 
     @NotNull
     @NotEmpty
-    private List<QuestionAnswer> questionAnswers;
+    private List<QuestionAnswerDto> questionAnswers;
 }

@@ -13,6 +13,7 @@ export class ParticipationService {
   constructor(private http: HttpClient) { }
 
   createParticipation(participation: Participation) {
+    console.log("sending part", participation);
     return this.http.post<any>(`${this.endpoint}/participation`, participation);
   }
 }

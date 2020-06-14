@@ -38,6 +38,7 @@ import { ThemeFilterPipe } from './search-quizz/theme-filter.pipe';
 import { QuestionAnswerComponent } from './quizzes/create-answer/question-answer/question-answer.component';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { QuizzResultComponent } from './quizzes/create-answer/quizz-result/quizz-result.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     ThemeFilterPipe,
     QuizzPreviewComponent,
     CreateAnswerComponent,
-    QuestionAnswerComponent
+    QuestionAnswerComponent,
+    QuizzResultComponent
   ],
   imports: [
     BrowserModule,

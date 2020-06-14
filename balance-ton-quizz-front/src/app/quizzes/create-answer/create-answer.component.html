@@ -12,9 +12,13 @@
       (answerQuizz)="onQuizzStart()"></app-quizz-preview>
     <app-question-answer
       [question]="quizz.questions[currentQuestionIndex]"
-      *ngIf="currentQuestionIndex !== -1"
+      *ngIf="currentQuestionIndex !== -1 && !result"
       (answerQuestion)="onQuestionAnswer($event)"
       [index]="currentQuestionIndex + 1"
       [nbQuestions]="quizz.questions.length"></app-question-answer>
+    <app-quizz-result
+      *ngIf="result"
+      [result]="result">
+    </app-quizz-result>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {Question} from '../../../shared/question.model';
 import {QuestionAnswer} from '../../../shared/participation.model';
 import {Answer} from '../../../shared/answer.model';
@@ -8,7 +8,7 @@ import {Answer} from '../../../shared/answer.model';
   templateUrl: './question-answer.component.html',
   styleUrls: ['./question-answer.component.scss']
 })
-export class QuestionAnswerComponent implements OnInit {
+export class QuestionAnswerComponent implements OnChanges {
 
   @Input()
   question: Question;
@@ -27,10 +27,10 @@ export class QuestionAnswerComponent implements OnInit {
 
   constructor() {
     this.answerQuestion = new EventEmitter<QuestionAnswer>();
-    this.questionAnswers = [];
   }
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
+    this.questionAnswers = [];
     this.question.answers.forEach(answer => {
       this.questionAnswers.push({
         answer,

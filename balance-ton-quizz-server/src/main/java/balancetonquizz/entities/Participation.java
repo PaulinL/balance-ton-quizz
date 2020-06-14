@@ -1,5 +1,7 @@
 package balancetonquizz.entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -12,14 +14,14 @@ public class Participation {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
 
-    @OneToMany(cascade=CascadeType.ALL)
-    private List<QuestionAnswer> questionAnswers;
+    private int nbCorrectAnswers;
+
+    private int nbTotalQuestions;
 
     @OneToOne
     private User player;
 
     @OneToOne
     private Quizz quizz;
-
 
 }

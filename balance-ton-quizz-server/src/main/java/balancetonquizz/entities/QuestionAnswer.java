@@ -1,21 +1,17 @@
 package balancetonquizz.entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Data
-@Entity
 public class QuestionAnswer {
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private long id;
-
-    @OneToOne
     private Question question;
 
-    @OneToMany(cascade=CascadeType.ALL)
     private List<Answer> answers;
-
 }

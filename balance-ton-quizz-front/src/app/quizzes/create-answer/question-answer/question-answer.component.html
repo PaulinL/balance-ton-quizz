@@ -11,7 +11,7 @@
       </div>
       <ng-template #notMultiple>
         <mat-radio-group [(ngModel)]="selectedAnswer" fxLayout="column" fxLayoutGap="5px">
-          <mat-radio-button *ngFor="let answer of question.answers">{{answer.label}}</mat-radio-button>
+          <mat-radio-button [value]="answer" *ngFor="let answer of question.answers">{{answer.label}}</mat-radio-button>
         </mat-radio-group>
       </ng-template>
       <div fxLayout="row" fxLayoutAlign="end">
