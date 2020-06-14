@@ -24,8 +24,8 @@ export class ProfileComponent implements OnInit {
               public toastrService: ToastrService,
               public userService: UserService) { }
 
-  ngOnInit(): void {
-    this.user = this.authService.getUser();
+  async ngOnInit() {
+    this.user = await this.authService.getUser().toPromise();
   }
 
   onSubmitImage(){

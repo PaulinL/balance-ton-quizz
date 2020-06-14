@@ -1,8 +1,10 @@
 import {Injectable} from '@angular/core';
-import {environment} from "../../environments/environment";
-import {HttpClient} from "@angular/common/http";
-import {JwtHelperService} from "@auth0/angular-jwt";
-import {User} from "../shared/user.model";
+import {environment} from '../../environments/environment';
+import {HttpClient} from '@angular/common/http';
+import {JwtHelperService} from '@auth0/angular-jwt';
+import {User} from '../shared/user.model';
+import {Observable, of} from 'rxjs';
+import {UserService} from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +16,13 @@ export class AuthService {
   private user: User;
 
   constructor(private http: HttpClient,
-              public jwtHelper: JwtHelperService) {
+              public jwtHelper: JwtHelperService,
+              private userService: UserService) {
   }
 
   public isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
-    if (token === undefined){
+    if (token === undefined) {
       return false;
     }
     return !this.jwtHelper.isTokenExpired(token);
@@ -41,12 +44,18 @@ export class AuthService {
     localStorage.setItem(this.tokenKey, token);
   }
 
-  public setUser(user: User): void{
+  public setUser(user: User): void {
     this.user = user;
   }
 
-  public getUser(): User{
-    return this.user;
+  public getUser(): Observable<User> {
+    if (this.user) {
+      return of(this.user);
+    } else if (this.isAuthenticated()) {
+      return this.userService.getUserDetails();
+    } else {
+      return of(null);
+    }
   }
 
   public logout() {

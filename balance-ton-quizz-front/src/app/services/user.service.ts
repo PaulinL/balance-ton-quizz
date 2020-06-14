@@ -15,4 +15,8 @@ export class UserService {
   updateUser(user: User){
     return this.http.post(this.endpoint + '/user', user);
   }
+
+  getUserDetails() {
+    return this.http.get<User>(this.endpoint + '/user');
+  }
 }
