@@ -40,11 +40,9 @@ minio server C:\<directory you want minio to run>
 
 You can acces localhost:9000/, the images will be stored in a bucket.
 
-# Configuration
+## Configuration
 
 Change parameters on server (file : application.properties) to launch serveur
-
-# Launch server
 
 ## Database
 Name Database : btq \
@@ -62,14 +60,14 @@ Testcases :
 - Create a quizz
 - Replay to a quizz
 
-# Execution
+### Execution
 To launch automatics tests (on Windows) you need :
 - Google chrome (version 83.0.4103.97)
 - Enter all parameters for test on file "config.xml" (path : balance-ton-quizz\TestBalanceTonQuizz\TestBalanceTonQuizz\bin\Debug\netcoreapp3.1\config.xml)
 
 Launch executable file "TestBalanceTonQuizz.exe" (path : balance-ton-quizz\TestBalanceTonQuizz\TestBalanceTonQuizz\bin\Debug\netcoreapp3.1\TestBalanceTonQuizz.exe)
 
-# Report
+### Report
 An HTML report is automaticaly generate to write all result for automatics tests, it should be open at the end of execution.
 You can fin all result report on folder "Reports" (path : balance-ton-quizz\TestBalanceTonQuizz\TestBalanceTonQuizz\bin\Debug\netcoreapp3.1\Reports)
 
