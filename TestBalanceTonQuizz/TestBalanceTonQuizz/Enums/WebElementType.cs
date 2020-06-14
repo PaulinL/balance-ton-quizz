@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TestBalanceTonQuizz.Enums
+﻿namespace TestBalanceTonQuizz.Enums
 {
     /// <summary>
     /// Enum to save all type of web identifier

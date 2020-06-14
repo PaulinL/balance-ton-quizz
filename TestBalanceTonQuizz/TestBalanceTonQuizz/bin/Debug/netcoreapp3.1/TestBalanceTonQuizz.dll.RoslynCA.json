@@ -5,25 +5,25 @@
     {
       "tool": {
         "name": "Compilateur Microsoft (R) Visual C#",
-        "version": "3.5.0.0",
-        "fileVersion": "3.5.0-beta4-20153-05 (20b9af91)",
-        "semanticVersion": "3.5.0",
+        "version": "3.6.0.0",
+        "fileVersion": "3.6.0-4.20251.5 (910223b6)",
+        "semanticVersion": "3.6.0",
         "language": "fr-FR"
       },
       "results": [
         {
-          "ruleId": "S1128",
+          "ruleId": "S1144",
           "level": "warning",
-          "message": "Remove this unnecessary 'using'.",
+          "message": "Remove the unused private field 'NODE_Q2'.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GITrepos/TestBalanceTonQuizz/TestBalanceTonQuizz/Configuration/Config.cs",
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Configuration/ConfigLoader.cs",
                 "region": {
-                  "startLine": 1,
-                  "startColumn": 1,
-                  "endLine": 1,
-                  "endColumn": 14
+                  "startLine": 31,
+                  "startColumn": 9,
+                  "endLine": 31,
+                  "endColumn": 52
                 }
               }
             }
@@ -33,18 +33,18 @@
           }
         },
         {
-          "ruleId": "S1128",
+          "ruleId": "S2971",
           "level": "warning",
-          "message": "Remove this unnecessary 'using'.",
+          "message": "Use 'Count' property here instead.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GITrepos/TestBalanceTonQuizz/TestBalanceTonQuizz/Configuration/Config.cs",
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Entities/TestCase.cs",
                 "region": {
-                  "startLine": 2,
-                  "startColumn": 1,
-                  "endLine": 2,
-                  "endColumn": 34
+                  "startLine": 86,
+                  "startColumn": 83,
+                  "endLine": 86,
+                  "endColumn": 88
                 }
               }
             }
@@ -54,160 +54,380 @@
           }
         },
         {
-          "ruleId": "S1128",
+          "ruleId": "S3776",
           "level": "warning",
-          "message": "Remove this unnecessary 'using'.",
+          "message": "Refactor this method to reduce its Cognitive Complexity from 31 to the 15 allowed.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GITrepos/TestBalanceTonQuizz/TestBalanceTonQuizz/Configuration/Config.cs",
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
                 "region": {
-                  "startLine": 3,
-                  "startColumn": 1,
-                  "endLine": 3,
-                  "endColumn": 19
+                  "startLine": 46,
+                  "startColumn": 30,
+                  "endLine": 46,
+                  "endColumn": 37
                 }
               }
             }
           ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1128",
-          "level": "warning",
-          "message": "Remove this unnecessary 'using'.",
-          "locations": [
+          "relatedLocations": [
             {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GITrepos/TestBalanceTonQuizz/TestBalanceTonQuizz/Configuration/ConfigLoader.cs",
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
                 "region": {
-                  "startLine": 2,
-                  "startColumn": 1,
-                  "endLine": 2,
-                  "endColumn": 34
+                  "startLine": 58,
+                  "startColumn": 13,
+                  "endLine": 58,
+                  "endColumn": 15
                 }
               }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1128",
-          "level": "warning",
-          "message": "Remove this unnecessary 'using'.",
-          "locations": [
+            },
             {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GITrepos/TestBalanceTonQuizz/TestBalanceTonQuizz/Configuration/ConfigLoader.cs",
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
                 "region": {
-                  "startLine": 3,
-                  "startColumn": 1,
-                  "endLine": 3,
-                  "endColumn": 19
+                  "startLine": 64,
+                  "startColumn": 13,
+                  "endLine": 64,
+                  "endColumn": 17
                 }
               }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1128",
-          "level": "warning",
-          "message": "Remove this unnecessary 'using'.",
-          "locations": [
+            },
             {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GITrepos/TestBalanceTonQuizz/TestBalanceTonQuizz/Configuration/ConfigLoader.cs",
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
                 "region": {
-                  "startLine": 4,
-                  "startColumn": 1,
-                  "endLine": 4,
-                  "endColumn": 19
+                  "startLine": 83,
+                  "startColumn": 13,
+                  "endLine": 83,
+                  "endColumn": 15
                 }
               }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1118",
-          "level": "warning",
-          "message": "Add a 'protected' constructor or the 'static' keyword to the class declaration.",
-          "locations": [
+            },
             {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GITrepos/TestBalanceTonQuizz/TestBalanceTonQuizz/Program.cs",
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
                 "region": {
-                  "startLine": 11,
-                  "startColumn": 11,
-                  "endLine": 11,
-                  "endColumn": 18
+                  "startLine": 89,
+                  "startColumn": 13,
+                  "endLine": 89,
+                  "endColumn": 17
                 }
               }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1155",
-          "level": "warning",
-          "message": "Use '.Any()' to test whether this 'IEnumerable<string>' is empty or not.",
-          "locations": [
+            },
             {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GITrepos/TestBalanceTonQuizz/TestBalanceTonQuizz/Program.cs",
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
                 "region": {
-                  "startLine": 18,
-                  "startColumn": 22,
-                  "endLine": 18,
-                  "endColumn": 27
+                  "startLine": 108,
+                  "startColumn": 13,
+                  "endLine": 108,
+                  "endColumn": 15
                 }
               }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1481",
-          "level": "warning",
-          "message": "Remove the unused local variable 'config'.",
-          "locations": [
+            },
             {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GITrepos/TestBalanceTonQuizz/TestBalanceTonQuizz/Program.cs",
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
                 "region": {
-                  "startLine": 28,
+                  "startLine": 114,
+                  "startColumn": 13,
+                  "endLine": 114,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 134,
+                  "startColumn": 13,
+                  "endLine": 134,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 140,
+                  "startColumn": 13,
+                  "endLine": 140,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 158,
+                  "startColumn": 13,
+                  "endLine": 158,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 164,
+                  "startColumn": 13,
+                  "endLine": 164,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 183,
+                  "startColumn": 13,
+                  "endLine": 183,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 189,
+                  "startColumn": 13,
+                  "endLine": 189,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 208,
+                  "startColumn": 13,
+                  "endLine": 208,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 214,
+                  "startColumn": 13,
+                  "endLine": 214,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 232,
+                  "startColumn": 13,
+                  "endLine": 232,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 234,
                   "startColumn": 17,
-                  "endLine": 28,
+                  "endLine": 234,
+                  "endColumn": 24
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 240,
+                  "startColumn": 13,
+                  "endLine": 240,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 259,
+                  "startColumn": 13,
+                  "endLine": 259,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 266,
+                  "startColumn": 13,
+                  "endLine": 266,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 285,
+                  "startColumn": 13,
+                  "endLine": 285,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 287,
+                  "startColumn": 17,
+                  "endLine": 287,
+                  "endColumn": 24
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 289,
+                  "startColumn": 21,
+                  "endLine": 289,
                   "endColumn": 23
                 }
               }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 297,
+                  "startColumn": 13,
+                  "endLine": 297,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 315,
+                  "startColumn": 13,
+                  "endLine": 315,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 321,
+                  "startColumn": 13,
+                  "endLine": 321,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 339,
+                  "startColumn": 13,
+                  "endLine": 339,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 345,
+                  "startColumn": 13,
+                  "endLine": 345,
+                  "endColumn": 17
+                }
+              }
             }
           ],
           "properties": {
-            "warningLevel": 1
+            "warningLevel": 1,
+            "customProperties": {
+              "0": "+1",
+              "1": "+1",
+              "10": "+1",
+              "11": "+1",
+              "12": "+1",
+              "13": "+1",
+              "14": "+1",
+              "15": "+2 (incl 1 for nesting)",
+              "16": "+1",
+              "17": "+1",
+              "18": "+1",
+              "19": "+1",
+              "2": "+1",
+              "20": "+2 (incl 1 for nesting)",
+              "21": "+3 (incl 2 for nesting)",
+              "22": "+1",
+              "23": "+1",
+              "24": "+1",
+              "25": "+1",
+              "26": "+1",
+              "3": "+1",
+              "4": "+1",
+              "5": "+1",
+              "6": "+1",
+              "7": "+1",
+              "8": "+1",
+              "9": "+1"
+            }
           }
         }
       ],
       "rules": {
-        "S1118": {
-          "id": "S1118",
-          "shortDescription": "Utility classes should not have public constructors",
-          "fullDescription": "Utility classes, which are collections of static members, are not meant to be instantiated.",
+        "S1144": {
+          "id": "S1144",
+          "shortDescription": "Unused private types or members should be removed",
+          "fullDescription": "private or internal types or private members that are never executed or referenced are dead code: unnecessary, inoperative code that should be removed. Cleaning out dead code decreases the size of the maintained codebase, making it easier to understand the program and preventing bugs from being introduced.",
+          "defaultLevel": "note",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1144",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "SonarWay",
+              "MainSourceScope",
+              "TestSourceScope",
+              "Unnecessary"
+            ]
+          }
+        },
+        "S2971": {
+          "id": "S2971",
+          "shortDescription": "\"IEnumerable\" LINQs should be simplified",
+          "fullDescription": "In the interests of readability, code that can be simplified should be simplified. To that end, there are several ways IEnumerable language integrated queries (LINQ) can be simplified",
           "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1118",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2971",
           "properties": {
             "category": "Major Code Smell",
             "isEnabledByDefault": true,
@@ -219,49 +439,15 @@
             ]
           }
         },
-        "S1128": {
-          "id": "S1128",
-          "shortDescription": "Unused \"using\" should be removed",
-          "fullDescription": "Although unnecessary using won't change anything to the produced application, removing them:",
+        "S3776": {
+          "id": "S3776",
+          "shortDescription": "Cognitive Complexity of methods should not be too high",
+          "fullDescription": "Cognitive Complexity is a measure of how hard the control flow of a method is to understand. Methods with high Cognitive Complexity will be difficult to maintain.",
           "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1128",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3776",
           "properties": {
-            "category": "Minor Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "SonarWay",
-              "MainSourceScope",
-              "TestSourceScope"
-            ]
-          }
-        },
-        "S1155": {
-          "id": "S1155",
-          "shortDescription": "\"Any()\" should be used to test for emptiness",
-          "fullDescription": "Using .Count() to test for emptiness works, but using .Any() makes the intent clearer, and the code more readable. However, there are some cases where special attention should be paid:",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1155",
-          "properties": {
-            "category": "Minor Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "SonarWay",
-              "MainSourceScope",
-              "TestSourceScope"
-            ]
-          }
-        },
-        "S1481": {
-          "id": "S1481",
-          "shortDescription": "Unused local variables should be removed",
-          "fullDescription": "If a local variable is declared but not used, it is dead code and should be removed. Doing so will improve maintainability because developers will not wonder what the variable is used for.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1481",
-          "properties": {
-            "category": "Minor Code Smell",
-            "isEnabledByDefault": true,
+            "category": "Critical Code Smell",
+            "isEnabledByDefault": false,
             "tags": [
               "C#",
               "SonarWay",

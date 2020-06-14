@@ -1,1 +1,1 @@
-D:\Documents\GITrepos\TestBalanceTonQuizz\.sonarqube\out\0
+D:\Documents\GITrepos\balance-ton-quizz\TestBalanceTonQuizz\.sonarqube\out\0

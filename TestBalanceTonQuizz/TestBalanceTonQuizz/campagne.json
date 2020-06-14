@@ -1,5 +1,8 @@
 {
   "testcases": [
-    "LoginTestCase"
+    "SuscribeTestcase",
+    "LogoutTestcase",
+    "LoginTestCase",
+    "CreateQuizzTestcase"
   ]
 }

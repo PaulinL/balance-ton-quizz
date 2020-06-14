@@ -4,7 +4,6 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -17,7 +16,7 @@ using TestBalanceTonQuizz.Testcases;
 
 namespace TestBalanceTonQuizz
 {
-    class Program
+    public static class Program
     {
         private static readonly log4net.ILog _log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private static ConfigLoader _configLoader;
@@ -44,7 +43,7 @@ namespace TestBalanceTonQuizz
             
             // load config
             _configLoader = new ConfigLoader();
-            var config = _configLoader.LoadConfig(Path.Combine(Environment.CurrentDirectory, "config.xml"));
+            var config = _configLoader.LoadGlobalConfig(Path.Combine(Environment.CurrentDirectory, "config.xml"));
             _reportManager = new ReportManager();
 
             // open navigator to site
@@ -56,7 +55,10 @@ namespace TestBalanceTonQuizz
             
             // declaration of all TestCase
             campaign = new TestCampaign();
-            campaign.TestCases.Add(new LoginTestCase(driver, Path.Combine(Environment.CurrentDirectory, "Maps", "homeMap.xml"), config));
+            campaign.TestCases.Add(new SuscribeTestcase(driver, Path.Combine(Environment.CurrentDirectory, "Maps", "homeMap.xml")));
+            campaign.TestCases.Add(new LogoutTestcase(driver, Path.Combine(Environment.CurrentDirectory, "Maps", "homeMap.xml")));
+            campaign.TestCases.Add(new LoginTestCase(driver, Path.Combine(Environment.CurrentDirectory, "Maps", "homeMap.xml")));
+            campaign.TestCases.Add(new CreateQuizzTestcase(driver, Path.Combine(Environment.CurrentDirectory, "Maps", "create_quizz_Map.xml")));
 
             // play testcase
             var listTestcaseName = getAllTestCaseName(jsonFile);
@@ -64,10 +66,12 @@ namespace TestBalanceTonQuizz
             {
                 var tc = campaign.TestCases.First(x => x.Name.Equals(tcName));
 
+                tc.LoadConfigTC();
                 tc.StartTestCase();
                 tc.Execute();
                 tc.CloseTestCase();
                 tc.SetResult();
+                Thread.Sleep(config.TimePause);
             }
 
             driver.Close();
@@ -75,11 +79,11 @@ namespace TestBalanceTonQuizz
 
             // build report
             _reportManager.BuildReport(campaign);
+            _reportManager.OpenReport(config, campaign);
 
             _log.Info("End of test");
             _log.Info("Pess any key to exit ...");
             Console.ReadKey();
-            return;
         }
 
         /// <summary>
@@ -122,6 +126,7 @@ namespace TestBalanceTonQuizz
             try
             {
                 driver = new ChromeDriver();
+                driver.Manage().Window.Maximize();
                 driver.Navigate().GoToUrl(url);
                 Thread.Sleep(2000);
                 return true;

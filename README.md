@@ -23,19 +23,14 @@ Change parameters on server (file : application.properties) to launch serveur
 
 # Launch server
 
-# Alwaysdata Server
-## Authentification
-Id : ludovic.hamel@u-psud.fr
-password : BalanceTonQuizz
-Domaine name : BalanceTonQuizz
-Address managment page : https://admin.alwaysdata.com/
-## Database
-Name Database :balancetonquizz_btq
-User : 207102
-Password : btq_polytech
-## SSH
-Address : ssh-balancetonquizz.alwaysdata.net
-id : balancetonquizz
-password : BalanceTonQuizz_Polytech
-shell type : bash
 
+
+## Automatics Tests
+[![Quality Gate Status](http://90.127.230.73:1052/api/project_badges/measure?project=BTQ_TestsAuto&metric=alert_status)](http://90.127.230.73:1052/dashboard?id=BTQ_TestsAuto)
+
+Automatics tests is doing with C# language, it use Framework Selenium to spot and make action with Web element
+Testcases :
+- Suscribe on site
+- Logout
+- Login
+- Create a quizz

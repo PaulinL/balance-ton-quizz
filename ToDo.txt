@@ -1,0 +1,37 @@
+Format de la présentation : 15-20 minutes, + 5-10 minutes d'échange, comprenant les éléments suivants :
+- Presentation de l'équipe : contexte pro (et éventuels projets/affinités informatiques) de chacun, incluant vos période et modalité de travil, rôles et organistaion au sein de l'équipe
+- Démo logiciel, mentions des fonctionalités non présentées (selon le temps)
+- Présentation de la conception (techno et logique) 
+- Bilan : ce qui a été fait/que vous auriez voulu faire de plus, les points de satisfaction ou de frustration, les obstacles recontrés, les apports pour vous
+
+
+
+
+TA:
+check connected --> FAIL
+change function check connected login TC
+
+
+5 add question
+
+continue 6
+
+8
+
+
+
+# Alwaysdata Server
+## Authentification
+Id : ludovic.hamel@u-psud.fr
+password : BalanceTonQuizz
+Domaine name : BalanceTonQuizz
+Address managment page : https://admin.alwaysdata.com/
+## Database
+Name Database :balancetonquizz_btq
+User : 207102
+Password : btq_polytech
+## SSH
+Address : ssh-balancetonquizz.alwaysdata.net
+id : balancetonquizz
+password : BalanceTonQuizz_Polytech
+shell type : bash

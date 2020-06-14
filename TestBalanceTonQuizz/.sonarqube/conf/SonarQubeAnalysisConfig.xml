@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <AnalysisConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
-  <SonarConfigDir>D:\Documents\GITrepos\TestBalanceTonQuizz\.sonarqube\conf</SonarConfigDir>
-  <SonarOutputDir>D:\Documents\GITrepos\TestBalanceTonQuizz\.sonarqube\out</SonarOutputDir>
-  <SonarBinDir>D:\Documents\GITrepos\TestBalanceTonQuizz\.sonarqube\bin</SonarBinDir>
-  <SonarScannerWorkingDirectory>D:\Documents\GITrepos\TestBalanceTonQuizz</SonarScannerWorkingDirectory>
+  <SonarConfigDir>D:\Documents\GITrepos\balance-ton-quizz\TestBalanceTonQuizz\.sonarqube\conf</SonarConfigDir>
+  <SonarOutputDir>D:\Documents\GITrepos\balance-ton-quizz\TestBalanceTonQuizz\.sonarqube\out</SonarOutputDir>
+  <SonarBinDir>D:\Documents\GITrepos\balance-ton-quizz\TestBalanceTonQuizz\.sonarqube\bin</SonarBinDir>
+  <SonarScannerWorkingDirectory>D:\Documents\GITrepos\balance-ton-quizz\TestBalanceTonQuizz</SonarScannerWorkingDirectory>
   <HasBeginStepCommandLineCredentials>true</HasBeginStepCommandLineCredentials>
-  <SonarQubeHostUrl>http://127.0.0.1:9000</SonarQubeHostUrl>
+  <SonarQubeHostUrl>http://localhost:9005</SonarQubeHostUrl>
   <SonarQubeVersion>8.0.0.29455</SonarQubeVersion>
-  <SonarProjectKey>TestBTQ</SonarProjectKey>
+  <SonarProjectKey>BTQ_TestsAuto</SonarProjectKey>
   <AdditionalConfig>
     <ConfigSetting Id="BuildUri" />
     <ConfigSetting Id="TfsUri" />
@@ -103,16 +103,16 @@
     <Property Name="sonar.java.collectAnalysisErrors">false</Property>
     <Property Name="sonar.updatecenter.url">https://update.sonarsource.org/update-center.properties</Property>
     <Property Name="sonar.core.id">BF41A1F2-AW8T-lYsWwOcP78Hdyi8</Property>
-    <Property Name="sonar.core.startTime">26/05/2020 08:57:17</Property>
+    <Property Name="sonar.core.startTime">13/06/2020 16:53:28</Property>
   </ServerSettings>
   <LocalSettings>
-    <Property Name="sonar.host.url">http://127.0.0.1:9000</Property>
+    <Property Name="sonar.host.url">http://localhost:9005</Property>
   </LocalSettings>
   <AnalyzersSettings>
     <AnalyzerSettings>
       <Language>cs</Language>
-      <RuleSetFilePath>D:\Documents\GITrepos\TestBalanceTonQuizz\.sonarqube\conf\SonarQubeRoslyn-cs.ruleset</RuleSetFilePath>
-      <TestProjectRuleSetFilePath>D:\Documents\GITrepos\TestBalanceTonQuizz\.sonarqube\conf\SonarQubeRoslyn-cs-test.ruleset</TestProjectRuleSetFilePath>
+      <RuleSetFilePath>D:\Documents\GITrepos\balance-ton-quizz\TestBalanceTonQuizz\.sonarqube\conf\SonarQubeRoslyn-cs.ruleset</RuleSetFilePath>
+      <TestProjectRuleSetFilePath>D:\Documents\GITrepos\balance-ton-quizz\TestBalanceTonQuizz\.sonarqube\conf\SonarQubeRoslyn-cs-test.ruleset</TestProjectRuleSetFilePath>
       <AnalyzerPlugins>
         <AnalyzerPlugin Key="csharp" Version="7.17.0.9346" StaticResourceName="SonarAnalyzer-7.17.0.9346.zip">
           <AssemblyPaths>
@@ -130,13 +130,13 @@
         </AnalyzerPlugin>
       </AnalyzerPlugins>
       <AdditionalFilePaths>
-        <Path>D:\Documents\GITrepos\TestBalanceTonQuizz\.sonarqube\conf\cs\SonarLint.xml</Path>
+        <Path>D:\Documents\GITrepos\balance-ton-quizz\TestBalanceTonQuizz\.sonarqube\conf\cs\SonarLint.xml</Path>
       </AdditionalFilePaths>
     </AnalyzerSettings>
     <AnalyzerSettings>
       <Language>vbnet</Language>
-      <RuleSetFilePath>D:\Documents\GITrepos\TestBalanceTonQuizz\.sonarqube\conf\SonarQubeRoslyn-vbnet.ruleset</RuleSetFilePath>
-      <TestProjectRuleSetFilePath>D:\Documents\GITrepos\TestBalanceTonQuizz\.sonarqube\conf\SonarQubeRoslyn-vbnet-test.ruleset</TestProjectRuleSetFilePath>
+      <RuleSetFilePath>D:\Documents\GITrepos\balance-ton-quizz\TestBalanceTonQuizz\.sonarqube\conf\SonarQubeRoslyn-vbnet.ruleset</RuleSetFilePath>
+      <TestProjectRuleSetFilePath>D:\Documents\GITrepos\balance-ton-quizz\TestBalanceTonQuizz\.sonarqube\conf\SonarQubeRoslyn-vbnet-test.ruleset</TestProjectRuleSetFilePath>
       <AnalyzerPlugins>
         <AnalyzerPlugin Key="csharp" Version="7.17.0.9346" StaticResourceName="SonarAnalyzer-7.17.0.9346.zip">
           <AssemblyPaths>
@@ -154,7 +154,7 @@
         </AnalyzerPlugin>
       </AnalyzerPlugins>
       <AdditionalFilePaths>
-        <Path>D:\Documents\GITrepos\TestBalanceTonQuizz\.sonarqube\conf\vbnet\SonarLint.xml</Path>
+        <Path>D:\Documents\GITrepos\balance-ton-quizz\TestBalanceTonQuizz\.sonarqube\conf\vbnet\SonarLint.xml</Path>
       </AdditionalFilePaths>
     </AnalyzerSettings>
   </AnalyzersSettings>
