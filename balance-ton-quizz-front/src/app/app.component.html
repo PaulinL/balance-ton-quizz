@@ -1,8 +1,6 @@
 <mat-sidenav-container fullscreen>
   <mat-sidenav mode="side" [opened]="isDrawerOpen" [disableClose]="true" role="navigation">
-    <div class="sidenav-title" fxLayout="row" fxLayoutAlign="center">
-      Balance ton Quizz
-    </div>
+    <img src="assets/BTQ_logo.svg" class="sidenav-logo"/>
     <div fxLayout="column">
       <mat-nav-list>
         <mat-list-item *ngIf="!isAuthenticated()" [routerLink]="['/register']" routerLinkActive="active">
