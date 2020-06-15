@@ -1,0 +1,14 @@
+<mat-card class="quizz-preview-card">
+  <mat-card-content fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start center">
+    <img
+      [src]="getImageUrl(quizz)"
+      *ngIf="quizz.imageName"
+      class="quizz-preview-img"
+    >
+    <div>
+      <mat-card-title>{{quizz.title}}</mat-card-title>
+      <mat-card-subtitle>{{quizz.description}}</mat-card-subtitle>
+      <button mat-flat-button color="primary" (click)="onAnswerQuizz()">Répondre au quizz</button>
+    </div>
+  </mat-card-content>
+</mat-card>

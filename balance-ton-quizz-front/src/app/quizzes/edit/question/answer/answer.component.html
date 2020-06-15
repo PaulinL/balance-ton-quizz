@@ -1,0 +1,13 @@
+<div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px" [formGroup]="answerForm">
+  <ng-content></ng-content>
+  <mat-form-field fxFlex>
+    <mat-label>Réponse n°{{index}}</mat-label>
+    <input matInput formControlName="label" required>
+  </mat-form-field>
+  <mat-checkbox [ngClass]="{'radio': uniqueAnswer}" (click)="isCorrectChange.emit()" formControlName="isCorrect">
+    Réponse correcte
+  </mat-checkbox>
+  <button type="button" [disabled]="index <= 2" mat-icon-button (click)="removeAnswer()">
+    <mat-icon>clear</mat-icon>
+  </button>
+</div>

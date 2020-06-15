@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Nodes>
+	<Node>
+		<name>ButtonSubscribe</name>
+		<id>mat-list-item-content</id>
+		<type>Class</type>
+	</Node>
+  <Node>
+    <name>ButtonConnect</name>
+    <id>mat-list-item-content</id>
+    <type>Class</type>
+  </Node>
+
+  <Node>
+    <name>field_username_connect</name>
+    <id>mat-input-element</id>
+    <type>Class</type>
+  </Node>
+  <Node>
+    <name>field_password_connect</name>
+    <id>mat-input-element</id>
+    <type>Class</type>
+  </Node>
+  <Node>
+    <name>Button_connexion</name>
+    <id>mat-button-wrapper</id>
+    <type>Class</type>
+  </Node>
+  
+	<Node>
+		<name>field_username</name>
+		<id>mat-input-1</id>
+		<type>Id</type>
+	</Node>
+	<Node>
+		<name>field_password</name>
+		<id>mat-input-2</id>
+		<type>Id</type>
+	</Node>
+	<Node>
+		<name>field_ConfirmPassword</name>
+		<id>mat-input-3</id>
+		<type>Id</type>
+	</Node>
+	<Node>
+		<name>btn_suscribe</name>
+		<id>mat-button-wrapper</id>
+		<type>Class</type>
+	</Node>
+  <Node>
+    <name>btn_disconnect</name>
+    <id>mat-list-item-content</id>
+    <type>Class</type>
+  </Node>
+</Nodes>
+		

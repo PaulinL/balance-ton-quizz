@@ -1,0 +1,44 @@
+<div class="home-first-row" fxLayout.gt-sm="row" fxLayout.lt-md="column" fxLayoutAlign="center center" fxLayoutGap="50px">
+  <div class="home-description" fxLayout="column" fxFlex.gt-sm="40">
+    <h1 class="home-title">Créez votre premier quizz sur mesure !</h1>
+    <p class="home-description-parag">Aprennez en plus sur des tas de sujets ou partagez votre savoir avec <span>Balance ton Quizz</span> !</p>
+    <div fxLayout="row" fxLayoutGap="10px">
+      <a mat-flat-button color="primary" routerLink="/quizzes/create">Créer un quizz</a>
+      <a mat-stroked-button color="primary" (click)="getRandomQuizz()">Jouer un quizz au hasard</a>
+    </div>
+  </div>
+  <img class="home-img" src="assets/quizz_home.svg" fxFlex.gt-sm="50" fxHide.lt-md="true">
+</div>
+
+<h2>Les quizz de la communauté</h2>
+<app-search-quizz
+  (search)="search($event)">
+</app-search-quizz>
+<mat-chip-list class="filtersContainer" [multiple]="true">
+  <mat-chip *ngFor="let theme of themes"
+            [selected]="selectedThemes.includes(theme)"
+            (click)="selectThemeFilter(theme)">
+    {{theme.title}}
+  </mat-chip>
+</mat-chip-list>
+<div class="quizzContainer" fxLayout="row wrap" fxLayoutGap="10px grid" *ngIf="quizzes; else noQuizz">
+  <div *ngFor="let quizz of quizzes | quizzFilter: searchText: selectedThemes" fxFlex.gt-md="25" fxFlex="33.333">
+    <mat-card>
+      <img mat-card-image class="card-image" [src]="getImageUrl(quizz)">
+      <mat-card-title>{{quizz.title}}</mat-card-title>
+      <mat-card-subtitle>{{quizz.theme.title}}</mat-card-subtitle>
+      <div fxLayout="row" fxLayoutAlign="start center" style="margin-bottom: .5em;">
+        <img [src]="getUserImageUrl(quizz.author)"  class="user-icon"/>
+        <span class="mat-typography">{{quizz.author.username}}</span>
+      </div>
+      <mat-card-actions>
+        <a mat-flat-button color="primary" [routerLink]="'/quizzes/' + quizz.id + '/answer'">Répondre</a>
+        <a mat-stroked-button color="primary" [routerLink]="'/quizzes/' + quizz.id + '/results'">Consulter les scores</a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+<ng-template #noQuizz>
+  Aucun quizz trouvé.
+</ng-template>
+

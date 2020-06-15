@@ -1,0 +1,11 @@
+<mat-card class="question-answer">
+  <mat-card-title>Résultats</mat-card-title>
+  <mat-card-content fxLayout="column" fxLayoutGap="15px" fxLayoutAlign="stretch center">
+    <div class="result-score">{{result.nbCorrectAnswers}} / {{result.nbTotalQuestions}}</div>
+    <div class="answer-label">réponses correctes !</div>
+    <img src="assets/result.svg">
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-stroked-button color="primary" [routerLink]="'/quizzes/' + result.quizz.id + '/results'">Consulter les scores</a>
+  </mat-card-actions>
+</mat-card>

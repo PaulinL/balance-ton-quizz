@@ -1,0 +1,44 @@
+.user-img{
+  width: 40%;
+  min-height: 12rem;
+  min-width: 12rem;
+  border-radius: 5%;
+  border: 3px solid lightgrey;
+  background-color: lightgrey;
+  margin-top: 2rem;
+  object-fit:cover; //pour que l'image s'adapte
+}
+
+.user-icon{
+  width: 1.2em;
+  height: 1.2em;
+  max-width: 2rem;
+  max-height: 2rem;
+  border-radius: 3px;
+  border: 1px solid lightgrey;
+  background-color: lightgrey;
+  object-fit:cover;
+  margin-right: .5em;
+}
+
+.icon-button mat-icon{
+  margin-left: -0.4em;
+  margin-top: -0.1em;
+}
+
+.card-image{
+  height: 15rem;
+  object-fit:cover;
+}
+
+mat-tab-group{
+  height: 100vh;
+}
+
+mat-card-title, mat-card-subtitle{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+

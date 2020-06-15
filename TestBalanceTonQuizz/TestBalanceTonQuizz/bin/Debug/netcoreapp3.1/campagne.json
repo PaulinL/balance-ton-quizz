@@ -1,0 +1,10 @@
+{
+  "testcases": [
+    "SuscribeTestcase",
+    "LogoutTestcase",
+    "LoginTestCase",
+    "CreateQuizzTestcase",
+    "ReplyQuizzTestcase",
+    "LogoutTestcase"
+  ]
+}

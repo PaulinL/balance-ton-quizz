@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  backendUrl: "https://btq.plambert.dev/api",
+  frontendUrl: "https://btq.plambert.dev"
 };

@@ -1,0 +1,35 @@
+<mat-card [formGroup]="questionForm">
+  <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+    <div fxLayout="row" fxLayoutAlign="start center" fxFlex>
+      <mat-card-title fxFlex fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+        <ng-content></ng-content>
+        <mat-form-field fxFlex>
+          <mat-label>Question n°{{index}}</mat-label>
+          <input matInput formControlName="label" type="text" required>
+        </mat-form-field>
+      </mat-card-title>
+      <button *ngIf="index > 1" class="delete-button" mat-icon-button color="warn" (click)="removeQuestion()">
+        <mat-icon>remove_circle_outline</mat-icon>
+      </button>
+    </div>
+    <mat-slide-toggle formControlName="multiple">Réponses multiples</mat-slide-toggle>
+  </div>
+  <div class="answer-list" cdkDropList (cdkDropListDropped)="drop($event)">
+    <app-answer *ngFor="let answerForm of getAnswerControls(); index as i" [answerForm]="answerForm"
+                (isCorrectChange)="onIsCorrectChange(i)"
+                [index]="(i + 1)" (deleteAnswer)="deleteAnswer(i)"
+                [uniqueAnswer]="!questionForm.controls.multiple.value"
+                cdkDrag
+                cdkDragBoundary=".answer-list"
+                class="answer-item">
+      <mat-icon class="drag-handle" cdkDragHandle>drag_indicator</mat-icon>
+    </app-answer>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="center">
+    <button type="button" mat-stroked-button (click)="addEmptyAnswer()">
+      <mat-icon>add</mat-icon>
+      Ajouter une réponse
+    </button>
+  </div>
+</mat-card>

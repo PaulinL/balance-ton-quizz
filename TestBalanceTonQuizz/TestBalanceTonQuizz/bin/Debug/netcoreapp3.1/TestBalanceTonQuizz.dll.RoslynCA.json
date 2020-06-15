@@ -1,0 +1,702 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Compilateur Microsoft (R) Visual C#",
+        "version": "3.6.0.0",
+        "fileVersion": "3.6.0-4.20251.5 (910223b6)",
+        "semanticVersion": "3.6.0",
+        "language": "fr-FR"
+      },
+      "results": [
+        {
+          "ruleId": "S101",
+          "level": "warning",
+          "message": "Rename class 'SQLManager' to match pascal case naming rules, consider using 'SqlManager'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Managers/SQLManager.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 18,
+                  "endLine": 7,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3776",
+          "level": "warning",
+          "message": "Refactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/ReplyQuizzTestCase.cs",
+                "region": {
+                  "startLine": 45,
+                  "startColumn": 30,
+                  "endLine": 45,
+                  "endColumn": 37
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/ReplyQuizzTestCase.cs",
+                "region": {
+                  "startLine": 57,
+                  "startColumn": 13,
+                  "endLine": 57,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/ReplyQuizzTestCase.cs",
+                "region": {
+                  "startLine": 61,
+                  "startColumn": 17,
+                  "endLine": 61,
+                  "endColumn": 24
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/ReplyQuizzTestCase.cs",
+                "region": {
+                  "startLine": 64,
+                  "startColumn": 21,
+                  "endLine": 64,
+                  "endColumn": 23
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/ReplyQuizzTestCase.cs",
+                "region": {
+                  "startLine": 73,
+                  "startColumn": 13,
+                  "endLine": 73,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/ReplyQuizzTestCase.cs",
+                "region": {
+                  "startLine": 92,
+                  "startColumn": 13,
+                  "endLine": 92,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/ReplyQuizzTestCase.cs",
+                "region": {
+                  "startLine": 98,
+                  "startColumn": 13,
+                  "endLine": 98,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/ReplyQuizzTestCase.cs",
+                "region": {
+                  "startLine": 115,
+                  "startColumn": 13,
+                  "endLine": 115,
+                  "endColumn": 20
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/ReplyQuizzTestCase.cs",
+                "region": {
+                  "startLine": 119,
+                  "startColumn": 13,
+                  "endLine": 119,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/ReplyQuizzTestCase.cs",
+                "region": {
+                  "startLine": 122,
+                  "startColumn": 17,
+                  "endLine": 122,
+                  "endColumn": 24
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/ReplyQuizzTestCase.cs",
+                "region": {
+                  "startLine": 126,
+                  "startColumn": 21,
+                  "endLine": 126,
+                  "endColumn": 23
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/ReplyQuizzTestCase.cs",
+                "region": {
+                  "startLine": 135,
+                  "startColumn": 13,
+                  "endLine": 135,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/ReplyQuizzTestCase.cs",
+                "region": {
+                  "startLine": 154,
+                  "startColumn": 13,
+                  "endLine": 154,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/ReplyQuizzTestCase.cs",
+                "region": {
+                  "startLine": 160,
+                  "startColumn": 13,
+                  "endLine": 160,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/ReplyQuizzTestCase.cs",
+                "region": {
+                  "startLine": 179,
+                  "startColumn": 13,
+                  "endLine": 179,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/ReplyQuizzTestCase.cs",
+                "region": {
+                  "startLine": 179,
+                  "startColumn": 39,
+                  "endLine": 179,
+                  "endColumn": 41
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/ReplyQuizzTestCase.cs",
+                "region": {
+                  "startLine": 184,
+                  "startColumn": 13,
+                  "endLine": 184,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/ReplyQuizzTestCase.cs",
+                "region": {
+                  "startLine": 203,
+                  "startColumn": 13,
+                  "endLine": 203,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/ReplyQuizzTestCase.cs",
+                "region": {
+                  "startLine": 209,
+                  "startColumn": 13,
+                  "endLine": 209,
+                  "endColumn": 17
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": "+1",
+              "1": "+2 (incl 1 for nesting)",
+              "10": "+1",
+              "11": "+1",
+              "12": "+1",
+              "13": "+1",
+              "14": "+1",
+              "15": "+1",
+              "16": "+1",
+              "17": "+1",
+              "2": "+3 (incl 2 for nesting)",
+              "3": "+1",
+              "4": "+1",
+              "5": "+1",
+              "6": "+1",
+              "7": "+1",
+              "8": "+2 (incl 1 for nesting)",
+              "9": "+3 (incl 2 for nesting)"
+            }
+          }
+        },
+        {
+          "ruleId": "S2971",
+          "level": "warning",
+          "message": "Use 'Count' property here instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Entities/TestCase.cs",
+                "region": {
+                  "startLine": 91,
+                  "startColumn": 83,
+                  "endLine": 91,
+                  "endColumn": 88
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3776",
+          "level": "warning",
+          "message": "Refactor this method to reduce its Cognitive Complexity from 31 to the 15 allowed.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 47,
+                  "startColumn": 30,
+                  "endLine": 47,
+                  "endColumn": 37
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 59,
+                  "startColumn": 13,
+                  "endLine": 59,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 65,
+                  "startColumn": 13,
+                  "endLine": 65,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 84,
+                  "startColumn": 13,
+                  "endLine": 84,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 90,
+                  "startColumn": 13,
+                  "endLine": 90,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 109,
+                  "startColumn": 13,
+                  "endLine": 109,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 115,
+                  "startColumn": 13,
+                  "endLine": 115,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 135,
+                  "startColumn": 13,
+                  "endLine": 135,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 141,
+                  "startColumn": 13,
+                  "endLine": 141,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 159,
+                  "startColumn": 13,
+                  "endLine": 159,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 165,
+                  "startColumn": 13,
+                  "endLine": 165,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 184,
+                  "startColumn": 13,
+                  "endLine": 184,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 190,
+                  "startColumn": 13,
+                  "endLine": 190,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 209,
+                  "startColumn": 13,
+                  "endLine": 209,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 215,
+                  "startColumn": 13,
+                  "endLine": 215,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 233,
+                  "startColumn": 13,
+                  "endLine": 233,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 235,
+                  "startColumn": 17,
+                  "endLine": 235,
+                  "endColumn": 24
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 241,
+                  "startColumn": 13,
+                  "endLine": 241,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 260,
+                  "startColumn": 13,
+                  "endLine": 260,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 267,
+                  "startColumn": 13,
+                  "endLine": 267,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 287,
+                  "startColumn": 13,
+                  "endLine": 287,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 289,
+                  "startColumn": 17,
+                  "endLine": 289,
+                  "endColumn": 24
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 291,
+                  "startColumn": 21,
+                  "endLine": 291,
+                  "endColumn": 23
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 299,
+                  "startColumn": 13,
+                  "endLine": 299,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 317,
+                  "startColumn": 13,
+                  "endLine": 317,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 323,
+                  "startColumn": 13,
+                  "endLine": 323,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 341,
+                  "startColumn": 13,
+                  "endLine": 341,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GITrepos/balance-ton-quizz/TestBalanceTonQuizz/TestBalanceTonQuizz/Testcases/CreateQuizzTestcase.cs",
+                "region": {
+                  "startLine": 347,
+                  "startColumn": 13,
+                  "endLine": 347,
+                  "endColumn": 17
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": "+1",
+              "1": "+1",
+              "10": "+1",
+              "11": "+1",
+              "12": "+1",
+              "13": "+1",
+              "14": "+1",
+              "15": "+2 (incl 1 for nesting)",
+              "16": "+1",
+              "17": "+1",
+              "18": "+1",
+              "19": "+1",
+              "2": "+1",
+              "20": "+2 (incl 1 for nesting)",
+              "21": "+3 (incl 2 for nesting)",
+              "22": "+1",
+              "23": "+1",
+              "24": "+1",
+              "25": "+1",
+              "26": "+1",
+              "3": "+1",
+              "4": "+1",
+              "5": "+1",
+              "6": "+1",
+              "7": "+1",
+              "8": "+1",
+              "9": "+1"
+            }
+          }
+        }
+      ],
+      "rules": {
+        "S101": {
+          "id": "S101",
+          "shortDescription": "Types should be named in PascalCase",
+          "fullDescription": "Shared naming conventions allow teams to collaborate efficiently. This rule checks whether or not type names are using PascalCase. To reduce noise, two consecutive upper case characters are allowed unless they form the whole type name. So, MyXClass is compliant, but XC on its own is not.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-101",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "SonarWay",
+              "MainSourceScope",
+              "TestSourceScope"
+            ]
+          }
+        },
+        "S2971": {
+          "id": "S2971",
+          "shortDescription": "\"IEnumerable\" LINQs should be simplified",
+          "fullDescription": "In the interests of readability, code that can be simplified should be simplified. To that end, there are several ways IEnumerable language integrated queries (LINQ) can be simplified",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2971",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "SonarWay",
+              "MainSourceScope",
+              "TestSourceScope"
+            ]
+          }
+        },
+        "S3776": {
+          "id": "S3776",
+          "shortDescription": "Cognitive Complexity of methods should not be too high",
+          "fullDescription": "Cognitive Complexity is a measure of how hard the control flow of a method is to understand. Methods with high Cognitive Complexity will be difficult to maintain.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3776",
+          "properties": {
+            "category": "Critical Code Smell",
+            "isEnabledByDefault": false,
+            "tags": [
+              "C#",
+              "SonarWay",
+              "MainSourceScope",
+              "TestSourceScope"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
